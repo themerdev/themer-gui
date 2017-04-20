@@ -1,0 +1,9 @@
+:local(.colorSet) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:local(.inputWrapper) {
+  box-sizing: border-box;
+  width: 50%;
+}
