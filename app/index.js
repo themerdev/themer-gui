@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import application from './reducers';
 import { createStore } from 'redux';
 import App from './components/App';
+import './index.css';
 
 const root = document.createElement('div');
 document.body.appendChild(root);

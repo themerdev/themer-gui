@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/OpenSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:global(html, body) {
+  font-family: "Open Sans";
+  font-size: 16px;
+}

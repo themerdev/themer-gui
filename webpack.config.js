@@ -10,6 +10,8 @@ module.exports = {
     filename: 'bundle.js',
   },
 
+  devtool: 'source-map',
+
   module: {
     rules: [
       {
@@ -41,10 +43,19 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
+              importLoaders: 1,
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
           },
+          'postcss-loader',
         ],
+      },
+      {
+        test: /\.ttf$/,
+        include: [
+          path.resolve(__dirname, 'app', 'assets'),
+        ],
+        loader: 'file-loader',
       },
     ],
   },

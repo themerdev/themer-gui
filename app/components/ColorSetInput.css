@@ -1,0 +1,17 @@
+:local(.shade0) { grid-area: shade0; }
+:local(.shade1) { grid-area: shade1; }
+:local(.shade2) { grid-area: shade2; }
+:local(.shade3) { grid-area: shade3; }
+:local(.shade4) { grid-area: shade4; }
+:local(.shade5) { grid-area: shade5; }
+:local(.shade6) { grid-area: shade6; }
+:local(.shade7) { grid-area: shade7; }
+
+:local(.accent0) { grid-area: accent0; }
+:local(.accent1) { grid-area: accent1; }
+:local(.accent2) { grid-area: accent2; }
+:local(.accent3) { grid-area: accent3; }
+:local(.accent4) { grid-area: accent4; }
+:local(.accent5) { grid-area: accent5; }
+:local(.accent6) { grid-area: accent6; }
+:local(.accent7) { grid-area: accent7; }

@@ -1,9 +1,22 @@
-:local(.colorSet) {
-  display: flex;
-  flex-wrap: wrap;
-}
+.colorSet {
 
-:local(.inputWrapper) {
-  box-sizing: border-box;
-  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-areas:
+    "shade0 accent0"
+    "shade1 accent1"
+    "shade2 accent2"
+    "shade3 accent3"
+    "shade4 accent4"
+    "shade5 accent5"
+    "shade6 accent6"
+    "shade7 accent7";
+  grid-gap: 1rem;
+
+  padding: 1rem;
+  margin: 1rem;
+
+  transition: background-color 300ms ease;
+
 }
