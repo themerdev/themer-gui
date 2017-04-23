@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { colorChange } from '../actions';
-import { getOrDefault } from '../helpers/color';
+import { getOrDefault, getBestForeground } from '../helpers/color';
 import css from './ColorSet.css';
 import ColorSetInput from './ColorSetInput';
 
@@ -19,15 +19,25 @@ const ColorSet = ({
       backgroundColor: getOrDefault(colorSet.shade0, defaultBackgroundColor),
     }}
   >
-    { Object.entries(colorSet).map(([colorKey, value]) => (
-      <ColorSetInput
-        key={ `${keyPrefix}.${colorKey}` }
-        colorKey={ colorKey }
-        labelColor= { getOrDefault( colorSet.shade7, defaultForegroundColor) }
-        value={ value }
-        onChange={ value => onInputChange(colorKey, value) }
-      />
-    )) }
+    { Object.entries(colorSet).map(([colorKey, value]) => {
+      const isShade = colorKey.includes('shade');
+      const foreground = getOrDefault(colorSet.shade7, defaultForegroundColor);
+      const background = getOrDefault(colorSet.shade0, defaultBackgroundColor);
+      const valueOrForeground = getOrDefault(value, foreground);
+      const valueOrBackground = getOrDefault(value, background);
+      return (
+        <ColorSetInput
+          key={ `${keyPrefix}.${colorKey}` }
+          colorKey={ colorKey }
+          labelColor={ isShade ? foreground : valueOrForeground }
+          inputBackgroundColor={ isShade ? valueOrBackground : background }
+          inputTextColor={ isShade ? getBestForeground(foreground, background, valueOrBackground) : valueOrForeground }
+          inputBorderColor={ valueOrForeground }
+          value={ value }
+          onChange={ value => onInputChange(colorKey, value) }
+        />
+      );
+    }) }
   </div>
 );
 

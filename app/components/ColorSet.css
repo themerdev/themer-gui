@@ -14,8 +14,11 @@
     "shade7 accent7";
   grid-gap: 1rem;
 
-  padding: 1rem;
+  padding: 2.37037037rem;
   margin: 1rem;
+
+  border-radius: 2px;
+  box-shadow: 0 .5625rem 2.37037037rem hsl(0, 0%, 0%, 0.5);
 
   transition: background-color 300ms ease;
 
