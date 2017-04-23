@@ -1,11 +1,18 @@
 @font-face {
-  font-family: "Open Sans";
-  src: url("./assets/OpenSans-Regular.ttf");
-  font-weight: 400;
+  font-family: "Inconsolata";
+  src: url("./assets/Inconsolata-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./assets/Inconsolata-Bold.ttf");
+  font-weight: bold;
   font-style: normal;
 }
 
 :global(html, body) {
-  font-family: "Open Sans";
+  font-family: "Inconsolata";
   font-size: 16px;
 }
