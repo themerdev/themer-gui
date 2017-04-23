@@ -15,4 +15,5 @@
 :global(html, body) {
   font-family: "Inconsolata";
   font-size: 16px;
+  user-select: none;
 }
