@@ -33,6 +33,7 @@ const ColorSet = ({
           inputBackgroundColor={ isShade ? valueOrBackground : background }
           inputTextColor={ isShade ? getBestForeground(foreground, background, valueOrBackground) : valueOrForeground }
           inputBorderColor={ isShade ? 'transparent' : getOrDefault(value, 'transparent') }
+          inputBorderRadius={ isShade ? '2px' : 'none' }
           value={ value }
           onChange={ value => onInputChange(colorKey, value) }
         />

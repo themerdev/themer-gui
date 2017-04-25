@@ -7,6 +7,7 @@ export default ({
   inputBackgroundColor,
   inputTextColor,
   inputBorderColor,
+  inputBorderRadius,
   value,
   onChange
 }) => (
@@ -16,16 +17,19 @@ export default ({
     <label
       className={ css.colorSetInputLabel }
       style={{ color: labelColor }}
-    >{ colorKey }</label>
-    <input
-      className={ css.colorSetInput }
-      style={{
-        backgroundColor: inputBackgroundColor,
-        color: inputTextColor,
-        borderBottomColor: inputBorderColor,
-      }}
-      value={ value }
-      onChange={ evt => onChange(evt.target.value) }
-    />
+    >
+      { colorKey }
+      <input
+        className={ css.colorSetInput }
+        style={{
+          backgroundColor: inputBackgroundColor,
+          color: inputTextColor,
+          borderBottomColor: inputBorderColor,
+          borderRadius: inputBorderRadius,
+        }}
+        value={ value }
+        onChange={ evt => onChange(evt.target.value) }
+      />
+    </label>
   </div>
 );
