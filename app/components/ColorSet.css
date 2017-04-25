@@ -1,5 +1,38 @@
-.colorSet {
+.colorSetWrapper {
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  padding: 2.37037037rem;
+  margin: 1rem;
+
+  border-radius: 2px;
+  box-shadow: 0 .5625rem 2.37037037rem hsl(0, 0%, 0%, 0.25);
+
+  transition: background-color 300ms ease;
+
+  &:hover .focusModeToggle {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.focusMode {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    border-radius: none;
+  }
+
+}
+
+.colorSet {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(8, 1fr);
@@ -13,13 +46,23 @@
     "shade6 accent6"
     "shade7 accent7";
   grid-gap: 1rem;
+}
 
-  padding: 2.37037037rem;
-  margin: 1rem;
+.focusModeToggle {
 
-  border-radius: 2px;
-  box-shadow: 0 .5625rem 2.37037037rem hsl(0, 0%, 0%, 0.25);
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
 
-  transition: background-color 300ms ease;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-family: "Inconsolata";
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 100ms ease;
 
 }

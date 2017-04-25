@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { COLOR_CHANGE } from './actions';
+import { COLOR_CHANGE, FOCUS_MODE_TOGGLE } from './actions';
 
 const defaultColorSets = {
   dark: {
@@ -57,6 +57,25 @@ const colorSetsReducer = (state = defaultColorSets, action) => {
   }
 };
 
+const defaultFocusMode = {
+  dark: false,
+  light: false,
+};
+
+const focusModeReducer = (state = defaultFocusMode, action) => {
+  switch (action.type) {
+    case FOCUS_MODE_TOGGLE:
+      const key = action.isLight ? 'light' : 'dark';
+      return {
+        ...state,
+        [key]: !state[key],
+      };
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   colorSets: colorSetsReducer,
+  focusMode: focusModeReducer,
 });
