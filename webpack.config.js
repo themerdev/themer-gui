@@ -62,6 +62,8 @@ module.exports = {
 
   target: 'electron-renderer',
 
-  plugins: [ new HtmlWebpackPlugin() ],
+  plugins: [ new HtmlWebpackPlugin({
+    title: 'Themer',
+  }) ],
 
 };
