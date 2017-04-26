@@ -16,13 +16,10 @@
 .accent6 { grid-area: accent6; }
 .accent7 { grid-area: accent7; }
 
-.colorSetInputWrapper {
-  display: flex;
-  align-items: baseline;
-}
-
 .colorSetInputLabel {
   transition: color 300ms ease;
+  display: flex;
+  align-items: baseline;
 }
 
 .colorSetInput {
@@ -33,6 +30,8 @@
   font-size: 1rem;
   padding: .237304688em;
   margin-left: .31640625em;
+  width: 100%;
+  max-width: 9.988721232rem;
   border-bottom: 1px solid transparent;
   transition: all 300ms ease;
 }

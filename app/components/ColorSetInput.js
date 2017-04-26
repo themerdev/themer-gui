@@ -12,7 +12,7 @@ export default ({
   onChange
 }) => (
   <div
-    className={ `${css[colorKey]} ${css.colorSetInputWrapper}` }
+    className={ css[colorKey] }
   >
     <label
       className={ css.colorSetInputLabel }
