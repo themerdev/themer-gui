@@ -5,6 +5,7 @@ import { colorChange, focusModeToggle } from '../actions';
 import { getOrDefault, getBestForeground } from '../helpers/color';
 import css from './ColorSet.css';
 import ColorSetInput from './ColorSetInput';
+import { Contract, Expand } from './Icons';
 
 const ColorSet = ({
   colorSet,
@@ -50,7 +51,7 @@ const ColorSet = ({
         style={{ color: foreground }}
         onClick={ onFocusModeToggle }
       >
-        [{ isFocusMode ? 'exit focus mode' : 'focus mode' }]
+        { isFocusMode ? (<Contract />) : (<Expand />) }
       </button>
     </div>
   );

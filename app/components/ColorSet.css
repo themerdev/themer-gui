@@ -53,12 +53,11 @@
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
+  padding: 0;
 
   outline: none;
   border: none;
   background: transparent;
-  font-family: "Inconsolata";
-  font-size: 0.75rem;
   cursor: pointer;
 
   visibility: hidden;
