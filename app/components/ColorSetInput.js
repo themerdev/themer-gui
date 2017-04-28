@@ -1,5 +1,7 @@
 import React from 'react';
+import classnames from 'classnames';
 import css from './ColorSetInput.css';
+import { Droplet } from './Icons';
 
 export default ({
   colorKey,
@@ -8,26 +10,40 @@ export default ({
   inputTextColor,
   inputBorderColor,
   inputBorderRadius,
-  value,
-  onChange
+  textInputValue,
+  colorInputValue,
+  onChange,
 }) => (
   <div
-    className={ css[colorKey] }
+    className={ classnames(css[colorKey], css.wrapper) }
   >
     <label
-      className={ css.colorSetInputLabel }
+      className={ css.textInputLabel }
       style={{ color: labelColor }}
     >
       { colorKey }
       <input
-        className={ css.colorSetInput }
+        className={ css.textInput }
         style={{
           backgroundColor: inputBackgroundColor,
           color: inputTextColor,
           borderBottomColor: inputBorderColor,
           borderRadius: inputBorderRadius,
         }}
-        value={ value }
+        value={ textInputValue }
+        onChange={ evt => onChange(evt.target.value) }
+      />
+    </label>
+    <label
+      className={ css.colorInputLabel }
+      style={{ color: inputTextColor }}
+    >
+      <Droplet />
+      <input
+        className={ css.colorInput }
+        type="color"
+        tabIndex="-1"
+        value={ colorInputValue }
         onChange={ evt => onChange(evt.target.value) }
       />
     </label>

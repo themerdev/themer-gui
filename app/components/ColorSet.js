@@ -40,7 +40,8 @@ const ColorSet = ({
               inputTextColor={ isShade ? getBestForeground(foreground, background, valueOrBackground) : valueOrForeground }
               inputBorderColor={ isShade ? 'transparent' : getOrDefault(value, 'transparent') }
               inputBorderRadius={ isShade ? '2px' : 'none' }
-              value={ value }
+              textInputValue={ value }
+              colorInputValue={ isShade ? valueOrBackground : valueOrForeground }
               onChange={ value => onInputChange(colorKey, value) }
             />
           );

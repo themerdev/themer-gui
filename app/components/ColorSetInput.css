@@ -16,22 +16,44 @@
 .accent6 { grid-area: accent6; }
 .accent7 { grid-area: accent7; }
 
-.colorSetInputLabel {
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.textInputLabel {
   transition: color 300ms ease;
   display: flex;
   align-items: baseline;
 }
 
-.colorSetInput {
+.textInput {
   font-family: "Inconsolata";
   background: transparent;
   border: none;
   outline: none;
   font-size: 1rem;
+  max-width: 7.491540924rem;
+  flex-grow: 1;
   padding: .237304688em;
+  padding-right: 1.333333333rem;
   margin-left: .31640625em;
-  width: 100%;
-  max-width: 9.988721232rem;
   border-bottom: 1px solid transparent;
   transition: all 300ms ease;
+}
+
+.colorInputLabel {
+  width: 1.333333333rem;
+  height: 1rem;
+  margin-left: -1.333333333rem;
+}
+
+.colorInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
 }
