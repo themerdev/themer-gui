@@ -34,8 +34,8 @@
 
 .colorSet {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(2, 13.318294975rem);
+  grid-template-rows: repeat(8, 1.777777778rem);
   grid-template-areas:
     "shade0 accent0"
     "shade1 accent1"
