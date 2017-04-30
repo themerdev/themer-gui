@@ -14,11 +14,6 @@
 
   transition: background-color 300ms ease;
 
-  &:hover .focusModeToggle {
-    visibility: visible;
-    opacity: 1;
-  }
-
   &.focusMode {
     position: fixed;
     top: 0;
@@ -60,8 +55,11 @@
   background: transparent;
   cursor: pointer;
 
-  visibility: hidden;
   opacity: 0;
-  transition: opacity 100ms ease;
+  transition: opacity 200ms ease;
 
+}
+
+.colorSetWrapper:hover .focusModeToggle {
+  opacity: 1;
 }
