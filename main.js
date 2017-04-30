@@ -10,7 +10,10 @@ let mainWindow;
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 1400,
+    minWidth: 550,
     height: 1000,
+    title: 'Themer',
+    titleBarStyle: 'hidden-inset',
     webPreferences: {
       experimentalFeatures: true,
     },
