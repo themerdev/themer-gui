@@ -1,4 +1,4 @@
-:local(.gui) {
+.gui {
   position: fixed;
   top: 0;
   right: 0;
@@ -11,7 +11,17 @@
   background: radial-gradient(circle farthest-corner, white, hsl(0, 0%, 96%));
 }
 
-:local(.colorSetContainer) {
+.gui::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 38px;
+  -webkit-app-region: drag;
+}
+
+.colorSetContainer {
   display: flex;
   justify-content: center;
   align-items: center;
