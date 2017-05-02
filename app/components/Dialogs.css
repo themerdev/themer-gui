@@ -1,0 +1,30 @@
+.overlay {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 100%, 0.75);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.fadeAppear,
+.fadeEnter {
+  opacity: 0;
+  &&Active {
+    opacity: 1;
+    transition: opacity 500ms ease;
+  }
+}
+.fadeLeave {
+  opacity: 1;
+  &&Active {
+    opacity: 0;
+    transition: opacity 100ms ease;
+  }
+}

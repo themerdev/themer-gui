@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import { COLOR_CHANGE, FOCUS_MODE_TOGGLE } from './actions';
+import {
+  COLOR_CHANGE,
+  FOCUS_MODE_TOGGLE,
+  EXPORT_DIALOG_OPEN,
+  CLOSE_DIALOGS,
+} from './actions';
 
 const defaultColorSets = {
   dark: {
@@ -75,7 +80,26 @@ const focusModeReducer = (state = defaultFocusMode, action) => {
   }
 };
 
+const defaultDialogsVisibility = {
+  export: false,
+};
+
+const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
+  switch (action.type) {
+    case EXPORT_DIALOG_OPEN:
+      return {
+        ...state,
+        export: true,
+      };
+    case CLOSE_DIALOGS:
+      return Object.keys(state).reduce((reduced, key) => ({ ...reduced, [key]: false }), {});
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   colorSets: colorSetsReducer,
   focusMode: focusModeReducer,
+  dialogsVisibility: dialogsVisibilityReducer,
 });

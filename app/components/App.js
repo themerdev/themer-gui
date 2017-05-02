@@ -1,5 +1,7 @@
 import React from 'react';
 import ColorSet from './ColorSet';
+import Dialogs from './Dialogs';
+import Menu from './Menu';
 import css from './App.css';
 
 export default () => (
@@ -8,5 +10,7 @@ export default () => (
       <ColorSet />
       <ColorSet light={ true } />
     </div>
+    <Menu />
+    <Dialogs />
   </section>
 );

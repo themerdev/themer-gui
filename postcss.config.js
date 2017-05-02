@@ -1,5 +1,11 @@
 module.exports = {
   plugins: [
-    require('postcss-cssnext')({}),
+    require('postcss-cssnext')({
+      features: {
+        customProperties: {
+          warnings: false,
+        },
+      },
+    }),
   ],
 };

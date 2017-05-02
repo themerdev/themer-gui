@@ -1,0 +1,33 @@
+.button {
+
+  --color: #555;
+
+  font-size: 1rem;
+  font-family: "Inconsolata";
+  padding: 0.421875em 0.5625em;
+  margin: 1rem;
+  background-color: transparent;
+  color: var(--color);
+  border: 3px solid var(--color);
+  border-radius: 2px;
+  outline: none;
+  transition: all 200ms ease;
+
+  &:hover {
+    --color: #666;
+  }
+
+  &:active {
+    --color: #444;
+  }
+
+  &.primary {
+    background-color: var(--color);
+    color: white;
+  }
+
+}
+
+.button + .button {
+  margin-left: 0;
+}
