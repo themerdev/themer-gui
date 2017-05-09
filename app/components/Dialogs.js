@@ -3,10 +3,11 @@ import classnames from 'classnames';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
 import { closeDialogs } from '../actions';
+import HelpDialog from './HelpDialog';
 import css from './Dialogs.css';
 
 const Dialogs = ({
-  isDialogShown,
+  currentDialog,
   onOverlayClick,
 }) => (
   <CSSTransitionGroup
@@ -19,24 +20,26 @@ const Dialogs = ({
       leaveActive: css.fadeLeaveActive,
     }}
     transitionAppear
-    transitionAppearTimeout={ 500 }
-    transitionEnterTimeout={ 500 }
+    transitionAppearTimeout={ 400 }
+    transitionEnterTimeout={ 400 }
     transitionLeaveTimeout={ 100 }
   >
-    { isDialogShown ? (
+    { currentDialog ? (
       <div
         key="overlay"
         className={ css.overlay }
         onClick={ onOverlayClick }
       >
-        hello, world.
+        { currentDialog === 'help' ? (
+          <HelpDialog />
+        ) : null }
       </div>
     ) : null }
   </CSSTransitionGroup>
 );
 
 const mapStateToProps = state => ({
-  isDialogShown: Object.values(state.dialogsVisibility).some(v => v),
+  currentDialog: Object.keys(state.dialogsVisibility).find(key => state.dialogsVisibility[key]),
 });
 const mapDispatchToProps = dispatch => ({
   onOverlayClick: () => {

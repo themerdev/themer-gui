@@ -3,6 +3,7 @@ import {
   COLOR_CHANGE,
   FOCUS_MODE_TOGGLE,
   EXPORT_DIALOG_OPEN,
+  HELP_DIALOG_OPEN,
   CLOSE_DIALOGS,
 } from './actions';
 
@@ -82,6 +83,7 @@ const focusModeReducer = (state = defaultFocusMode, action) => {
 
 const defaultDialogsVisibility = {
   export: false,
+  help: false,
 };
 
 const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
@@ -90,6 +92,11 @@ const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
       return {
         ...state,
         export: true,
+      };
+    case HELP_DIALOG_OPEN:
+      return {
+        ...state,
+        help: true,
       };
     case CLOSE_DIALOGS:
       return Object.keys(state).reduce((reduced, key) => ({ ...reduced, [key]: false }), {});

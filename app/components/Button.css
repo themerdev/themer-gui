@@ -26,6 +26,12 @@
     color: white;
   }
 
+  &.plain {
+    background-color: transparent;
+    color: var(--color);
+    border: none;
+  }
+
 }
 
 .button + .button {
