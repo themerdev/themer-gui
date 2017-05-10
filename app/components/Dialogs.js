@@ -6,6 +6,8 @@ import { closeDialogs } from '../actions';
 import HelpDialog from './HelpDialog';
 import css from './Dialogs.css';
 
+const overlayId = 'overlay';
+
 const Dialogs = ({
   currentDialog,
   onOverlayClick,
@@ -26,6 +28,7 @@ const Dialogs = ({
   >
     { currentDialog ? (
       <div
+        id={ overlayId }
         key="overlay"
         className={ css.overlay }
         onClick={ onOverlayClick }
@@ -42,8 +45,10 @@ const mapStateToProps = state => ({
   currentDialog: Object.keys(state.dialogsVisibility).find(key => state.dialogsVisibility[key]),
 });
 const mapDispatchToProps = dispatch => ({
-  onOverlayClick: () => {
-    dispatch(closeDialogs());
+  onOverlayClick: (evt) => {
+    if (evt.target.id === overlayId) {
+      dispatch(closeDialogs());
+    }
   },
 });
 
