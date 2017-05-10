@@ -13,11 +13,15 @@
   outline: none;
   transition: all 200ms ease;
 
-  &:hover {
+  &:disabled {
+    --color: #bbb;
+  }
+
+  &:hover:not(:disabled) {
     --color: #666;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     --color: #444;
   }
 

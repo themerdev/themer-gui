@@ -1,12 +1,12 @@
 import Color from 'color';
 
-export const getOrDefault = (maybeColor, defaultColor) => {
+export const getOrDefault = (maybeColor, fallback) => {
   try {
     if (maybeColor === '') { throw new Error(); }
     return Color(maybeColor).hex();
   }
   catch (e) {
-    return defaultColor;
+    return fallback;
   }
 }
 
