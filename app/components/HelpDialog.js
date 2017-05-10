@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Button from './Button';
 import Dialog from './Dialog';
 import { Droplet } from './Icons';
+import { closeDialogs } from '../actions';
 import css from './HelpDialog.css';
 
-export default () => (
+const HelpDialog = ({ onClose }) => (
   <Dialog>
     <div className={ css.help }>
       <p>Define your theme&rsquo;s colors by typing any valid CSS color format, or use the color picker by clicking the droplet icon (<Droplet style={{ verticalAlign: 'bottom' }} />).</p>
@@ -45,6 +48,23 @@ export default () => (
         </tbody>
       </table>
       <p>The bottom line: <strong>accent0-7 should be the main accent colors of your theme. shade0-7 should be shades of a similar hue.</strong></p>
+      <div className={ css.footer }>
+        <Button
+          primary
+          onClick={ onClose }
+        >Got it</Button>
+      </div>
     </div>
   </Dialog>
 );
+
+const mapDispatchToProps = dispatch => ({
+  onClose: () => {
+    dispatch(closeDialogs());
+  },
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(HelpDialog);
