@@ -13,18 +13,28 @@
 
 }
 
-.fadeAppear,
-.fadeEnter {
+.dialogAppear,
+.dialogEnter {
   opacity: 0;
+  transform-origin: center center;
+  transform: scale(1.05);
+  filter: blur(3px);
   &&Active {
     opacity: 1;
-    transition: opacity 400ms ease;
+    transform: none;
+    filter: none;
+    transition: opacity 400ms ease, transform 400ms ease, filter 400ms ease;
   }
 }
-.fadeLeave {
+.dialogLeave {
   opacity: 1;
+  transform-origin: center center;
+  transform: none;
+  filter: none;
   &&Active {
     opacity: 0;
-    transition: opacity 100ms ease;
+    transform: scale(1.05);
+    filter: blur(3px);
+    transition: opacity 200ms ease, transform 200ms ease, filter 200ms ease;
   }
 }

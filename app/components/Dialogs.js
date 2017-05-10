@@ -14,17 +14,17 @@ const Dialogs = ({
 }) => (
   <CSSTransitionGroup
     transitionName={{
-      appear: css.fadeAppear,
-      appearActive: css.fadeAppearActive,
-      enter: css.fadeEnter,
-      enterActive: css.fadeEnterActive,
-      leave: css.fadeLeave,
-      leaveActive: css.fadeLeaveActive,
+      appear: css.dialogAppear,
+      appearActive: css.dialogAppearActive,
+      enter: css.dialogEnter,
+      enterActive: css.dialogEnterActive,
+      leave: css.dialogLeave,
+      leaveActive: css.dialogLeaveActive,
     }}
     transitionAppear
     transitionAppearTimeout={ 400 }
     transitionEnterTimeout={ 400 }
-    transitionLeaveTimeout={ 100 }
+    transitionLeaveTimeout={ 200 }
   >
     { currentDialog ? (
       <div
@@ -34,7 +34,7 @@ const Dialogs = ({
         onClick={ onOverlayClick }
       >
         { currentDialog === 'help' ? (
-          <HelpDialog />
+          <HelpDialog key="help-dialog" />
         ) : null }
       </div>
     ) : null }
