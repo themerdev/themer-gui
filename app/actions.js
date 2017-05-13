@@ -5,6 +5,8 @@ export const FOCUS_MODE_TOGGLE = 'FOCUS_MODE_TOGGLE ';
 export const EXPORT_DIALOG_OPEN = 'EXPORT_DIALOG_OPEN';
 export const HELP_DIALOG_OPEN = 'HELP_DIALOG_OPEN';
 export const CLOSE_DIALOGS = 'CLOSE_DIALOGS';
+export const SET_EXPORT_OPTION = 'SET_EXPORT_OPTION';
+export const EXPORT_THEMES = 'EXPORT_THEMES';
 
 // Action generators
 
@@ -30,4 +32,14 @@ export const helpDialogOpen = () => ({
 
 export const closeDialogs = () => ({
   type: CLOSE_DIALOGS,
+});
+
+export const setExportOption = (option, value) => ({
+  type: SET_EXPORT_OPTION,
+  option,
+  value,
+});
+
+export const exportThemes = () => ({
+  type: EXPORT_THEMES,
 });

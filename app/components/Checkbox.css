@@ -1,0 +1,12 @@
+.input {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+}
+
+.labelText {
+  margin-left: .31640625em;
+}

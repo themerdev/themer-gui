@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
 import { closeDialogs } from '../actions';
+import ExportDialog from './ExportDialog';
 import HelpDialog from './HelpDialog';
 import css from './Dialogs.css';
 
@@ -35,6 +36,9 @@ const Dialogs = ({
       >
         { currentDialog === 'help' ? (
           <HelpDialog key="help-dialog" />
+        ) : null }
+        { currentDialog === 'export' ? (
+          <ExportDialog key="export-dialog" />
         ) : null }
       </div>
     ) : null }

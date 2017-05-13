@@ -105,8 +105,34 @@ const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
   }
 };
 
+const defaultExportOptions = {
+  hyper: false,
+  iterm: false,
+  terminal: false,
+  atomSyntax: false,
+  sublimeText: false,
+  vim: false,
+  vimLightline: false,
+  wallpaperBlockWave: false,
+  wallpaperOctagon: false,
+  slack: false,
+};
+
+const exportOptionsReducer = (state = defaultExportOptions, action) => {
+  switch (action.type) {
+    case SET_EXPORT_OPTION:
+      return {
+        ...state,
+        [action.option]: action.value,
+      };
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   colorSets: colorSetsReducer,
   focusMode: focusModeReducer,
   dialogsVisibility: dialogsVisibilityReducer,
+  exportOptions: exportOptionsReducer,
 });
