@@ -6,7 +6,7 @@ export const EXPORT_DIALOG_OPEN = 'EXPORT_DIALOG_OPEN';
 export const HELP_DIALOG_OPEN = 'HELP_DIALOG_OPEN';
 export const CLOSE_DIALOGS = 'CLOSE_DIALOGS';
 export const SET_EXPORT_OPTION = 'SET_EXPORT_OPTION';
-export const EXPORT_THEMES = 'EXPORT_THEMES';
+export const REQUEST_THEMES_EXPORT = 'REQUEST_THEMES_EXPORT';
 
 // Action generators
 
@@ -40,6 +40,6 @@ export const setExportOption = (option, value) => ({
   value,
 });
 
-export const exportThemes = () => ({
-  type: EXPORT_THEMES,
+export const requestThemesExport = () => ({
+  type: REQUEST_THEMES_EXPORT,
 });

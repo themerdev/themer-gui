@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const os = require('os');
 const path = require('path');
 
 module.exports = {
@@ -61,6 +62,12 @@ module.exports = {
   },
 
   target: 'electron-renderer',
+
+  // externals: new RegExp(os.tmpdir()),
+  // externals: [
+  //   /colors\.js/,
+  //   /themer/,
+  // ],
 
   plugins: [ new HtmlWebpackPlugin({
     title: 'Themer',

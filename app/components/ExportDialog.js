@@ -1,8 +1,10 @@
 import React from 'react';
+import { EXPORT_REQUEST } from '../../ipcevents';
 import { connect } from 'react-redux';
+import { ipcRenderer } from 'electron';
 import Checkbox from './Checkbox';
 import Button from './Button';
-import { closeDialogs, exportThemes, setExportOption } from '../actions';
+import { closeDialogs, setExportOption } from '../actions';
 import css from './ExportDialog.css';
 
 const ExportDialog = ({
@@ -17,6 +19,7 @@ const ExportDialog = ({
   wallpaperOctagon,
   slack,
   anySelected,
+  colorSets,
   setOption,
   onCancel,
   onExport,
@@ -89,7 +92,18 @@ const ExportDialog = ({
     </form>
     <Button
       primary
-      onClick={ onExport }
+      onClick={ () => onExport(colorSets, {
+        hyper,
+        iterm,
+        terminal,
+        atomSyntax,
+        sublimeText,
+        vim,
+        vimLightline,
+        wallpaperBlockWave,
+        wallpaperOctagon,
+        slack,
+      }) }
       disabled={ !anySelected }
     >Export</Button>
   </div>
@@ -98,6 +112,7 @@ const ExportDialog = ({
 const mapStateToProps = state => ({
   ...state.exportOptions,
   anySelected: Object.values(state.exportOptions).some(v => v),
+  colorSets: state.colorSets,
 });
 const mapDispatchToProps = dispatch => ({
   setOption: (option, value) => {
@@ -106,8 +121,8 @@ const mapDispatchToProps = dispatch => ({
   onCancel: () => {
     dispatch(closeDialogs());
   },
-  onExport: () => {
-    dispatch(exportThemes());
+  onExport: (colorSets, exportOptions) => {
+    ipcRenderer.send(EXPORT_REQUEST, colorSets, exportOptions);
   },
 });
 
