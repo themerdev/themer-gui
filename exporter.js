@@ -1,5 +1,6 @@
-const { ipcMain } = require('electron');
+const { app, dialog, ipcMain } = require('electron');
 const { EXPORT_REQUEST } = require('./ipcevents.js');
+const copy = require('recursive-copy');
 const os = require('os');
 const path = require('path');
 const fs = require('pn/fs');
@@ -32,47 +33,60 @@ const renderColorSetColor = ([ colorKey, color ]) => {
   return `${colorKey}: '${formatted}', ${formatted !== color ? `// ${color}` : ''}`;
 };
 
-ipcMain.on(EXPORT_REQUEST, (event, colorSets, exportOptions) => {
-  const {
-    hyper,
-    iterm,
-    terminal,
-    atomSyntax,
-    sublimeText,
-    vim,
-    vimLightline,
-    wallpaperBlockWave,
-    wallpaperOctagon,
-    slack,
-  } = exportOptions;
-  const templates = [
-    hyper && 'themer-hyper',
-    iterm && 'themer-iterm',
-    terminal && 'themer-terminal',
-    atomSyntax && 'themer-atom-syntax',
-    sublimeText && 'themer-sublime-text',
-    vim && 'themer-vim',
-    vimLightline && 'themer-vim-lightline',
-    wallpaperBlockWave && 'themer-wallpaper-block-wave',
-    wallpaperOctagon && 'themer-wallpaper-octagon',
-    slack && 'themer-slack',
-  ].filter(Boolean);
-  const colorsFileContents = renderColorSets(colorSets);
+exports.bootstrap = (browserWindow) => {
+  ipcMain.on(EXPORT_REQUEST, (event, colorSets, exportOptions) => {
+    const {
+      hyper,
+      iterm,
+      terminal,
+      atomSyntax,
+      sublimeText,
+      vim,
+      vimLightline,
+      wallpaperBlockWave,
+      wallpaperOctagon,
+      slack,
+    } = exportOptions;
+    const templates = [
+      hyper && 'themer-hyper',
+      iterm && 'themer-iterm',
+      terminal && 'themer-terminal',
+      atomSyntax && 'themer-atom-syntax',
+      sublimeText && 'themer-sublime-text',
+      vim && 'themer-vim',
+      vimLightline && 'themer-vim-lightline',
+      wallpaperBlockWave && 'themer-wallpaper-block-wave',
+      wallpaperOctagon && 'themer-wallpaper-octagon',
+      slack && 'themer-slack',
+    ].filter(Boolean);
+    const colorsFileContents = renderColorSets(colorSets);
 
-  const outDirName = `themer-${Date.now()}`;
-  const tmpOutputDir = path.join(os.tmpdir(), outDirName);
-  const tmpOutputColorsPath = path.join(tmpOutputDir, 'colors.js');
+    const tmpOutputDirName = `themer-${Date.now()}`;
+    const tmpOutputDirPath = path.join(os.tmpdir(), tmpOutputDirName);
+    const tmpOutputColorsPath = path.join(tmpOutputDirPath, 'colors.js');
+    const userOutputDirPath = dialog.showSaveDialog(
+      browserWindow,
+      {
+        title: 'Choose export location',
+        defaultPath: path.join(app.getPath('home'), tmpOutputDirName),
+      }
+    );
 
-  fs.mkdir(tmpOutputDir)
-    .then(() => fs.writeFile(tmpOutputColorsPath, colorsFileContents))
-    .then(() => {
-      themer(tmpOutputColorsPath, templates, tmpOutputDir, {}).subscribe(
-        evt => console.log(evt),
-        err => console.error(err),
-        () => console.log('done!!!')
-      );
-    })
-    .catch(e => console.error(e));
+    fs.mkdir(tmpOutputDirPath)
+      .then(() => fs.writeFile(tmpOutputColorsPath, colorsFileContents))
+      .then(() => {
+        themer(tmpOutputColorsPath, templates, tmpOutputDirPath, {}).subscribe(
+          evt => console.log(evt),
+          err => console.error(err),
+          () => {
+            console.log('done!!!');
+            copy(tmpOutputDirPath, userOutputDirPath)
+              .then((results) => { console.log('copy complete!!', results); })
+              .catch((e) => { console.error('copy failed...', e); });
+          }
+        );
+      })
+      .catch(e => console.error(e));
 
-  console.log(tmpOutputDir);
-});
+  });
+};

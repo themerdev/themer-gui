@@ -35,6 +35,7 @@
     "react-dom": "^15.5.3",
     "react-redux": "^5.0.4",
     "react-transition-group": "^1.1.2",
+    "recursive-copy": "^2.0.6",
     "redux": "^3.6.0",
     "themer": "^2.2.0",
     "themer-atom-syntax": "^1.0.0",
