@@ -90,22 +90,27 @@ const ExportDialog = ({
         />
       </fieldset>
     </form>
-    <Button
-      primary
-      onClick={ () => onExport(colorSets, {
-        hyper,
-        iterm,
-        terminal,
-        atomSyntax,
-        sublimeText,
-        vim,
-        vimLightline,
-        wallpaperBlockWave,
-        wallpaperOctagon,
-        slack,
-      }) }
-      disabled={ !anySelected }
-    >Export</Button>
+    <div className={ css.footer }>
+      <Button
+        onClick={() => onCancel()}
+      >Cancel</Button>
+      <Button
+        primary
+        onClick={() => onExport(colorSets, {
+          hyper,
+          iterm,
+          terminal,
+          atomSyntax,
+          sublimeText,
+          vim,
+          vimLightline,
+          wallpaperBlockWave,
+          wallpaperOctagon,
+          slack,
+        })}
+        disabled={!anySelected}
+      >Export</Button>
+    </div>
   </div>
 );
 

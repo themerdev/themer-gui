@@ -3,3 +3,8 @@ fieldset {
   border-radius: 2px;
   margin-bottom: 0.75rem;
 }
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
