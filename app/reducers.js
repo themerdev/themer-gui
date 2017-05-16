@@ -5,6 +5,7 @@ import {
   EXPORT_DIALOG_OPEN,
   HELP_DIALOG_OPEN,
   CLOSE_DIALOGS,
+  SET_EXPORT_OPTION,
 } from './actions';
 
 const defaultColorSets = {
