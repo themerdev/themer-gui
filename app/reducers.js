@@ -6,7 +6,15 @@ import {
   HELP_DIALOG_OPEN,
   CLOSE_DIALOGS,
   SET_EXPORT_OPTION,
+  EXPORT_PROGRESS_DIALOG_OPEN,
+  EXPORT_CANCELLED,
 } from './actions';
+import {
+  NOT_STARTED,
+  IN_PROGRESS,
+  COMPLETE_ERROR,
+  COMPLETE_SUCCESS,
+} from './helpers/exportProgressStates';
 
 const defaultColorSets = {
   dark: {
@@ -85,6 +93,7 @@ const focusModeReducer = (state = defaultFocusMode, action) => {
 const defaultDialogsVisibility = {
   export: false,
   help: false,
+  exportProgress: false,
 };
 
 const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
@@ -98,6 +107,11 @@ const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
       return {
         ...state,
         help: true,
+      };
+    case EXPORT_PROGRESS_DIALOG_OPEN:
+      return {
+        ...state,
+        exportProgress: true,
       };
     case CLOSE_DIALOGS:
       return Object.keys(state).reduce((reduced, key) => ({ ...reduced, [key]: false }), {});
@@ -126,6 +140,20 @@ const exportOptionsReducer = (state = defaultExportOptions, action) => {
         ...state,
         [action.option]: action.value,
       };
+    default:
+      return state;
+  }
+};
+
+const defaultExportProgress = {
+  status: '',
+  state: NOT_STARTED,
+};
+
+const exportProgressReducer = (state = defaultExportProgress, action) => {
+  switch (action.type) {
+    case EXPORT_CANCELLED:
+      return defaultExportProgress;
     default:
       return state;
   }

@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import { ipcRenderer } from 'electron';
 import Checkbox from './Checkbox';
 import Button from './Button';
-import { closeDialogs, setExportOption } from '../actions';
+import {
+  closeDialogs,
+  setExportOption,
+  exportDialogProgressOpen,
+} from '../actions';
 import css from './ExportDialog.css';
 
 const ExportDialog = ({
@@ -127,7 +131,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(closeDialogs());
   },
   onExport: (colorSets, exportOptions) => {
+    dispatch(closeDialogs());
     ipcRenderer.send(EXPORT_REQUEST, colorSets, exportOptions);
+    dispatch(exportDialogProgressOpen());
   },
 });
 

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { closeDialogs } from '../actions';
 import ExportDialog from './ExportDialog';
 import HelpDialog from './HelpDialog';
+import ExportProgressDialog from './ExportProgressDialog';
 import css from './Dialogs.css';
 
 const overlayId = 'overlay';
@@ -39,6 +40,9 @@ const Dialogs = ({
         ) : null }
         { currentDialog === 'export' ? (
           <ExportDialog key="export-dialog" />
+        ) : null }
+        { currentDialog === 'exportProgress' ? (
+          <ExportProgressDialog key="export-progress-dialog" />
         ) : null }
       </div>
     ) : null }

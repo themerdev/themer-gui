@@ -1,5 +1,11 @@
 const { app, dialog, ipcMain } = require('electron');
-const { EXPORT_REQUEST } = require('./ipcevents.js');
+const {
+  EXPORT_REQUEST,
+  EXPORT_PROGRESS,
+  EXPORT_CANCEL,
+  EXPORT_ERROR,
+  EXPORT_COMPLETE,
+} = require('./ipcevents.js');
 const copy = require('recursive-copy');
 const os = require('os');
 const path = require('path');
@@ -64,29 +70,33 @@ exports.bootstrap = (browserWindow) => {
     const tmpOutputDirName = `themer-${Date.now()}`;
     const tmpOutputDirPath = path.join(os.tmpdir(), tmpOutputDirName);
     const tmpOutputColorsPath = path.join(tmpOutputDirPath, 'colors.js');
-    const userOutputDirPath = dialog.showSaveDialog(
+
+    dialog.showSaveDialog(
       browserWindow,
       {
         title: 'Choose export location',
         defaultPath: path.join(app.getPath('home'), tmpOutputDirName),
+      },
+      (userOutputDirPath) => {
+        if (userOutputDirPath === undefined) {
+          event.sender.send(EXPORT_CANCEL);
+        } else {
+          fs.mkdir(tmpOutputDirPath)
+            .then(() => fs.writeFile(tmpOutputColorsPath, colorsFileContents))
+            .then(() => {
+              themer(tmpOutputColorsPath, templates, tmpOutputDirPath, {}).subscribe(
+                evt => event.sender.send(EXPORT_PROGRESS, evt),
+                err => event.sender.send(EXPORT_ERROR, err),
+                () => {
+                  copy(tmpOutputDirPath, userOutputDirPath)
+                    .then(() => event.sender.send(EXPORT_COMPLETE))
+                    .catch(err => event.sender.send(EXPORT_ERROR, err));
+                }
+              );
+            })
+            .catch(err => event.sender.send(EXPORT_ERROR, err));
+        }
       }
     );
-
-    fs.mkdir(tmpOutputDirPath)
-      .then(() => fs.writeFile(tmpOutputColorsPath, colorsFileContents))
-      .then(() => {
-        themer(tmpOutputColorsPath, templates, tmpOutputDirPath, {}).subscribe(
-          evt => console.log(evt),
-          err => console.error(err),
-          () => {
-            console.log('done!!!');
-            copy(tmpOutputDirPath, userOutputDirPath)
-              .then((results) => { console.log('copy complete!!', results); })
-              .catch((e) => { console.error('copy failed...', e); });
-          }
-        );
-      })
-      .catch(e => console.error(e));
-
   });
 };
