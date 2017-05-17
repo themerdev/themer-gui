@@ -13,6 +13,8 @@ import {
 import {
   closeDialogs,
   exportCancelled,
+  exportProgress,
+  exportComplete,
 } from './actions';
 import { ipcRenderer } from 'electron';
 import './index.css';
@@ -25,6 +27,16 @@ const store = createStore(application);
 ipcRenderer.on(EXPORT_CANCEL, () => {
   store.dispatch(closeDialogs());
   store.dispatch(exportCancelled());
+});
+
+ipcRenderer.on(EXPORT_PROGRESS, (event, status) => {
+  store.dispatch(exportProgress(status));
+});
+
+// TODO: add error state here.
+
+ipcRenderer.on(EXPORT_COMPLETE, (event, exportedPath) => {
+  store.dispatch(exportComplete(exportedPath));
 });
 
 ReactDom.render(

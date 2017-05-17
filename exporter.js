@@ -85,11 +85,11 @@ exports.bootstrap = (browserWindow) => {
             .then(() => fs.writeFile(tmpOutputColorsPath, colorsFileContents))
             .then(() => {
               themer(tmpOutputColorsPath, templates, tmpOutputDirPath, {}).subscribe(
-                evt => event.sender.send(EXPORT_PROGRESS, evt),
+                status => event.sender.send(EXPORT_PROGRESS, status),
                 err => event.sender.send(EXPORT_ERROR, err),
                 () => {
                   copy(tmpOutputDirPath, userOutputDirPath)
-                    .then(() => event.sender.send(EXPORT_COMPLETE))
+                    .then(() => event.sender.send(EXPORT_COMPLETE, userOutputDirPath))
                     .catch(err => event.sender.send(EXPORT_ERROR, err));
                 }
               );

@@ -8,6 +8,8 @@ import {
   SET_EXPORT_OPTION,
   EXPORT_PROGRESS_DIALOG_OPEN,
   EXPORT_CANCELLED,
+  EXPORT_PROGRESS,
+  EXPORT_COMPLETE,
 } from './actions';
 import {
   NOT_STARTED,
@@ -154,6 +156,16 @@ const exportProgressReducer = (state = defaultExportProgress, action) => {
   switch (action.type) {
     case EXPORT_CANCELLED:
       return defaultExportProgress;
+    case EXPORT_PROGRESS:
+      return {
+        status: action.status,
+        state: IN_PROGRESS,
+      };
+    case EXPORT_COMPLETE:
+      return {
+        status: `Your themes have been exported to ${action.exportedPath} 🎉`,
+        state: COMPLETE_SUCCESS,
+      };
     default:
       return state;
   }
@@ -164,4 +176,5 @@ export default combineReducers({
   focusMode: focusModeReducer,
   dialogsVisibility: dialogsVisibilityReducer,
   exportOptions: exportOptionsReducer,
+  exportProgress: exportProgressReducer,
 });
