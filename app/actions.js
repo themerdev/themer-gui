@@ -9,6 +9,7 @@ export const SET_EXPORT_OPTION = 'SET_EXPORT_OPTION';
 export const EXPORT_PROGRESS_DIALOG_OPEN = 'EXPORT_PROGRESS_DIALOG_OPEN';
 export const EXPORT_CANCELLED = 'EXPORT_CANCELLED';
 export const EXPORT_PROGRESS = 'EXPORT_PROGRESS';
+export const EXPORT_ERROR = 'EXPORT_ERROR';
 export const EXPORT_COMPLETE = 'EXPORT_COMPLETE';
 
 // Action generators
@@ -54,6 +55,11 @@ export const exportCancelled = () => ({
 export const exportProgress = (status) => ({
   type: EXPORT_PROGRESS,
   status,
+});
+
+export const exportError = (message) => ({
+  type: EXPORT_ERROR,
+  message,
 });
 
 export const exportComplete = (exportedPath) => ({

@@ -14,6 +14,7 @@ import {
   closeDialogs,
   exportCancelled,
   exportProgress,
+  exportError,
   exportComplete,
 } from './actions';
 import { ipcRenderer } from 'electron';
@@ -33,7 +34,9 @@ ipcRenderer.on(EXPORT_PROGRESS, (event, status) => {
   store.dispatch(exportProgress(status));
 });
 
-// TODO: add error state here.
+ipcRenderer.on(EXPORT_ERROR, (event, message) => {
+  store.dispatch(exportError(message));
+});
 
 ipcRenderer.on(EXPORT_COMPLETE, (event, exportedPath) => {
   store.dispatch(exportComplete(exportedPath));

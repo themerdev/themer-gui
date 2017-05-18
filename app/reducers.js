@@ -9,6 +9,7 @@ import {
   EXPORT_PROGRESS_DIALOG_OPEN,
   EXPORT_CANCELLED,
   EXPORT_PROGRESS,
+  EXPORT_ERROR,
   EXPORT_COMPLETE,
 } from './actions';
 import {
@@ -160,6 +161,11 @@ const exportProgressReducer = (state = defaultExportProgress, action) => {
       return {
         status: action.status,
         state: IN_PROGRESS,
+      };
+    case EXPORT_ERROR:
+      return {
+        status: action.message,
+        state: COMPLETE_ERROR,
       };
     case EXPORT_COMPLETE:
       return {

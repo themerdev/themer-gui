@@ -86,15 +86,15 @@ exports.bootstrap = (browserWindow) => {
             .then(() => {
               themer(tmpOutputColorsPath, templates, tmpOutputDirPath, {}).subscribe(
                 status => event.sender.send(EXPORT_PROGRESS, status),
-                err => event.sender.send(EXPORT_ERROR, err),
+                err => event.sender.send(EXPORT_ERROR, err.toString()),
                 () => {
                   copy(tmpOutputDirPath, userOutputDirPath)
                     .then(() => event.sender.send(EXPORT_COMPLETE, userOutputDirPath))
-                    .catch(err => event.sender.send(EXPORT_ERROR, err));
+                    .catch(err => event.sender.send(EXPORT_ERROR, err.toString()));
                 }
               );
             })
-            .catch(err => event.sender.send(EXPORT_ERROR, err));
+            .catch(err => event.sender.send(EXPORT_ERROR, err.toString()));
         }
       }
     );
