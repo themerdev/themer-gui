@@ -6,13 +6,15 @@ import { closeDialogs } from '../actions';
 import ExportDialog from './ExportDialog';
 import HelpDialog from './HelpDialog';
 import ExportProgressDialog from './ExportProgressDialog';
+import { IN_PROGRESS } from '../helpers/exportProgressStates';
 import css from './Dialogs.css';
 
 const overlayId = 'overlay';
 
 const Dialogs = ({
   currentDialog,
-  onOverlayClick,
+  shouldCloseOnOverlayClick,
+  closeDialogs,
 }) => (
   <CSSTransitionGroup
     transitionName={{
@@ -33,7 +35,7 @@ const Dialogs = ({
         id={ overlayId }
         key="overlay"
         className={ css.overlay }
-        onClick={ onOverlayClick }
+        onClick={ (evt) => { if (shouldCloseOnOverlayClick && evt.target.id === overlayId) { closeDialogs(); }} }
       >
         { currentDialog === 'help' ? (
           <HelpDialog key="help-dialog" />
@@ -51,14 +53,9 @@ const Dialogs = ({
 
 const mapStateToProps = state => ({
   currentDialog: Object.keys(state.dialogsVisibility).find(key => state.dialogsVisibility[key]),
+  shouldCloseOnOverlayClick: state.exportProgress.state !== IN_PROGRESS,
 });
-const mapDispatchToProps = dispatch => ({
-  onOverlayClick: (evt) => {
-    if (evt.target.id === overlayId) {
-      dispatch(closeDialogs());
-    }
-  },
-});
+const mapDispatchToProps = { closeDialogs };
 
 export default connect(
   mapStateToProps,

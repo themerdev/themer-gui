@@ -29,3 +29,12 @@ export const Check = ({ backgroundColor, outlineColor, checkColor }) => (
     <path d="M4 9l2 2M6 11l6-6" stroke={ checkColor } strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="square"/>
   </svg>
 );
+
+export const External = ({ style }) => (
+  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style={ style }>
+    <g stroke="currentColor" fill="none" fillRule="evenodd" strokeLinecap="square">
+      <path d="M7.5 8.5l6-6" strokeWidth="2"/>
+      <path d="M1.5 2.5v12M1.5 2.5h6M1.5 14.5h12M13.5 8.5v6M14.5 1.5v3M11.5 1.5h3"/>
+    </g>
+  </svg>
+);
