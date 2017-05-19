@@ -3,6 +3,7 @@ import { EXPORT_REQUEST } from '../../ipcevents';
 import { connect } from 'react-redux';
 import { ipcRenderer, shell } from 'electron';
 import Checkbox from './Checkbox';
+import { External } from './Icons';
 import Button from './Button';
 import {
   closeDialogs,
@@ -98,7 +99,10 @@ const ExportDialog = ({
       plain
       noSpace
       onClick={ () => shell.openExternal('https://github.com/mjswensen/themer/issues/new') }
-    >Request more themes</Button>
+    >
+      Request other templates
+      <External />
+    </Button>
     <div className={ css.footer }>
       <Button
         onClick={() => onCancel()}

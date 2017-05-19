@@ -20,7 +20,7 @@ const ExportProgressDialog = ({
         <Button onClick={ closeDialogs }>Close</Button>
         <Button primary onClick={ () => shell.openExternal('https://github.com/mjswensen/themer/issues/new') }>
           Log a bug
-          <External style={{ verticalAlign: 'bottom', marginLeft: '1ex' }} />
+          <External />
         </Button>
       </div>
     ) : null }
