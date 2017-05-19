@@ -5,7 +5,7 @@ const {
   EXPORT_CANCEL,
   EXPORT_ERROR,
   EXPORT_COMPLETE,
-} = require('./ipcevents.js');
+} = require('../common/ipcevents.js');
 const copy = require('recursive-copy');
 const os = require('os');
 const path = require('path');

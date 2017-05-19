@@ -2,12 +2,12 @@
   "name": "themer-gui",
   "version": "1.0.0",
   "description": "A graphical UI for themer.",
-  "main": "main.js",
+  "main": "main/index.js",
   "author": "mjswensen",
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "start": "yarn run build; concurrently \"watch 'yarn run build' app\" \"electron .\""
+    "start": "yarn run build; concurrently \"watch 'yarn run build' renderer\" \"electron .\""
   },
   "devDependencies": {
     "babel-core": "^6.24.0",

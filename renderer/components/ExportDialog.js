@@ -1,5 +1,5 @@
 import React from 'react';
-import { EXPORT_REQUEST } from '../../ipcevents';
+import { EXPORT_REQUEST } from '../../common/ipcevents';
 import { connect } from 'react-redux';
 import { ipcRenderer, shell } from 'electron';
 import Checkbox from './Checkbox';

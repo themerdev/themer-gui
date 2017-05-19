@@ -9,7 +9,7 @@ import {
   EXPORT_CANCEL,
   EXPORT_ERROR,
   EXPORT_COMPLETE,
-} from '../ipcevents';
+} from '../common/ipcevents';
 import {
   closeDialogs,
   exportCancelled,

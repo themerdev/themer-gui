@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
 
-  entry: './app/index',
+  entry: './renderer/index',
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -18,7 +18,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: [
-          path.resolve(__dirname, 'app'),
+          path.resolve(__dirname, 'renderer'),
         ],
         loader: 'babel-loader',
         options: {
@@ -54,7 +54,7 @@ module.exports = {
       {
         test: /\.ttf$/,
         include: [
-          path.resolve(__dirname, 'app', 'assets'),
+          path.resolve(__dirname, 'renderer', 'assets'),
         ],
         loader: 'file-loader',
       },
@@ -62,12 +62,6 @@ module.exports = {
   },
 
   target: 'electron-renderer',
-
-  // externals: new RegExp(os.tmpdir()),
-  // externals: [
-  //   /colors\.js/,
-  //   /themer/,
-  // ],
 
   plugins: [ new HtmlWebpackPlugin({
     title: 'Themer',
