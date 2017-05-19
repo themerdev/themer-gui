@@ -36,6 +36,11 @@
     border: none;
   }
 
+  &.noSpace {
+    margin: 0;
+    padding: 0;
+  }
+
 }
 
 .button + .button {
