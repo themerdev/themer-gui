@@ -167,12 +167,12 @@ const exportProgressReducer = (state = defaultExportProgress, action) => {
     case EXPORT_ERROR:
       return {
         ...defaultExportProgress,
-        status: `${action.message} 😞`,
+        status: action.message,
         state: COMPLETE_ERROR,
       };
     case EXPORT_COMPLETE:
       return {
-        status: `Your themes have been exported to ${action.exportedPath} 🎉`,
+        status: `Your themes have been exported to ${action.exportedPath}`,
         state: COMPLETE_SUCCESS,
         exportedPath: action.exportedPath,
       };

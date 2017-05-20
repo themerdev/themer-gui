@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { shell } from 'electron';
 import { External } from './Icons';
 import Button from './Button';
+import Emoji from './Emoji';
 import { closeDialogs } from '../actions';
 import { COMPLETE_ERROR, COMPLETE_SUCCESS } from '../helpers/exportProgressStates';
 import css from './ExportProgressDialog.css';
@@ -15,6 +16,8 @@ const ExportProgressDialog = ({
 }) => (
   <div>
     { status }
+    { state === COMPLETE_ERROR ? (<Emoji emoji="😞" />) : null }
+    { state === COMPLETE_SUCCESS ? (<Emoji emoji="🎉" />) : null }
     { state === COMPLETE_ERROR ? (
       <div className={ css.buttonContainer }>
         <Button onClick={ closeDialogs }>Close</Button>
