@@ -4,7 +4,7 @@ import { shell } from 'electron';
 import { External } from './Icons';
 import Button from './Button';
 import Emoji from './Emoji';
-import { closeDialogs } from '../actions';
+import { closeDialogs, exportReset } from '../actions';
 import { COMPLETE_ERROR, COMPLETE_SUCCESS } from '../helpers/exportProgressStates';
 import css from './ExportProgressDialog.css';
 
@@ -12,7 +12,7 @@ const ExportProgressDialog = ({
   status,
   state,
   exportedPath,
-  closeDialogs,
+  closeAndReset,
 }) => (
   <div>
     { status }
@@ -20,7 +20,7 @@ const ExportProgressDialog = ({
     { state === COMPLETE_SUCCESS ? (<Emoji emoji="🎉" />) : null }
     { state === COMPLETE_ERROR ? (
       <div className={ css.buttonContainer }>
-        <Button onClick={ closeDialogs }>Close</Button>
+        <Button onClick={ closeAndReset }>Close</Button>
         <Button primary onClick={ () => shell.openExternal('https://github.com/mjswensen/themer/issues/new') }>
           Log a bug
           <External />
@@ -29,7 +29,7 @@ const ExportProgressDialog = ({
     ) : null }
     { state === COMPLETE_SUCCESS ? (
       <div className={ css.buttonContainer }>
-        <Button onClick={ closeDialogs }>Close</Button>
+        <Button onClick={ closeAndReset }>Close</Button>
         <Button primary onClick={ () => shell.showItemInFolder(exportedPath) }>Show exported files</Button>
       </div>
     ) : null }
@@ -37,7 +37,12 @@ const ExportProgressDialog = ({
 );
 
 const mapStateToProps = state => state.exportProgress;
-const mapDispatchToProps = { closeDialogs };
+const mapDispatchToProps = dispatch => ({
+  closeAndReset: () => {
+    dispatch(closeDialogs());
+    dispatch(exportReset());
+  },
+});
 
 export default connect(
   mapStateToProps,

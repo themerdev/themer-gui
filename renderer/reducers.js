@@ -11,6 +11,7 @@ import {
   EXPORT_PROGRESS,
   EXPORT_ERROR,
   EXPORT_COMPLETE,
+  EXPORT_RESET,
 } from './actions';
 import {
   NOT_STARTED,
@@ -176,6 +177,8 @@ const exportProgressReducer = (state = defaultExportProgress, action) => {
         state: COMPLETE_SUCCESS,
         exportedPath: action.exportedPath,
       };
+    case EXPORT_RESET:
+      return defaultExportProgress;
     default:
       return state;
   }

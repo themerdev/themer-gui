@@ -11,6 +11,7 @@ export const EXPORT_CANCELLED = 'EXPORT_CANCELLED';
 export const EXPORT_PROGRESS = 'EXPORT_PROGRESS';
 export const EXPORT_ERROR = 'EXPORT_ERROR';
 export const EXPORT_COMPLETE = 'EXPORT_COMPLETE';
+export const EXPORT_RESET = 'EXPORT_RESET';
 
 // Action generators
 
@@ -65,4 +66,8 @@ export const exportError = (message) => ({
 export const exportComplete = (exportedPath) => ({
   type: EXPORT_COMPLETE,
   exportedPath,
+});
+
+export const exportReset = () => ({
+  type: EXPORT_RESET,
 });

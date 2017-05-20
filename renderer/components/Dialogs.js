@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
-import { closeDialogs } from '../actions';
 import ExportDialog from './ExportDialog';
 import HelpDialog from './HelpDialog';
 import ExportProgressDialog from './ExportProgressDialog';
@@ -11,11 +10,7 @@ import css from './Dialogs.css';
 
 const overlayId = 'overlay';
 
-const Dialogs = ({
-  currentDialog,
-  shouldCloseOnOverlayClick,
-  closeDialogs,
-}) => (
+const Dialogs = ({ currentDialog }) => (
   <CSSTransitionGroup
     transitionName={{
       appear: css.dialogAppear,
@@ -35,7 +30,6 @@ const Dialogs = ({
         id={ overlayId }
         key="overlay"
         className={ css.overlay }
-        onClick={ (evt) => { if (shouldCloseOnOverlayClick && evt.target.id === overlayId) { closeDialogs(); }} }
       >
         { currentDialog === 'help' ? (
           <HelpDialog key="help-dialog" />
@@ -53,11 +47,9 @@ const Dialogs = ({
 
 const mapStateToProps = state => ({
   currentDialog: Object.keys(state.dialogsVisibility).find(key => state.dialogsVisibility[key]),
-  shouldCloseOnOverlayClick: state.exportProgress.state !== IN_PROGRESS,
 });
-const mapDispatchToProps = { closeDialogs };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
 )(Dialogs);
