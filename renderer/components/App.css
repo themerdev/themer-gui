@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  background: radial-gradient(circle farthest-corner, white, hsl(0, 0%, 96%));
+  background: radial-gradient(circle farthest-corner, white, gray(94%));
   filter: none;
   transition: filter 100ms ease;
   &.obscured {

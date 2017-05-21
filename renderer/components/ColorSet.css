@@ -10,7 +10,7 @@
   margin: 1rem;
 
   border-radius: 2px;
-  box-shadow: 0 .5625rem 2.37037037rem hsl(0, 0%, 0%, 0.25);
+  box-shadow: 0 .5625rem 2.37037037rem gray(0%, 25%);
 
   transition: background-color 300ms ease;
 

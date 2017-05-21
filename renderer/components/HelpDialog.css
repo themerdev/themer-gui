@@ -8,13 +8,13 @@
   width: 100%;
   border-collapse: collapse;
   & tr:not(:last-child) {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid currentColor;
   }
   & td {
     padding: .421875rem;
     width: 50%;
     &:last-child {
-      border-left: 1px solid black;
+      border-left: 1px solid currentColor;
     }
   }
 }

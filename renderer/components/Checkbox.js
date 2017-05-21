@@ -11,8 +11,8 @@ export default ({ value, label, onChange }) => (
       onChange={ evt => onChange(evt.target.checked) }
     />
     <Check
-      backgroundColor={ value ? 'black' : 'transparent' }
-      outlineColor={ value ? 'transparent' : 'black' }
+      backgroundColor={ value ? 'currentColor' : 'transparent' }
+      outlineColor={ value ? 'transparent' : 'currentColor' }
       checkColor={ value ? 'white' : 'transparent' }
     />
     <span className={ css.labelText }>{ label }</span>

@@ -1,6 +1,6 @@
 .button {
 
-  --color: #555;
+  --color: gray(30%);
 
   font-size: 1rem;
   font-family: "Inconsolata";
@@ -14,15 +14,15 @@
   transition: all 200ms ease;
 
   &:disabled {
-    --color: #bbb;
+    --color: gray(85%);
   }
 
   &:hover:not(:disabled) {
-    --color: #666;
+    --color: gray(38%);
   }
 
   &:active:not(:disabled) {
-    --color: #444;
+    --color: gray(22%);
   }
 
   &.primary {

@@ -5,11 +5,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: hsla(0, 0%, 100%, 0.75);
+  background-color: gray(100%, 75%);
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: gray(30%);
 
 }
 
