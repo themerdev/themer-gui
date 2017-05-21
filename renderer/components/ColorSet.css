@@ -53,7 +53,6 @@
   outline: none;
   border: none;
   background: transparent;
-  cursor: pointer;
 
   opacity: 0;
   transition: opacity 200ms ease;
