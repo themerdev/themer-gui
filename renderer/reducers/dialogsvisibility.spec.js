@@ -8,31 +8,23 @@ import {
 
 describe('dialogsVisibilityReducer', () => {
   it('should initialize to all dialogs closed', () => {
-    const defaultState = dialogsVisibilityReducer(undefined, {});
-    expect(Object.values(defaultState).some(Boolean)).toBe(false);
+    expect(dialogsVisibilityReducer(undefined, {})).toMatchSnapshot();
   });
   it('should open the help dialog', () => {
-    const newState = dialogsVisibilityReducer(undefined, helpDialogOpen());
-    expect(newState.help).toBe(true);
+    expect(dialogsVisibilityReducer(undefined, helpDialogOpen())).toMatchSnapshot();
   });
   it('should open the export dialog', () => {
-    const newState = dialogsVisibilityReducer(undefined, exportDialogOpen());
-    expect(newState.export).toBe(true);
+    expect(dialogsVisibilityReducer(undefined, exportDialogOpen())).toMatchSnapshot();
   });
   it('should open the export progress dialog', () => {
-    const newState = dialogsVisibilityReducer(undefined, exportProgressDialogOpen());
-    expect(newState.exportProgress).toBe(true);
+    expect(dialogsVisibilityReducer(undefined, exportProgressDialogOpen())).toMatchSnapshot();
   });
   it('should close all dialogs', () => {
     const initialState = {
       export: true,
       help: false,
-      exportProgress: false,
+      exportProgress: true,
     };
-    const expected = {
-      ...initialState,
-      export: false,
-    };
-    expect(dialogsVisibilityReducer(initialState, closeDialogs())).toEqual(expected);
+    expect(dialogsVisibilityReducer(initialState, closeDialogs())).toMatchSnapshot();
   });
 });

@@ -15,31 +15,16 @@ import {
 
 describe('exportProgressReducer', () => {
   it('should initialize to a state of not started', () => {
-    const defaultState = exportProgressReducer(undefined, {});
-    expect(defaultState.state).toEqual(NOT_STARTED);
+    expect(exportProgressReducer(undefined, {})).toMatchSnapshot();
   });
   it('should reflect current status when there is progress', () => {
-    const message = 'working...';
-    const expected = {
-      status: message,
-      state: IN_PROGRESS,
-      exportedPath: null,
-    };
-    expect(exportProgressReducer(undefined, exportProgress(message))).toEqual(expected);
+    expect(exportProgressReducer(undefined, exportProgress('working...'))).toMatchSnapshot();
   });
   it('should support an error state', () => {
-    const message = 'something went wrong';
-    const expected = {
-      status: message,
-      state: COMPLETE_ERROR,
-      exportedPath: null,
-    };
-    expect(exportProgressReducer(undefined, exportError(message))).toEqual(expected);
+    expect(exportProgressReducer(undefined, exportError('something went wrong'))).toMatchSnapshot();
   });
   it('should support complete state with path', () => {
-    const path = '/dev/null';
-    const actual = exportProgressReducer(undefined, exportComplete(path));
-    expect(actual.exportedPath).toEqual(path);
+    expect(exportProgressReducer(undefined, exportComplete('/dev/null'))).toMatchSnapshot();
   });
   it('should properly reset when needed', () => {
     const beginningState = {

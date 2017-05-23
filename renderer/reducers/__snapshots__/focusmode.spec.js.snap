@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`focusModeReducer should initialize with neither color set in focus mode 1`] = `
+Object {
+  "dark": false,
+  "light": false,
+}
+`;
+
+exports[`focusModeReducer should toggle focus mode appropriately 1`] = `true`;
+
+exports[`focusModeReducer should toggle focus mode appropriately 2`] = `false`;

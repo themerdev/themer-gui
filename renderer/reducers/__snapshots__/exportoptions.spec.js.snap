@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exportOptionsReducer should initialize to no options set 1`] = `
+Object {
+  "atomSyntax": false,
+  "hyper": false,
+  "iterm": false,
+  "slack": false,
+  "sublimeText": false,
+  "terminal": false,
+  "vim": false,
+  "vimLightline": false,
+  "wallpaperBlockWave": false,
+  "wallpaperOctagon": false,
+}
+`;
+
+exports[`exportOptionsReducer should properly set an option 1`] = `
+Object {
+  "atomSyntax": false,
+  "hyper": true,
+  "iterm": false,
+  "slack": false,
+  "sublimeText": false,
+  "terminal": false,
+  "vim": false,
+  "vimLightline": false,
+  "wallpaperBlockWave": false,
+  "wallpaperOctagon": false,
+}
+`;
