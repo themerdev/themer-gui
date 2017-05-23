@@ -21,20 +21,6 @@ module.exports = {
           path.resolve(__dirname, 'renderer'),
         ],
         loader: 'babel-loader',
-        options: {
-          presets: [
-            "react",
-            [
-              "env",
-              {
-                targets: {
-                  electron: true,
-                },
-              },
-            ],
-          ],
-          plugins: ['transform-object-rest-spread'],
-        },
       },
       {
         test: /\.css$/,

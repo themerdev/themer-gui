@@ -45,7 +45,7 @@ export const setExportOption = (option, value) => ({
   value,
 });
 
-export const exportDialogProgressOpen = () => ({
+export const exportProgressDialogOpen = () => ({
   type: EXPORT_PROGRESS_DIALOG_OPEN,
 });
 

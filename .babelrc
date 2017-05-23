@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        targets: {
+          electron: true
+        }
+      }
+    ]
+  ],
+  "plugins": ["transform-object-rest-spread"]
+}

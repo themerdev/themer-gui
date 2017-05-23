@@ -8,7 +8,7 @@ import Button from './Button';
 import {
   closeDialogs,
   setExportOption,
-  exportDialogProgressOpen,
+  exportProgressDialogOpen,
 } from '../actions';
 import css from './ExportDialog.css';
 
@@ -142,7 +142,7 @@ const mapDispatchToProps = dispatch => ({
   onExport: (colorSets, exportOptions) => {
     dispatch(closeDialogs());
     ipcRenderer.send(EXPORT_REQUEST, colorSets, exportOptions);
-    dispatch(exportDialogProgressOpen());
+    dispatch(exportProgressDialogOpen());
   },
 });
 
