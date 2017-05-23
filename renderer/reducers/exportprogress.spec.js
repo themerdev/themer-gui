@@ -17,6 +17,9 @@ describe('exportProgressReducer', () => {
   it('should initialize to a state of not started', () => {
     expect(exportProgressReducer(undefined, {})).toMatchSnapshot();
   });
+  it('should reset when the export is cancelled', () => {
+    expect(exportProgressReducer(undefined, exportCancelled())).toMatchSnapshot();
+  });
   it('should reflect current status when there is progress', () => {
     expect(exportProgressReducer(undefined, exportProgress('working...'))).toMatchSnapshot();
   });

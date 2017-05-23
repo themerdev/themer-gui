@@ -16,6 +16,14 @@ Object {
 }
 `;
 
+exports[`exportProgressReducer should reset when the export is cancelled 1`] = `
+Object {
+  "exportedPath": null,
+  "state": "NOT_STARTED",
+  "status": "",
+}
+`;
+
 exports[`exportProgressReducer should support an error state 1`] = `
 Object {
   "exportedPath": null,

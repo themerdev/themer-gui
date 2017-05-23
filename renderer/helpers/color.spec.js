@@ -4,6 +4,7 @@ test('getOrDefault', () => {
   expect(getOrDefault('#eee', null)).toBe('#EEEEEE');
   expect(getOrDefault('red', null)).toBe('#FF0000');
   expect(getOrDefault('not a color', true)).toBe(true);
+  expect(getOrDefault('', true)).toBe(true);
 });
 
 test('getBestForeground', () => {
