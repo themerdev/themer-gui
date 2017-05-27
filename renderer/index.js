@@ -18,12 +18,12 @@ import {
   exportComplete,
 } from './actions';
 import { ipcRenderer } from 'electron';
+import connectMenu from './menu';
 import './index.css';
 
-const root = document.createElement('div');
-document.body.appendChild(root);
-
 const store = createStore(application);
+
+// Main events
 
 ipcRenderer.on(EXPORT_CANCEL, () => {
   store.dispatch(closeDialogs());
@@ -42,6 +42,14 @@ ipcRenderer.on(EXPORT_COMPLETE, (event, exportedPath) => {
   store.dispatch(exportComplete(exportedPath));
 });
 
+// Menu
+
+connectMenu(store);
+
+// Bootstrap main application
+
+const root = document.createElement('div');
+document.body.appendChild(root);
 ReactDom.render(
   <Provider store={ store }><App /></Provider>,
   root,

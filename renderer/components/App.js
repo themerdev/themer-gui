@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import ColorSet from './ColorSet';
 import Dialogs from './Dialogs';
-import Menu from './Menu';
 import css from './App.css';
 
 const App = ({ dialogOpen }) => (
@@ -13,7 +12,6 @@ const App = ({ dialogOpen }) => (
         <ColorSet />
         <ColorSet light={ true } />
       </div>
-      <Menu />
     </div>
     <Dialogs />
   </section>
