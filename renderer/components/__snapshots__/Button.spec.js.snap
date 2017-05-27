@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render properly 1`] = `
+<button
+  className="button"
+  disabled={undefined}
+  onClick={[Function]}
+>
+  Hello
+</button>
+`;
+
+exports[`Button should render properly 2`] = `
+<button
+  className="button primary"
+  disabled={undefined}
+  onClick={[Function]}
+>
+  Hello
+</button>
+`;
+
+exports[`Button should render properly 3`] = `
+<button
+  className="button plain"
+  disabled={undefined}
+  onClick={[Function]}
+>
+  Hello
+</button>
+`;
+
+exports[`Button should render properly 4`] = `
+<button
+  className="button noSpace"
+  disabled={undefined}
+  onClick={[Function]}
+>
+  Hello
+</button>
+`;

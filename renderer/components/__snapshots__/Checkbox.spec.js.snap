@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should render properly 1`] = `
+<label
+  className="label"
+>
+  <input
+    checked={false}
+    className="input"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <svg
+    height="16"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderRadius": "2px",
+        "boxShadow": "inset 0 0 0 1px currentColor",
+      }
+    }
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 9l2 2M6 11l6-6"
+      fill="none"
+      fillRule="evenodd"
+      stroke="transparent"
+      strokeLinecap="square"
+      strokeWidth="2"
+    />
+  </svg>
+  <span
+    className="labelText"
+  >
+    off
+  </span>
+</label>
+`;
+
+exports[`Checkbox should render properly 2`] = `
+<label
+  className="label"
+>
+  <input
+    checked={true}
+    className="input"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <svg
+    height="16"
+    style={
+      Object {
+        "backgroundColor": "currentColor",
+        "borderRadius": "2px",
+        "boxShadow": "inset 0 0 0 1px transparent",
+      }
+    }
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 9l2 2M6 11l6-6"
+      fill="none"
+      fillRule="evenodd"
+      stroke="white"
+      strokeLinecap="square"
+      strokeWidth="2"
+    />
+  </svg>
+  <span
+    className="labelText"
+  >
+    on
+  </span>
+</label>
+`;
