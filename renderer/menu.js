@@ -25,6 +25,7 @@ const setMenu = store => {
   const state = store.getState();
   const darkCompleted = areAllParseable(Object.values(state.colorSets.dark));
   const lightCompleted = areAllParseable(Object.values(state.colorSets.light));
+  const isDialogOpen = Object.values(state.dialogsVisibility).some(v => v);
 
   const template = [
     process.platform === 'darwin' ? {
@@ -87,6 +88,7 @@ const setMenu = store => {
       submenu: [
         {
           label: 'Show Help...',
+          enabled: !isDialogOpen,
           click () { store.dispatch(helpDialogOpen()); },
         },
       ],
