@@ -40,6 +40,10 @@
   margin-left: .31640625em;
   border-bottom: 1px solid transparent;
   transition: all 300ms ease, padding-right 100ms ease;
+  cursor: default;
+  &:focus {
+    cursor: text;
+  }
 }
 
 .colorInputLabel {
