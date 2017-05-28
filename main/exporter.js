@@ -36,7 +36,7 @@ const renderColorSet = (colorSetKey, colorSet) => {
 
 const renderColorSetColor = ([ colorKey, color ]) => {
   const formatted = Color(color).hex();
-  return `${colorKey}: '${formatted}', ${formatted !== color ? `// ${color}` : ''}`;
+  return `${colorKey}: '${formatted}', ${formatted.toLowerCase() !== color.toLowerCase() ? `// ${color}` : ''}`;
 };
 
 exports.bootstrap = (browserWindow) => {
