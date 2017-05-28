@@ -1,10 +1,11 @@
 const { app, dialog, ipcMain } = require('electron');
 const {
-  EXPORT_REQUEST,
+  EXPORT_THEMES_REQUEST,
   EXPORT_PROGRESS,
   EXPORT_CANCEL,
   EXPORT_ERROR,
   EXPORT_COMPLETE,
+  EXPORT_COLORS_REQUEST,
 } = require('../common/ipcevents.js');
 const copy = require('recursive-copy');
 const os = require('os');
@@ -40,7 +41,10 @@ const renderColorSetColor = ([ colorKey, color ]) => {
 };
 
 exports.bootstrap = (browserWindow) => {
-  ipcMain.on(EXPORT_REQUEST, (event, colorSets, exportOptions) => {
+
+  // Export themes
+
+  ipcMain.on(EXPORT_THEMES_REQUEST, (event, colorSets, exportOptions) => {
     const {
       hyper,
       iterm,
@@ -95,6 +99,24 @@ exports.bootstrap = (browserWindow) => {
               );
             })
             .catch(err => event.sender.send(EXPORT_ERROR, err.toString()));
+        }
+      }
+    );
+  });
+
+  // Export colors
+
+  ipcMain.on(EXPORT_COLORS_REQUEST, (event, colorSets) => {
+    const colorsFileContents = renderColorSets(colorSets);
+    dialog.showSaveDialog(
+      browserWindow,
+      {
+        title: 'Choose export location',
+        defaultPath: path.join(app.getPath('home'), 'colors.js'),
+      },
+      (userOutputPath) => {
+        if (userOutputPath) {
+          fs.writeFile(userOutputPath, colorsFileContents);
         }
       }
     );

@@ -1,9 +1,10 @@
-import { remote } from 'electron';
+import { ipcRenderer, remote } from 'electron';
 import {
   exportDialogOpen,
   helpDialogOpen,
   prefillDialogOpen,
 } from './actions';
+import { EXPORT_COLORS_REQUEST } from '../common/ipcevents';
 import { getOrDefault } from './helpers/color';
 const { app, Menu } = remote;
 
@@ -11,13 +12,25 @@ const areAllParseable = inputtedColors => inputtedColors.every(inputtedColor => 
 
 const getExportThemesLabel = (darkCompleted, lightCompleted) => {
   if (darkCompleted && !lightCompleted) {
-    return 'Export Themes (Dark Only)...';
+    return 'Export Colors && Themes (Dark Only)...';
   }
   else if (lightCompleted && !darkCompleted) {
-    return 'Export Themes (Light Only)...';
+    return 'Export Colors && Themes (Light Only)...';
   }
   else {
-    return 'Export Themes...';
+    return 'Export Colors && Themes...';
+  }
+};
+
+const getExportColorsLabel = (darkCompleted, lightCompleted) => {
+  if (darkCompleted && !lightCompleted) {
+    return 'Export Colors (Dark Only)...';
+  }
+  else if (lightCompleted && !darkCompleted) {
+    return 'Export Colors (Light Only)...';
+  }
+  else {
+    return 'Export Colors...';
   }
 };
 
@@ -51,11 +64,18 @@ const setMenu = store => {
           accelerator: 'CmdOrCtrl+Shift+O',
           click () { store.dispatch(prefillDialogOpen()); },
         },
+        {type: 'separator'},
         {
           label: getExportThemesLabel(darkCompleted, lightCompleted),
           accelerator: 'CmdOrCtrl+E',
           enabled: darkCompleted || lightCompleted,
           click () { store.dispatch(exportDialogOpen()); },
+        },
+        {
+          label: getExportColorsLabel(darkCompleted, lightCompleted),
+          accelerator: 'CmdOrCtrl+Shift+E',
+          enabled: darkCompleted || lightCompleted,
+          click () { ipcRenderer.send(EXPORT_COLORS_REQUEST, state.colorSets); },
         },
       ],
     },

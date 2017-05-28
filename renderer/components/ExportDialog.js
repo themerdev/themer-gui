@@ -1,5 +1,5 @@
 import React from 'react';
-import { EXPORT_REQUEST } from '../../common/ipcevents';
+import { EXPORT_THEMES_REQUEST } from '../../common/ipcevents';
 import { connect } from 'react-redux';
 import { ipcRenderer, shell } from 'electron';
 import Checkbox from './Checkbox';
@@ -141,7 +141,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onExport: (colorSets, exportOptions) => {
     dispatch(closeDialogs());
-    ipcRenderer.send(EXPORT_REQUEST, colorSets, exportOptions);
+    ipcRenderer.send(EXPORT_THEMES_REQUEST, colorSets, exportOptions);
     dispatch(exportProgressDialogOpen());
   },
 });
