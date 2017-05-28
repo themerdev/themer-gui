@@ -1,6 +1,6 @@
 import { COLOR_CHANGE, PREFILL_WITH_COLOR_SET } from '../actions';
 
-const defaultColorSets = {
+const defaultColorSet = {
   dark: {
     shade0: '',
     shade1: '',
@@ -39,7 +39,7 @@ const defaultColorSets = {
   },
 };
 
-export const colorSetsReducer = (state = defaultColorSets, action) => {
+export const colorSetsReducer = (state = defaultColorSet, action) => {
   switch (action.type) {
     case COLOR_CHANGE:
       const { colorSetKey, colorKey, value } = action;
@@ -54,11 +54,11 @@ export const colorSetsReducer = (state = defaultColorSets, action) => {
     case PREFILL_WITH_COLOR_SET:
       return {
         dark: {
-          ...defaultColorSets.dark,
+          ...defaultColorSet.dark,
           ...action.colorSet.dark,
         },
         light: {
-          ...defaultColorSets.light,
+          ...defaultColorSet.light,
           ...action.colorSet.light,
         },
       };

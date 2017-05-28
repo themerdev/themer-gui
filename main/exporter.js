@@ -30,7 +30,7 @@ const renderColorSet = (colorSetKey, colorSet) => {
   return [
     `${colorSetKey}: {`,
     ...Object.entries(colorSet).map(renderColorSetColor),
-    `}`,
+    `},`,
   ];
 };
 

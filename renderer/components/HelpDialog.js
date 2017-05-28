@@ -5,7 +5,7 @@ import { Droplet } from './Icons';
 import { closeDialogs } from '../actions';
 import css from './HelpDialog.css';
 
-const HelpDialog = ({ onClose }) => (
+const HelpDialog = ({ closeDialogs }) => (
   <div className={ css.help }>
     <p>Define your theme&rsquo;s colors by typing any valid CSS color format, or use the color picker by clicking the droplet icon (<Droplet style={{ verticalAlign: 'bottom' }} />).</p>
     <p>Your theme can define a dark color set, a light color set, or both. Here is how the colors are typcally used in outputted themes:</p>
@@ -49,17 +49,13 @@ const HelpDialog = ({ onClose }) => (
     <div className={ css.footer }>
       <Button
         primary
-        onClick={ onClose }
+        onClick={ closeDialogs }
       >Got it</Button>
     </div>
   </div>
 );
 
-const mapDispatchToProps = dispatch => ({
-  onClose: () => {
-    dispatch(closeDialogs());
-  },
-});
+const mapDispatchToProps = { closeDialogs };
 
 export default connect(
   null,

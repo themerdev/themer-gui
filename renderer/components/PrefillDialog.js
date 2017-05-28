@@ -14,7 +14,7 @@ import css from './FormDialogs.css';
 
 const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSelect, onPrefillWithColorSet }) => (
   <div className={ css.container }>
-    <p>Warning: prefilling with a built-in color set will overwrite any existing colors.</p>
+    <p><strong>Warning:</strong> prefilling with a built-in color set will overwrite any existing colors.</p>
     <form>
       <fieldset>
         <legend>Built-in Color Sets</legend>
