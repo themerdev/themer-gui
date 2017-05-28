@@ -3,6 +3,7 @@ import {
   EXPORT_DIALOG_OPEN,
   EXPORT_PROGRESS_DIALOG_OPEN,
   CLOSE_DIALOGS,
+  PREFILL_DIALOG_OPEN,
 } from '../actions';
 
 const defaultDialogsVisibility = {
@@ -27,6 +28,11 @@ export const dialogsVisibilityReducer = (state = defaultDialogsVisibility, actio
       return {
         ...state,
         exportProgress: true,
+      };
+    case PREFILL_DIALOG_OPEN:
+      return {
+        ...state,
+        prefill: true,
       };
     case CLOSE_DIALOGS:
       return Object.keys(state).reduce((reduced, key) => ({ ...reduced, [key]: false }), {});

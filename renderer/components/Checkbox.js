@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check } from './Icons';
-import css from './Checkbox.css';
+import css from './InlineInput.css';
 
 export default ({ value, label, onChange }) => (
   <label className={ css.label }>

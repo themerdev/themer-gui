@@ -4804,6 +4804,18 @@ themer-atom-syntax@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/themer-atom-syntax/-/themer-atom-syntax-1.0.0.tgz#3481317f9a218ec05602a4116ef6c5d656ef4bf3"
 
+themer-colors-default@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/themer-colors-default/-/themer-colors-default-1.0.1.tgz#3249ddc9d75a908c63a0444657fbe4d333ad0b60"
+
+themer-colors-night-sky@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/themer-colors-night-sky/-/themer-colors-night-sky-1.0.1.tgz#0d32889ed6c14237ad8f17bd1ac1da2d07fd84ad"
+
+themer-colors-one@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/themer-colors-one/-/themer-colors-one-1.0.1.tgz#6df41c27dd20e9f91f0a910124dab0f9a0e28ccc"
+
 themer-hyper@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/themer-hyper/-/themer-hyper-2.0.0.tgz#49d4c8900ffde8ad43881efd662913793a4a5154"

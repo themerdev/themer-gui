@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ExportDialog from './ExportDialog';
 import HelpDialog from './HelpDialog';
 import ExportProgressDialog from './ExportProgressDialog';
+import PrefillDialog from './PrefillDialog';
 import { IN_PROGRESS } from '../helpers/exportProgressStates';
 import css from './Dialogs.css';
 
@@ -39,6 +40,9 @@ const Dialogs = ({ currentDialog }) => (
         ) : null }
         { currentDialog === 'exportProgress' ? (
           <ExportProgressDialog key="export-progress-dialog" />
+        ) : null }
+        { currentDialog === 'prefill' ? (
+          <PrefillDialog key="prefill-dialog" />
         ) : null }
       </div>
     ) : null }

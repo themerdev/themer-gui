@@ -38,3 +38,12 @@ export const External = () => (
     </g>
   </svg>
 );
+
+export const Radio = ({ selected }) => (
+  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fillRule="evenodd">
+      <circle stroke="currentColor" cx="8" cy="8" r="7.5"/>
+      <circle fill={ selected ? 'currentColor' : 'transparent' } cx="8" cy="8" r="4"/>
+    </g>
+  </svg>
+);

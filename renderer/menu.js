@@ -2,6 +2,7 @@ import { remote } from 'electron';
 import {
   exportDialogOpen,
   helpDialogOpen,
+  prefillDialogOpen,
 } from './actions';
 import { getOrDefault } from './helpers/color';
 const { app, Menu } = remote;
@@ -45,6 +46,11 @@ const setMenu = store => {
     {
       label: 'File',
       submenu: [
+        {
+          label: 'Prefill With Built-in Color Set...',
+          accelerator: 'CmdOrCtrl+Shift+O',
+          click () { store.dispatch(prefillDialogOpen()); },
+        },
         {
           label: getExportThemesLabel(darkCompleted, lightCompleted),
           accelerator: 'CmdOrCtrl+E',

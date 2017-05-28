@@ -12,6 +12,9 @@ export const EXPORT_PROGRESS = 'EXPORT_PROGRESS';
 export const EXPORT_ERROR = 'EXPORT_ERROR';
 export const EXPORT_COMPLETE = 'EXPORT_COMPLETE';
 export const EXPORT_RESET = 'EXPORT_RESET';
+export const PREFILL_DIALOG_OPEN = 'PREFILL_DIALOG_OPEN';
+export const PREFILL_COLOR_SET_SELECTION_CHANGE = 'PREFILL_COLOR_SET_SELECTION_CHANGE';
+export const PREFILL_WITH_COLOR_SET = 'PREFILL_WITH_COLOR_SET';
 
 // Action generators
 
@@ -70,4 +73,18 @@ export const exportComplete = (exportedPath) => ({
 
 export const exportReset = () => ({
   type: EXPORT_RESET,
+});
+
+export const prefillDialogOpen = () => ({
+  type: PREFILL_DIALOG_OPEN,
+});
+
+export const prefillColorSetSelectionChange = (selection) => ({
+  type: PREFILL_COLOR_SET_SELECTION_CHANGE,
+  selection,
+});
+
+export const prefillWithColorSet = (colorSet) => ({
+  type: PREFILL_WITH_COLOR_SET,
+  colorSet,
 });

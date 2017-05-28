@@ -3,6 +3,7 @@ import {
   helpDialogOpen,
   exportDialogOpen,
   exportProgressDialogOpen,
+  prefillDialogOpen,
   closeDialogs,
 } from '../actions';
 
@@ -18,6 +19,9 @@ describe('dialogsVisibilityReducer', () => {
   });
   it('should open the export progress dialog', () => {
     expect(dialogsVisibilityReducer(undefined, exportProgressDialogOpen())).toMatchSnapshot();
+  });
+  it('should open the prefill dialog', () => {
+    expect(dialogsVisibilityReducer(undefined, prefillDialogOpen())).toMatchSnapshot();
   });
   it('should close all dialogs', () => {
     const initialState = {

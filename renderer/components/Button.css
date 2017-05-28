@@ -25,6 +25,10 @@
     --color: gray(22%);
   }
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   &.primary {
     background-color: var(--color);
     color: white;
@@ -41,8 +45,8 @@
     padding: 0;
   }
 
-}
+  & + .button {
+    margin-left: 0;
+  }
 
-.button + .button {
-  margin-left: 0;
 }

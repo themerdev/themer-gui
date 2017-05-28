@@ -39,3 +39,12 @@ Object {
   "help": true,
 }
 `;
+
+exports[`dialogsVisibilityReducer should open the prefill dialog 1`] = `
+Object {
+  "export": false,
+  "exportProgress": false,
+  "help": false,
+  "prefill": true,
+}
+`;

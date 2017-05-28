@@ -5,6 +5,7 @@ import { focusModeReducer } from './focusmode';
 import { dialogsVisibilityReducer } from './dialogsvisibility';
 import { exportOptionsReducer } from './exportoptions';
 import { exportProgressReducer } from './exportprogress';
+import { prefillColorSetSelectionReducer } from './prefillcolorsetselection';
 
 export default combineReducers({
   colorSets: colorSetsReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   dialogsVisibility: dialogsVisibilityReducer,
   exportOptions: exportOptionsReducer,
   exportProgress: exportProgressReducer,
+  prefillColorSetSelection: prefillColorSetSelectionReducer,
 });

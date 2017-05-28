@@ -81,3 +81,44 @@ Object {
   },
 }
 `;
+
+exports[`colorSetsReducer should support setting the color set all at once 1`] = `
+Object {
+  "dark": Object {
+    "accent0": "",
+    "accent1": "",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
+    "accent5": "",
+    "accent6": "",
+    "accent7": "",
+    "shade0": "#222",
+    "shade1": "",
+    "shade2": "",
+    "shade3": "",
+    "shade4": "",
+    "shade5": "",
+    "shade6": "",
+    "shade7": "",
+  },
+  "light": Object {
+    "accent0": "",
+    "accent1": "",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
+    "accent5": "",
+    "accent6": "",
+    "accent7": "",
+    "shade0": "",
+    "shade1": "",
+    "shade2": "",
+    "shade3": "",
+    "shade4": "",
+    "shade5": "",
+    "shade6": "",
+    "shade7": "",
+  },
+}
+`;

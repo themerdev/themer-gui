@@ -10,7 +10,7 @@ import {
   setExportOption,
   exportProgressDialogOpen,
 } from '../actions';
-import css from './ExportDialog.css';
+import css from './FormDialogs.css';
 
 const ExportDialog = ({
   hyper,
@@ -29,7 +29,7 @@ const ExportDialog = ({
   onCancel,
   onExport,
 }) => (
-  <div>
+  <div className={ css.container }>
     <p>Select with themes you'd like to export:</p>
     <form>
       <fieldset>
@@ -100,7 +100,7 @@ const ExportDialog = ({
       noSpace
       onClick={ () => shell.openExternal('https://github.com/mjswensen/themer/issues/new') }
     >
-      Request other templates
+      Request other theme templates
       <External />
     </Button>
     <div className={ css.footer }>
