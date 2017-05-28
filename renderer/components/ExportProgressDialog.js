@@ -29,7 +29,7 @@ const ExportProgressDialog = ({
     ) : null }
     { state === COMPLETE_SUCCESS ? (
       <div className={ css.buttonContainer }>
-        <Button onClick={ closeAndReset }>Close</Button>
+        <Button onClick={ closeAndReset }>Done</Button>
         <Button primary onClick={ () => shell.showItemInFolder(exportedPath) }>Show exported files</Button>
       </div>
     ) : null }
