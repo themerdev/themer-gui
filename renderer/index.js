@@ -10,7 +10,6 @@ import {
   EXPORT_ERROR,
   EXPORT_COMPLETE,
   SAVE_COMPLETE,
-  SAVE_ERRORED,
 } from '../common/ipcevents';
 import {
   closeDialogs,
@@ -48,8 +47,6 @@ ipcRenderer.on(EXPORT_COMPLETE, (event, exportedPath) => {
 ipcRenderer.on(SAVE_COMPLETE, (event, filePath) => {
   store.dispatch(saveComplete(filePath));
 });
-
-// TODO: save error
 
 // Menu
 

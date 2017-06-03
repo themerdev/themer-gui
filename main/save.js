@@ -6,7 +6,6 @@ const {
   SAVE_REQUEST,
   SAVE_AS_REQUEST,
   SAVE_COMPLETE,
-  SAVE_ERRORED,
 } = require('../common/ipcevents.js');
 
 const defaultBasename = 'Untitled';
@@ -45,19 +44,23 @@ const openFile = filePath => new Promise((resolve, reject) => {
   reject('TODO not yet implemented');
 });
 
+const showErrorDialog = message => {
+  dialog.showErrorBox('Save Error', message);
+}
+
 exports.bootstrap = (browserWindow) => {
 
   ipcMain.on(SAVE_REQUEST, (event, filePath, data) => {
     writeFile(filePath, JSON.stringify(data))
       .then(pathWritten => event.sender.send(SAVE_COMPLETE, pathWritten))
-      .catch(e => e && event.sender.send(SAVE_ERROR, e));
+      .catch(e => e.message && showErrorDialog(e.message));
   });
 
   ipcMain.on(SAVE_AS_REQUEST, (event, data) => {
     promptForFilePath(browserWindow)
       .then(filePath => writeFile(filePath, JSON.stringify(data)))
       .then(pathWritten => event.sender.send(SAVE_COMPLETE, pathWritten))
-      .catch(e => e && event.sender.send(SAVE_ERROR, e));
+      .catch(e => e.message && showErrorDialog(e.message));
   });
 
 };
