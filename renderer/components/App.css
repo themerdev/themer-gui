@@ -1,3 +1,17 @@
+.titleBar {
+  position: absolute;
+  top: 0;
+  right: 0; /* TODO: figure out a way to not block the collapse button. */
+  left: 0;
+  height: 38px;
+  -webkit-app-region: drag;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray(10%); /* TODO: when in fullscreen mode, get the best foreground color. */
+}
+
 .mainUiLayer {
   position: fixed;
   top: 0;
@@ -15,16 +29,6 @@
     filter: blur(5px);
     transition: filter 400ms ease;
   }
-}
-
-.gui::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 38px;
-  -webkit-app-region: drag;
 }
 
 .colorSetContainer {

@@ -45,3 +45,4 @@ app.on('activate', function () {
 });
 
 require('./export.js').bootstrap(mainWindow);
+require('./save.js').bootstrap(mainWindow);

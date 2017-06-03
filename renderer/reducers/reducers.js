@@ -6,6 +6,7 @@ import { dialogsVisibilityReducer } from './dialogsvisibility';
 import { exportOptionsReducer } from './exportoptions';
 import { exportProgressReducer } from './exportprogress';
 import { prefillColorSetSelectionReducer } from './prefillcolorsetselection';
+import { filePathReducer } from './filepath';
 
 export default combineReducers({
   colorSets: colorSetsReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
   exportOptions: exportOptionsReducer,
   exportProgress: exportProgressReducer,
   prefillColorSetSelection: prefillColorSetSelectionReducer,
+  filePath: filePathReducer,
 });

@@ -15,6 +15,7 @@ export const EXPORT_RESET = 'EXPORT_RESET';
 export const PREFILL_DIALOG_OPEN = 'PREFILL_DIALOG_OPEN';
 export const PREFILL_COLOR_SET_SELECTION_CHANGE = 'PREFILL_COLOR_SET_SELECTION_CHANGE';
 export const PREFILL_WITH_COLOR_SET = 'PREFILL_WITH_COLOR_SET';
+export const SAVE_COMPLETE = 'SAVE_COMPLETE';
 
 // Action generators
 
@@ -87,4 +88,9 @@ export const prefillColorSetSelectionChange = (selection) => ({
 export const prefillWithColorSet = (colorSet) => ({
   type: PREFILL_WITH_COLOR_SET,
   colorSet,
+});
+
+export const saveComplete = (filePath) => ({
+  type: SAVE_COMPLETE,
+  filePath,
 });
