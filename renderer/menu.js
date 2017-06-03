@@ -70,7 +70,12 @@ const setMenu = store => {
           accelerator: 'CmdOrCtrl+S',
           click () {
             const { filePath, ...data } = state;
-            ipcRenderer.send(SAVE_REQUEST, filePath, data);
+            if (!!filePath) {
+              ipcRenderer.send(SAVE_REQUEST, filePath, data);
+            }
+            else {
+              ipcRenderer.send(SAVE_AS_REQUEST, data);
+            }
           }
         },
         {

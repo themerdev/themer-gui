@@ -21,7 +21,7 @@ const App = ({ dialogOpen, title }) => (
 
 const mapStateToProps = state => ({
   dialogOpen: Object.values(state.dialogsVisibility).some(v => v),
-  title: !!state.filePath ? path.basename(state.filePath, '.themer') : 'New Theme', // TODO: get ext from package.json
+  title: !!state.filePath ? path.basename(state.filePath, '.themer') : 'New Theme',
 });
 
 export default connect(

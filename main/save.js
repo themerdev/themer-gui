@@ -10,10 +10,10 @@ const {
 } = require('../common/ipcevents.js');
 
 const defaultBasename = 'Untitled';
-const ext = 'themer'; // TODO: get from package.json
+const ext = 'themer';
 const defaultFilename = `${defaultBasename}.${ext}`;
 
-const isModified = (filePath, contents) => new Promise((resolve, reject) => {
+const isModified = (filePath, contents) => new Promise((resolve, reject) => { // TODO: this may need to move into the main process. Where the logic maybe should be.
   fs.readFile(filePath, 'utf8', (err, writtenData) => {
     if (err) { reject(err); }
     else {
@@ -48,24 +48,14 @@ const openFile = filePath => new Promise((resolve, reject) => {
 exports.bootstrap = (browserWindow) => {
 
   ipcMain.on(SAVE_REQUEST, (event, filePath, data) => {
-    const contents = JSON.stringify(data);
-    if (filePath) {
-      writeFile(filePath, contents)
-        .then(pathWritten => event.sender.send(SAVE_COMPLETE, pathWritten))
-        .catch(e => e && event.sender.send(SAVE_ERROR, e));
-    }
-    else {
-      promptForFilePath(browserWindow)
-        .then(filePath => writeFile(filePath, contents))
-        .then(pathWritten => event.sender.send(SAVE_COMPLETE, pathWritten))
-        .catch(e => e && event.sender.send(SAVE_ERROR, e));
-    }
+    writeFile(filePath, JSON.stringify(data))
+      .then(pathWritten => event.sender.send(SAVE_COMPLETE, pathWritten))
+      .catch(e => e && event.sender.send(SAVE_ERROR, e));
   });
 
   ipcMain.on(SAVE_AS_REQUEST, (event, data) => {
-    const contents = JSON.stringify(data);
     promptForFilePath(browserWindow)
-      .then(filePath => writeFile(filePath, contents))
+      .then(filePath => writeFile(filePath, JSON.stringify(data)))
       .then(pathWritten => event.sender.send(SAVE_COMPLETE, pathWritten))
       .catch(e => e && event.sender.send(SAVE_ERROR, e));
   });
