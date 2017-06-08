@@ -1,16 +1,22 @@
-import { ipcRenderer, remote } from 'electron';
+import { dialog, ipcRenderer, remote } from 'electron';
+import fs from 'fs';
 import {
   exportDialogOpen,
   helpDialogOpen,
   prefillDialogOpen,
+  saveComplete,
+  openComplete,
 } from './actions';
-import {
-  EXPORT_COLORS_REQUEST,
-  SAVE_REQUEST,
-  SAVE_AS_REQUEST,
-  SAVE_COMPLETE,
-} from '../common/ipcevents';
+import { EXPORT_COLORS_REQUEST } from '../common/ipcevents';
 import { getOrDefault } from './helpers/color';
+import {
+  isModified,
+  save,
+  saveAs,
+  open,
+  promptForIntentToSave,
+  showErrorIfError,
+} from './helpers/filesystem';
 const { app, Menu } = remote;
 
 const areAllParseable = inputtedColors => inputtedColors.every(inputtedColor => !!getOrDefault(inputtedColor));
@@ -46,6 +52,10 @@ const setMenu = store => {
   const lightCompleted = areAllParseable(Object.values(state.colorSets.light));
   const isDialogOpen = Object.values(state.dialogsVisibility).some(v => v);
   const hasFilePath = !!state.filePath;
+  const hasColorValues = [
+    ...Object.values(state.colorSets.dark),
+    ...Object.values(state.colorSets.light),
+  ].some(Boolean);
 
   const template = [
     process.platform === 'darwin' ? {
@@ -71,22 +81,75 @@ const setMenu = store => {
           click () {
             const { filePath, ...data } = state;
             if (!!filePath) {
-              ipcRenderer.send(SAVE_REQUEST, filePath, data);
+              save(filePath, data).then(pathWritten => store.dispatch(saveComplete(pathWritten)));
             }
             else {
-              ipcRenderer.send(SAVE_AS_REQUEST, data);
+              saveAs(data).then(pathWritten => store.dispatch(saveComplete(pathWritten)));
             }
-          }
+          },
         },
         {
           label: 'Save As...',
           accelerator: 'CmdOrCtrl+Shift+S',
           click () {
             const { filePath, ...data } = state;
-            ipcRenderer.send(SAVE_AS_REQUEST, data);
-          }
+            saveAs(data).then(pathWritten => store.dispatch(saveComplete(pathWritten)));
+          },
         },
-        // TODO: add open here.
+        {
+          label: 'Open...',
+          accelerator: 'CmdOrCtrl+O',
+          click() {
+            const { filePath, ...data } = state;
+            if (hasFilePath) {
+              isModified(filePath, data)
+                .then(modified => {
+                  if (modified) {
+                    // There was a file path, and were modifications; prompting for save.
+                    promptForIntentToSave()
+                      .then(wouldLikeToSave => {
+                        if (wouldLikeToSave) {
+                          return save(filePath, data)
+                            .then(pathWritten => store.dispatch(saveComplete(pathWritten)));
+                        }
+                        else { return Promise.resolve(); }
+                      })
+                      .then(open)
+                      .then(fileData => store.dispatch(openComplete(fileData)))
+                      .catch(showErrorIfError);
+                  }
+                  else {
+                    // There was a file path, but no modifications; opening.
+                    open()
+                      .then(fileData => store.dispatch(openComplete(fileData)))
+                      .catch(showErrorIfError);
+                  }
+                });
+            }
+            else {
+              if (hasColorValues) {
+                // No file path, but has color values; prompting for save as.
+                promptForIntentToSave()
+                  .then(wouldLikeToSave => {
+                    if (wouldLikeToSave) {
+                      return saveAs(data)
+                        .then(pathWritten => store.dispatch(saveComplete(pathWritten)));
+                    }
+                    else { return Promise.resolve(); }
+                  })
+                  .then(open)
+                  .then(fileData => store.dispatch(openComplete(fileData)))
+                  .catch(showErrorIfError);
+              }
+              else {
+                // No file path, but no values; opening.
+                open()
+                  .then(fileData => store.dispatch(openComplete(fileData)))
+                  .catch(showErrorIfError);
+              }
+            }
+          },
+        },
         {
           label: 'Prefill With Built-in Color Set...',
           accelerator: 'CmdOrCtrl+Shift+O',

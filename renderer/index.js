@@ -10,6 +10,7 @@ import {
   EXPORT_ERROR,
   EXPORT_COMPLETE,
   SAVE_COMPLETE,
+  OPEN_COMPLETE,
 } from '../common/ipcevents';
 import {
   closeDialogs,
@@ -17,7 +18,6 @@ import {
   exportProgress,
   exportError,
   exportComplete,
-  saveComplete,
 } from './actions';
 import { ipcRenderer } from 'electron';
 import connectMenu from './menu';
@@ -42,10 +42,6 @@ ipcRenderer.on(EXPORT_ERROR, (event, message) => {
 
 ipcRenderer.on(EXPORT_COMPLETE, (event, exportedPath) => {
   store.dispatch(exportComplete(exportedPath));
-});
-
-ipcRenderer.on(SAVE_COMPLETE, (event, filePath) => {
-  store.dispatch(saveComplete(filePath));
 });
 
 // Menu

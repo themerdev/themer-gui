@@ -8,7 +8,9 @@ import { exportProgressReducer } from './exportprogress';
 import { prefillColorSetSelectionReducer } from './prefillcolorsetselection';
 import { filePathReducer } from './filepath';
 
-export default combineReducers({
+import { OPEN_COMPLETE } from '../actions';
+
+const reducers = combineReducers({
   colorSets: colorSetsReducer,
   focusMode: focusModeReducer,
   dialogsVisibility: dialogsVisibilityReducer,
@@ -17,3 +19,15 @@ export default combineReducers({
   prefillColorSetSelection: prefillColorSetSelectionReducer,
   filePath: filePathReducer,
 });
+
+export default (state = {}, action) => {
+  switch (action.type) {
+    case OPEN_COMPLETE:
+      return {
+        filePath: action.fileData.filePath,
+        ...action.fileData.contents,
+      };
+    default:
+      return reducers(state, action);
+  }
+}

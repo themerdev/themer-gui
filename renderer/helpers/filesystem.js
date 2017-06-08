@@ -1,0 +1,114 @@
+import { remote } from 'electron';
+import path from 'path';
+import fs from 'fs';
+import _ from 'lodash';
+const { app, dialog } = remote;
+
+const defaultBasename = 'Untitled';
+const ext = 'themer';
+const defaultFilename = `${defaultBasename}.${ext}`;
+
+const promptForWriteFilePath = browserWindow => new Promise((resolve, reject) => {
+  dialog.showSaveDialog(
+    browserWindow,
+    { defaultPath: path.join(app.getPath('home'), defaultFilename) },
+    userSavePath => {
+      if (userSavePath) { resolve(userSavePath); }
+      else { reject(); }
+    }
+  );
+});
+
+const writeFile = (filePath, data) => new Promise((resolve, reject) => {
+  fs.writeFile(filePath, JSON.stringify(data), err => {
+    if (err) { reject(err); }
+    else { resolve(filePath); }
+  });
+});
+
+const promptForReadFilePath = browserWindow => new Promise((resolve, reject) => {
+  dialog.showOpenDialog(
+    browserWindow,
+    {
+      filters: [{ name: 'Themer Theme', extensions: [ext] }],
+      properties: ['openFile'],
+    },
+    userOpenFilePaths => {
+      if (userOpenFilePaths) {
+        resolve(userOpenFilePaths[0]);
+      }
+      else { reject(); }
+    }
+  );
+});
+
+const readFile = filePath => new Promise((resolve, reject) => {
+  fs.readFile(filePath, 'utf8', (err, json) => {
+    if (err) { reject(err); }
+    else {
+      resolve({
+        filePath,
+        contents: JSON.parse(json)
+      });
+    }
+  });
+});
+
+const showErrorDialog = message => {
+  dialog.showErrorBox('Save Error', message);
+}
+
+////////////////
+// Public API //
+////////////////
+
+export const promptForIntentToSave = () => new Promise((resolve, reject) => {
+  dialog.showMessageBox(
+    remote.getCurrentWindow(),
+    {
+      type: 'question',
+      message: 'Would you like to save your current changes?',
+      buttons: ['Cancel', 'Save', 'Don\'t Save'],
+    },
+    responseIdx => {
+      switch (responseIdx) {
+        case 0:
+          reject();
+          break;
+        case 1:
+          resolve(true);
+          break;
+        case 2:
+          resolve(false);
+          break;
+      }
+    },
+  );
+});
+
+export const isModified = (filePath, data) => new Promise((resolve, reject) => {
+  fs.readFile(filePath, 'utf8', (err, writtenData) => {
+    if (err) { reject(err); }
+    else {
+      try { resolve(!_.isEqual(JSON.parse(writtenData), data)); }
+      catch(e) { reject(e); }
+    }
+  });
+});
+
+export const save = (filePath, data) =>
+  writeFile(filePath, data);
+
+export const saveAs = (data) =>
+  promptForWriteFilePath(remote.getCurrentWindow())
+    .then(filePath => writeFile(filePath, data));
+
+export const open = () =>
+  promptForReadFilePath(remote.getCurrentWindow())
+    .then(readFile);
+
+export const showErrorIfError = error => {
+  if (error && error.message) {
+    showErrorDialog(error.message);
+  }
+}
