@@ -76,7 +76,7 @@ const setMenu = store => {
       label: 'File',
       submenu: [
         {
-          label: `Save${hasFilePath ? '...' : ''}`,
+          label: `Save${!hasFilePath ? '...' : ''}`,
           accelerator: 'CmdOrCtrl+S',
           click () {
             const { filePath, ...data } = state;
