@@ -1,7 +1,7 @@
 .titleBar {
   position: absolute;
   top: 0;
-  right: 0; /* TODO: figure out a way to not block the collapse button. */
+  right: 0;
   left: 0;
   height: 38px;
   -webkit-app-region: drag;
@@ -9,7 +9,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: gray(10%); /* TODO: when in fullscreen mode, get the best foreground color. */
+  color: gray(10%);
+  &.focusMode {
+    right: 2.37037037em;
+    opacity: 0;
+  }
 }
 
 .mainUiLayer {

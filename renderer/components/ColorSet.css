@@ -59,6 +59,7 @@
 
 }
 
-.colorSetWrapper:hover .focusModeToggle {
+.colorSetWrapper:hover .focusModeToggle,
+.focusModeToggle.isFocused {
   opacity: 1;
 }

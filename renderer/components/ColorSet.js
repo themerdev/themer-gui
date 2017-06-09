@@ -48,7 +48,7 @@ const ColorSet = ({
         }) }
       </div>
       <button
-        className={ css.focusModeToggle }
+        className={ classnames(css.focusModeToggle, { [css.isFocused]: isFocusMode }) }
         style={{ color: foreground }}
         onClick={ onFocusModeToggle }
       >
