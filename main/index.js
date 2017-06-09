@@ -7,9 +7,10 @@ let mainWindow;
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 1400,
-    minWidth: 550,
-    height: 1000,
+    width: 1218,
+    minWidth: 1126,
+    height: 732,
+    minHeight: 540,
     title: 'Themer',
     titleBarStyle: 'hidden-inset',
     webPreferences: {
