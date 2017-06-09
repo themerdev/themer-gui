@@ -7,8 +7,8 @@ module.exports = {
   entry: './renderer/index',
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'bundles'),
+    filename: 'bundle-renderer.js',
   },
 
   devtool: 'source-map',

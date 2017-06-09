@@ -19,7 +19,7 @@ function createWindow () {
   });
 
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '..', 'dist', 'index.html'),
+    pathname: path.join(__dirname, '..', 'bundles', 'index.html'),
     protocol: 'file:',
     slashes: true
   }));
