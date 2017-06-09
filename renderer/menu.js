@@ -6,6 +6,7 @@ import {
   prefillDialogOpen,
   saveComplete,
   openComplete,
+  resetState,
 } from './actions';
 import { EXPORT_COLORS_REQUEST } from '../common/ipcevents';
 import { getOrDefault } from './helpers/color';
@@ -75,6 +76,54 @@ const setMenu = store => {
     {
       label: 'File',
       submenu: [
+        {
+          label: 'New',
+          accelerator: 'CmdOrCtrl+N',
+          click () {
+            const { filePath, ...data } = state;
+            if (hasFilePath) {
+              isModified(filePath, data)
+                .then(modified => {
+                  if (modified) {
+                    // There was a file path, and were modifications; prompting for save.
+                    promptForIntentToSave()
+                      .then(wouldLikeToSave => {
+                        if (wouldLikeToSave) {
+                          return save(filePath, data)
+                            .then(pathWritten => store.dispatch(saveComplete(pathWritten)));
+                        }
+                        else { return Promise.resolve(); }
+                      })
+                      .then(() => store.dispatch(resetState()))
+                      .catch(showErrorIfError);
+                  }
+                  else {
+                    // There was a file path, but no modifications; resetting state.
+                    store.dispatch(resetState());
+                  }
+                });
+            }
+            else {
+              if (hasColorValues) {
+                // No file path, but has color values; prompting for save as.
+                promptForIntentToSave()
+                  .then(wouldLikeToSave => {
+                    if (wouldLikeToSave) {
+                      return saveAs(data)
+                        .then(pathWritten => store.dispatch(saveComplete(pathWritten)));
+                    }
+                    else { return Promise.resolve(); }
+                  })
+                  .then(() => store.dispatch(resetState()))
+                  .catch(showErrorIfError);
+              }
+              else {
+                // No file path, but no values; resetting state.
+                store.dispatch(resetState());
+              }
+            }
+          },
+        },
         {
           label: `Save${!hasFilePath ? '...' : ''}`,
           accelerator: 'CmdOrCtrl+S',

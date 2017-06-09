@@ -8,7 +8,7 @@ import { exportProgressReducer } from './exportprogress';
 import { prefillColorSetSelectionReducer } from './prefillcolorsetselection';
 import { filePathReducer } from './filepath';
 
-import { OPEN_COMPLETE } from '../actions';
+import { OPEN_COMPLETE, RESET_STATE  } from '../actions';
 
 const reducers = combineReducers({
   colorSets: colorSetsReducer,
@@ -27,6 +27,8 @@ export default (state = {}, action) => {
         filePath: action.fileData.filePath,
         ...action.fileData.contents,
       };
+    case RESET_STATE:
+      return reducers({}, action);
     default:
       return reducers(state, action);
   }
