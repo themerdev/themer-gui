@@ -77,12 +77,12 @@ const ExportDialog = ({
         <legend>Wallpaper</legend>
         <Checkbox
           value={ wallpaperBlockWave }
-          label="Block Wave"
+          label="“Block Wave”"
           onChange={ val => setOption('wallpaperBlockWave', val) }
         />
         <Checkbox
           value={ wallpaperOctagon }
-          label="Octagon"
+          label="“Octagon”"
           onChange={ val => setOption('wallpaperOctagon', val) }
         />
       </fieldset>
