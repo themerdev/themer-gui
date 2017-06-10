@@ -1,4 +1,4 @@
-const { app, dialog, ipcMain } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain } = require('electron');
 const {
   EXPORT_THEMES_REQUEST,
   EXPORT_PROGRESS,
@@ -40,7 +40,7 @@ const renderColorSetColor = ([ colorKey, color ]) => {
   return `${colorKey}: '${formatted}', ${formatted.toLowerCase() !== color.toLowerCase() ? `// ${color}` : ''}`;
 };
 
-exports.bootstrap = (browserWindow) => {
+exports.bootstrap = () => {
 
   // Export themes
 
@@ -76,7 +76,7 @@ exports.bootstrap = (browserWindow) => {
     const tmpOutputColorsPath = path.join(tmpOutputDirPath, 'colors.js');
 
     dialog.showSaveDialog(
-      browserWindow,
+      BrowserWindow.fromWebContents(event.sender),
       {
         title: 'Choose export location',
         defaultPath: path.join(app.getPath('home'), tmpOutputDirName),
@@ -109,7 +109,7 @@ exports.bootstrap = (browserWindow) => {
   ipcMain.on(EXPORT_COLORS_REQUEST, (event, colorSets) => {
     const colorsFileContents = renderColorSets(colorSets);
     dialog.showSaveDialog(
-      browserWindow,
+      BrowserWindow.fromWebContents(event.sender),
       {
         title: 'Choose export location',
         defaultPath: path.join(app.getPath('home'), 'colors.js'),

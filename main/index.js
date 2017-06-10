@@ -43,4 +43,4 @@ app.on('activate', function () {
   }
 });
 
-require('./export.js').bootstrap(mainWindow);
+require('./export.js').bootstrap();
