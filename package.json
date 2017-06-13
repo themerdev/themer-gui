@@ -5,6 +5,7 @@
   "description": "A graphical UI for themer.",
   "main": "main/index.js",
   "author": "mjswensen",
+  "repository": "git@github.com:mjswensen/themer-gui.git",
   "license": "MIT",
   "build": {
     "appId": "com.mjswensen.themer",
@@ -14,6 +15,7 @@
       "name": "Themer",
       "description": "Themer theme"
     },
+    "asar": false,
     "mac": {
       "category": "public.app-category.developer-tools",
       "publish": "github"
