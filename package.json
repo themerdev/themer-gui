@@ -11,7 +11,7 @@
     "appId": "com.mjswensen.themer",
     "productName": "Themer",
     "fileAssociations": {
-      "ext": "themer",
+      "ext": "thmr",
       "name": "Themer",
       "description": "Themer theme"
     },

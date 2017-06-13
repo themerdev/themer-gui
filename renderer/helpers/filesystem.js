@@ -5,7 +5,7 @@ import _ from 'lodash';
 const { app, dialog } = remote;
 
 const defaultBasename = 'Untitled';
-const ext = 'themer';
+const ext = 'thmr';
 const defaultFilename = `${defaultBasename}.${ext}`;
 
 const promptForWriteFilePath = browserWindow => new Promise((resolve, reject) => {

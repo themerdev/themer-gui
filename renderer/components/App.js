@@ -21,7 +21,7 @@ const App = ({ isDialogOpen, title, isFocusMode }) => (
 
 const mapStateToProps = state => ({
   isDialogOpen: Object.values(state.dialogsVisibility).some(v => v),
-  title: !!state.filePath ? path.basename(state.filePath, '.themer') : 'New Theme',
+  title: !!state.filePath ? path.basename(state.filePath, '.thmr') : 'New Theme',
   isFocusMode: Object.values(state.focusMode).some(v => v),
 });
 
