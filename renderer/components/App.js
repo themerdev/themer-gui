@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import ColorSet from './ColorSet';
 import Dialogs from './Dialogs';
+import UpdateNotifier from './UpdateNotifier';
 import css from './App.css';
 
 const App = ({ isDialogOpen, title, isFocusMode }) => (
@@ -14,6 +15,7 @@ const App = ({ isDialogOpen, title, isFocusMode }) => (
         <ColorSet />
         <ColorSet light={ true } />
       </div>
+      <UpdateNotifier />
     </div>
     <Dialogs />
   </section>

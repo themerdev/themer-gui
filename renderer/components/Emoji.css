@@ -3,4 +3,8 @@
   font-size: 1.333333333em;
   vertical-align: middle;
   margin-left: .421875rem;
+  &.right {
+    margin-left: 0;
+    margin-right: .421875rem;
+  }
 }

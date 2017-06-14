@@ -44,3 +44,4 @@ app.on('activate', function () {
 });
 
 require('./export.js').bootstrap();
+require('./update.js').bootstrap();

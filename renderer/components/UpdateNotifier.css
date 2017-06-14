@@ -1,0 +1,37 @@
+.updateNotifier {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding: 0.75em;
+  background-color: #97BD2D;
+  color: #FFFCFF;
+  cursor: default;
+}
+
+.updateNotifierAppear,
+.updateNotifierEnter {
+  opacity: 0;
+  transform-origin: center center;
+  transform: scale(1.05);
+  filter: blur(3px);
+  &&Active {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: opacity 400ms ease, transform 400ms ease, filter 400ms ease;
+  }
+}
+.updateNotifierLeave {
+  opacity: 1;
+  transform-origin: center center;
+  transform: none;
+  filter: none;
+  &&Active {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(3px);
+    transition: opacity 200ms ease, transform 200ms ease, filter 200ms ease;
+  }
+}

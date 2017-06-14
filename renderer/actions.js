@@ -18,6 +18,7 @@ export const PREFILL_WITH_COLOR_SET = 'PREFILL_WITH_COLOR_SET';
 export const SAVE_COMPLETE = 'SAVE_COMPLETE';
 export const OPEN_COMPLETE = 'OPEN_COMPLETE';
 export const RESET_STATE = 'RESET_STATE';
+export const UPDATE_READY = 'UPDATE_READY';
 
 // Action generators
 
@@ -104,4 +105,8 @@ export const openComplete = (fileData) => ({
 
 export const resetState = () => ({
   type: RESET_STATE,
+});
+
+export const updateReady = () => ({
+  type: UPDATE_READY,
 });

@@ -21,6 +21,7 @@ import {
 } from './actions';
 import { ipcRenderer } from 'electron';
 import connectMenu from './menu';
+import connectUpdater from './updater';
 import './index.css';
 
 const store = createStore(application);
@@ -47,6 +48,10 @@ ipcRenderer.on(EXPORT_COMPLETE, (event, exportedPath) => {
 // Menu
 
 connectMenu(store);
+
+// Auto-uodate
+
+connectUpdater(store);
 
 // Bootstrap main application
 
