@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from './Button';
 import Radio from './Radio';
+import Emoji from './Emoji';
 import {
   closeDialogs,
   prefillColorSetSelectionChange,
@@ -14,7 +15,10 @@ import css from './FormDialogs.css';
 
 const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSelect, onPrefillWithColorSet }) => (
   <div className={ css.container }>
-    <p><strong>Warning:</strong> prefilling with a built-in color set will overwrite any existing colors.</p>
+    <p>
+      <Emoji emoji="⚠️" right />
+      <strong>Warning:</strong> prefilling with a built-in color set will overwrite any existing colors.
+    </p>
     <form>
       <fieldset>
         <legend>Built-in Color Sets</legend>
