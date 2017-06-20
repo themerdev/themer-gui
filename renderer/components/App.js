@@ -9,7 +9,12 @@ import css from './App.css';
 
 const App = ({ isDialogOpen, title, isFocusMode }) => (
   <section className={ css.gui }>
-    <div className={ classnames(css.titleBar, { [css.focusMode]: isFocusMode }) }>{ title }</div>
+    <div className={ classnames(
+      css.titleBar, {
+        [css.focusMode]: isFocusMode,
+        [css.hidden]: isDialogOpen,
+      }
+    ) }>{ title }</div>
     <div className={ classnames(css.mainUiLayer, { [css.obscured]: isDialogOpen }) }>
       <div className={ css.colorSetContainer }>
         <ColorSet />

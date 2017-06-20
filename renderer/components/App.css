@@ -10,9 +10,15 @@
   justify-content: center;
   align-items: center;
   color: gray(10%);
+  transition: opacity 200ms ease;
   &.focusMode {
     right: 2.37037037em;
     opacity: 0;
+    transition: none;
+  }
+  &.hidden {
+    opacity: 0;
+    transition: opacity 400ms ease;
   }
 }
 
