@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
 import ExportDialog from './ExportDialog';
-import HelpDialog from './HelpDialog';
 import ExportProgressDialog from './ExportProgressDialog';
 import PrefillDialog from './PrefillDialog';
+import TipsDialog from './TipsDialog';
 import { IN_PROGRESS } from '../helpers/exportProgressStates';
 import css from './Dialogs.css';
 
@@ -33,7 +33,7 @@ const Dialogs = ({ currentDialog }) => (
         className={ css.overlay }
       >
         { currentDialog === 'help' ? (
-          <HelpDialog key="help-dialog" />
+          <TipsDialog key="tips-dialog" />
         ) : null }
         { currentDialog === 'export' ? (
           <ExportDialog key="export-dialog" />

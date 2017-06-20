@@ -38,7 +38,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.ttf$/,
+        test: /\.(ttf|mp4)$/,
         include: [
           path.resolve(__dirname, 'renderer', 'assets'),
         ],

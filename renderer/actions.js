@@ -19,6 +19,8 @@ export const SAVE_COMPLETE = 'SAVE_COMPLETE';
 export const OPEN_COMPLETE = 'OPEN_COMPLETE';
 export const RESET_STATE = 'RESET_STATE';
 export const UPDATE_READY = 'UPDATE_READY';
+export const NEXT_TIP = 'NEXT_TIP';
+export const PREVIOUS_TIP = 'PREVIOUS_TIP';
 
 // Action generators
 
@@ -109,4 +111,12 @@ export const resetState = () => ({
 
 export const updateReady = () => ({
   type: UPDATE_READY,
+});
+
+export const nextTip = () => ({
+  type: NEXT_TIP,
+});
+
+export const previousTip = () => ({
+  type: PREVIOUS_TIP,
 });

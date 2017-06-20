@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tipsReducer should initialize at the first tip 1`] = `
+Object {
+  "currentTipIndex": 0,
+}
+`;
+
+exports[`tipsReducer should proceed back and forth through tips 1`] = `
+Object {
+  "currentTipIndex": 1,
+}
+`;
+
+exports[`tipsReducer should proceed back and forth through tips 2`] = `
+Object {
+  "currentTipIndex": 0,
+}
+`;

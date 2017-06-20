@@ -8,6 +8,7 @@ import { exportProgressReducer } from './exportprogress';
 import { prefillColorSetSelectionReducer } from './prefillcolorsetselection';
 import { filePathReducer } from './filepath';
 import { updateReducer } from './update';
+import { tipsReducer } from './tips';
 
 import { OPEN_COMPLETE, RESET_STATE  } from '../actions';
 
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   prefillColorSetSelection: prefillColorSetSelectionReducer,
   filePath: filePathReducer,
   update: updateReducer,
+  tips: tipsReducer,
 });
 
 export default (state = {}, action) => {
