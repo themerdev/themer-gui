@@ -1,6 +1,6 @@
 import { dialogsVisibilityReducer } from './dialogsvisibility';
 import {
-  helpDialogOpen,
+  tipsDialogOpen,
   exportDialogOpen,
   exportProgressDialogOpen,
   prefillDialogOpen,
@@ -11,8 +11,8 @@ describe('dialogsVisibilityReducer', () => {
   it('should initialize to all dialogs closed', () => {
     expect(dialogsVisibilityReducer(undefined, {})).toMatchSnapshot();
   });
-  it('should open the help dialog', () => {
-    expect(dialogsVisibilityReducer(undefined, helpDialogOpen())).toMatchSnapshot();
+  it('should open the tips dialog', () => {
+    expect(dialogsVisibilityReducer(undefined, tipsDialogOpen())).toMatchSnapshot();
   });
   it('should open the export dialog', () => {
     expect(dialogsVisibilityReducer(undefined, exportDialogOpen())).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('dialogsVisibilityReducer', () => {
   it('should close all dialogs', () => {
     const initialState = {
       export: true,
-      help: false,
+      tips: false,
       exportProgress: true,
     };
     expect(dialogsVisibilityReducer(initialState, closeDialogs())).toMatchSnapshot();

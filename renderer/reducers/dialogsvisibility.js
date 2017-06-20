@@ -1,5 +1,5 @@
 import {
-  HELP_DIALOG_OPEN,
+  TIPS_DIALOG_OPEN,
   EXPORT_DIALOG_OPEN,
   EXPORT_PROGRESS_DIALOG_OPEN,
   CLOSE_DIALOGS,
@@ -8,7 +8,7 @@ import {
 
 const defaultDialogsVisibility = {
   export: false,
-  help: false,
+  tips: false,
   exportProgress: false,
 };
 
@@ -19,10 +19,10 @@ export const dialogsVisibilityReducer = (state = defaultDialogsVisibility, actio
         ...state,
         export: true,
       };
-    case HELP_DIALOG_OPEN:
+    case TIPS_DIALOG_OPEN:
       return {
         ...state,
-        help: true,
+        tips: true,
       };
     case EXPORT_PROGRESS_DIALOG_OPEN:
       return {

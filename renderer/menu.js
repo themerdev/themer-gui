@@ -2,7 +2,7 @@ import { dialog, ipcRenderer, remote } from 'electron';
 import fs from 'fs';
 import {
   exportDialogOpen,
-  helpDialogOpen,
+  tipsDialogOpen,
   prefillDialogOpen,
   saveComplete,
   openComplete,
@@ -253,9 +253,9 @@ const setMenu = store => {
       role: 'help',
       submenu: [
         {
-          label: 'Show Help...',
+          label: 'Show Tips...',
           enabled: !isDialogOpen,
-          click () { store.dispatch(helpDialogOpen()); },
+          click () { store.dispatch(tipsDialogOpen()); },
         },
       ],
     },

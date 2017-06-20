@@ -32,7 +32,7 @@ const Dialogs = ({ currentDialog }) => (
         key="overlay"
         className={ css.overlay }
       >
-        { currentDialog === 'help' ? (
+        { currentDialog === 'tips' ? (
           <TipsDialog key="tips-dialog" />
         ) : null }
         { currentDialog === 'export' ? (
