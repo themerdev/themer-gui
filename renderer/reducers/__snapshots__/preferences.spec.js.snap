@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`preferencesReducer should toggle showing tips on startup appropriately 1`] = `
+Object {
+  "showTipsOnStartup": false,
+}
+`;
+
+exports[`preferencesReducer should toggle showing tips on startup appropriately 2`] = `
+Object {
+  "showTipsOnStartup": true,
+}
+`;

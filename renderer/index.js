@@ -18,13 +18,16 @@ import {
   exportProgress,
   exportError,
   exportComplete,
+  tipsDialogOpen,
 } from './actions';
+import { connectPreferences, getPreference, readPreferences } from './preferences';
+import { defaultPreferences } from './reducers/preferences';
 import { ipcRenderer } from 'electron';
 import connectMenu from './menu';
 import connectUpdater from './updater';
 import './index.css';
 
-const store = createStore(application);
+const store = createStore(application, { preferences: { ...defaultPreferences, ...readPreferences() } });
 
 // Main events
 
@@ -52,6 +55,13 @@ connectMenu(store);
 // Auto-uodate
 
 connectUpdater(store);
+
+// Preferences
+
+connectPreferences(store);
+if (getPreference('showTipsOnStartup')) {
+  store.dispatch(tipsDialogOpen());
+}
 
 // Bootstrap main application
 

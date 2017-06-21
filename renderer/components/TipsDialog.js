@@ -2,9 +2,11 @@ import React from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
 import Button from './Button';
+import Checkbox from './Checkbox';
 import {
   previousTip,
   nextTip,
+  setShowTipsOnStartup,
   closeDialogs,
 } from '../actions';
 import css from './TipsDialog.css';
@@ -42,7 +44,14 @@ const tips = [
   },
 ];
 
-const TipsDialog = ({ tipIndex, previousTip, nextTip, closeDialogs }) => (
+const TipsDialog = ({
+  tipIndex,
+  showTipsOnStartup,
+  previousTip,
+  nextTip,
+  setShowTipsOnStartup,
+  closeDialogs,
+}) => (
   <div className={ css.container }>
     <p className={ css.tipText }>{ tips[tipIndex].text }</p>
     <div className={ css.videoWrapper }>
@@ -71,7 +80,11 @@ const TipsDialog = ({ tipIndex, previousTip, nextTip, closeDialogs }) => (
         />
       </CSSTransitionGroup>
     </div>
-    <div className={ css.buttonContainer }>
+    <div>
+      <Button
+        plain
+        onClick={ closeDialogs }
+      >Skip tips</Button>
       <Button
         onClick={ previousTip }
         disabled={ tipIndex <= 0 }
@@ -84,15 +97,24 @@ const TipsDialog = ({ tipIndex, previousTip, nextTip, closeDialogs }) => (
         { tipIndex >= tips.length-1 ? 'Got it' : 'Next' }
       </Button>
     </div>
+    <div>
+      <Checkbox
+        label="Show tips on startup"
+        value={ showTipsOnStartup }
+        onChange={ val => setShowTipsOnStartup(val) }
+      />
+    </div>
   </div>
 );
 
 const mapStateToProps = state => ({
   tipIndex: state.tips.currentTipIndex,
+  showTipsOnStartup: state.preferences.showTipsOnStartup,
 });
 const mapDispatchToProps = {
   previousTip,
   nextTip,
+  setShowTipsOnStartup,
   closeDialogs,
 };
 

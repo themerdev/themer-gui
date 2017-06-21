@@ -21,6 +21,7 @@ export const RESET_STATE = 'RESET_STATE';
 export const UPDATE_READY = 'UPDATE_READY';
 export const NEXT_TIP = 'NEXT_TIP';
 export const PREVIOUS_TIP = 'PREVIOUS_TIP';
+export const SET_SHOW_TIPS_ON_STARTUP = 'SET_SHOW_TIPS_ON_STARTUP';
 
 // Action generators
 
@@ -119,4 +120,9 @@ export const nextTip = () => ({
 
 export const previousTip = () => ({
   type: PREVIOUS_TIP,
+});
+
+export const setShowTipsOnStartup = (show) => ({
+  type: SET_SHOW_TIPS_ON_STARTUP,
+  show,
 });
