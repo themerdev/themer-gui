@@ -74,7 +74,7 @@ const TipsDialog = ({
           autoPlay
           loop
           muted
-          width="360"
+          width="640"
           height="360"
           src={ tips[tipIndex].videoSrc }
         />
