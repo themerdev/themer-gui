@@ -21,13 +21,12 @@ import {
   tipsDialogOpen,
 } from './actions';
 import { connectPreferences, getPreference, readPreferences } from './preferences';
-import { defaultPreferences } from './reducers/preferences';
 import { ipcRenderer } from 'electron';
 import connectMenu from './menu';
 import connectUpdater from './updater';
 import './index.css';
 
-const store = createStore(application, { preferences: { ...defaultPreferences, ...readPreferences() } });
+const store = createStore(application, { preferences: { ...readPreferences() } });
 
 // Main events
 
