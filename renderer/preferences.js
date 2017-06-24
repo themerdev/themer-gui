@@ -5,12 +5,14 @@ const { app } = remote;
 import { defaultPreferences } from './reducers/preferences';
 
 const PREF_PATH = path.join(app.getPath('userData'), 'preferences.json');
+const writePrefs = prefs => fs.writeFileSync(PREF_PATH, JSON.stringify(prefs), 'utf8');
+const readPrefs = () => JSON.parse(fs.readFileSync(PREF_PATH, { encoding: 'utf8' }));
 
-export const readPreferences = () => {
+export const getAllPreferences = () => {
   try {
     return {
       ...defaultPreferences,
-      ...JSON.parse(fs.readFileSync(PREF_PATH, { encoding: 'utf8' })),
+      ...readPrefs(),
     };
   }
   catch (e) {
@@ -18,9 +20,7 @@ export const readPreferences = () => {
   }
 };
 
-const writePrefs = prefs => fs.writeFileSync(PREF_PATH, JSON.stringify(prefs));
-
-export const getPreference = key => readPreferences()[key];
+export const getPreference = key => getAllPreferences()[key];
 
 export const connectPreferences = store => {
   store.subscribe(() => {

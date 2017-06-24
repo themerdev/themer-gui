@@ -20,13 +20,13 @@ import {
   exportComplete,
   tipsDialogOpen,
 } from './actions';
-import { connectPreferences, getPreference, readPreferences } from './preferences';
+import { connectPreferences, getPreference, getAllPreferences } from './preferences';
 import { ipcRenderer } from 'electron';
 import connectMenu from './menu';
 import connectUpdater from './updater';
 import './index.css';
 
-const store = createStore(application, { preferences: { ...readPreferences() } });
+const store = createStore(application, { preferences: { ...getAllPreferences() } });
 
 // Main events
 
