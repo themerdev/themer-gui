@@ -96,7 +96,7 @@ const TipsDialog = ({
         <Button
           plain
           onClick={ closeDialogs }
-        >Skip</Button>
+        >Close</Button>
       ) : null }
     </div>
     <div>
