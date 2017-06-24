@@ -1,12 +1,16 @@
+import fs from 'fs';
+import path from 'path';
+import { remote } from 'electron';
+const { app } = remote;
 import { defaultPreferences } from './reducers/preferences';
 
-const PREF_KEY = 'preferences';
+const PREF_PATH = path.join(app.getPath('userData'), 'preferences.json');
 
 export const readPreferences = () => {
   try {
     return {
       ...defaultPreferences,
-      ...JSON.parse(window.localStorage.getItem(PREF_KEY)),
+      ...JSON.parse(fs.readFileSync(PREF_PATH, { encoding: 'utf8' })),
     };
   }
   catch (e) {
@@ -14,7 +18,7 @@ export const readPreferences = () => {
   }
 };
 
-const writePrefs = prefs => window.localStorage.setItem(PREF_KEY, JSON.stringify(prefs));
+const writePrefs = prefs => fs.writeFileSync(PREF_PATH, JSON.stringify(prefs));
 
 export const getPreference = key => readPreferences()[key];
 
