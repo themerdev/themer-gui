@@ -82,10 +82,6 @@ const TipsDialog = ({
     </div>
     <div>
       <Button
-        plain
-        onClick={ closeDialogs }
-      >Skip tips</Button>
-      <Button
         onClick={ previousTip }
         disabled={ tipIndex <= 0 }
       >Previous</Button>
@@ -96,6 +92,12 @@ const TipsDialog = ({
       >
         { tipIndex >= tips.length-1 ? 'Got it' : 'Next' }
       </Button>
+      { tipIndex < tips.length-1 ? (
+        <Button
+          plain
+          onClick={ closeDialogs }
+        >Skip</Button>
+      ) : null }
     </div>
     <div>
       <Checkbox
