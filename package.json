@@ -15,7 +15,11 @@
       "name": "Themer",
       "description": "Themer theme"
     },
-    "asar": false,
+    "asar": true,
+	"nsis": {
+		"perMachine": true,
+		"oneClick": true
+		},
     "mac": {
       "category": "public.app-category.developer-tools",
       "publish": "github"

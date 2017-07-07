@@ -1,3 +1,5 @@
 dist
 node_modules
 bundles
+package-lock.json
+yarn-error.log
