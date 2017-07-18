@@ -6,6 +6,8 @@
 
 # themer-gui [![Travis](https://img.shields.io/travis/mjswensen/themer-gui.svg)](https://travis-ci.org/mjswensen/themer-gui)
 
+[![Sponsor](https://app.codesponsor.io/embed/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui.svg)](https://app.codesponsor.io/link/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui)
+
 Themer takes your set of colors (or a built-in set of colors) and generates editor themes, terminal themes, and desktop/device wallpapers.
 
 ![Themer screenshot](screenshot.png)
