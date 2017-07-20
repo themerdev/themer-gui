@@ -16,11 +16,25 @@
       "description": "Themer theme"
     },
     "asar": false,
+	"nsis": {
+		"perMachine": true,
+		"oneClick": false,
+		"allowElevation": true,
+		"allowToChangeInstallationDirectory": true
+		},
+		
+    "publish": "github",
     "mac": {
-      "category": "public.app-category.developer-tools",
-      "publish": "github"
-    }
-  },
+      "category": "public.app-category.developer-tools"
+		},
+	"win": {
+	  "target": "nsis"
+		},
+    "linux":{
+	  "target": "tar.gz",
+	  "category": "Development"
+		}
+	},
   "jest": {
     "moduleNameMapper": {
       "\\.css$": "identity-obj-proxy"

@@ -1,7 +1,13 @@
-os: osx
-
+os: 
+    - osx
+    - linux
+matrix:
+    allow_failures:
+        - os: linux
 language: node_js
 node_js:
   - "7"
 
 script: yarn run dist
+
+
