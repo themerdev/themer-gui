@@ -28,10 +28,10 @@
   },
   "scripts": {
     "bundle": "webpack",
-    "start": "yarn run bundle; concurrently \"watch 'yarn run bundle' renderer\" \"electron .\"",
+    "start": "npm run bundle; concurrently \"watch 'npm run bundle' renderer\" \"electron .\"",
     "test": "jest",
-    "watch": "yarn run test -- --watch",
-    "dist": "yarn run bundle; build"
+    "watch": "npm run test -- --watch",
+    "dist": "npm run bundle; build"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
