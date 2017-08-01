@@ -5,7 +5,7 @@
       "env",
       {
         targets: {
-          electron: true
+          electron: "1.6"
         }
       }
     ]
