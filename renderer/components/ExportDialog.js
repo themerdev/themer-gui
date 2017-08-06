@@ -20,6 +20,7 @@ const ExportDialog = ({
   sublimeText,
   vim,
   vimLightline,
+  vsCode,
   wallpaperBlockWave,
   wallpaperOctagon,
   slack,
@@ -72,6 +73,11 @@ const ExportDialog = ({
           label="Vim lightline"
           onChange={ val => setOption('vimLightline', val) }
         />
+        <Checkbox
+          value={ vsCode }
+          label="VS Code"
+          onChange={ val => setOption('vsCode', val) }
+        />
       </fieldset>
       <fieldset>
         <legend>Wallpaper</legend>
@@ -117,6 +123,7 @@ const ExportDialog = ({
           sublimeText,
           vim,
           vimLightline,
+          vsCode,
           wallpaperBlockWave,
           wallpaperOctagon,
           slack,

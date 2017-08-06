@@ -80,6 +80,7 @@
     "themer-terminal": "^1.0.0",
     "themer-vim": "^2.2.3",
     "themer-vim-lightline": "^2.0.2",
+    "themer-vscode": "^1.0.1",
     "themer-wallpaper-block-wave": "^1.0.2",
     "themer-wallpaper-octagon": "^1.0.2"
   }

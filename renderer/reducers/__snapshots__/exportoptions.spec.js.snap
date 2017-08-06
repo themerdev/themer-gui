@@ -10,6 +10,7 @@ Object {
   "terminal": false,
   "vim": false,
   "vimLightline": false,
+  "vsCode": false,
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
 }
@@ -25,6 +26,7 @@ Object {
   "terminal": false,
   "vim": false,
   "vimLightline": false,
+  "vsCode": false,
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
 }

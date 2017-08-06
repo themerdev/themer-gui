@@ -8,6 +8,7 @@ const defaultExportOptions = {
   sublimeText: false,
   vim: false,
   vimLightline: false,
+  vsCode: false,
   wallpaperBlockWave: false,
   wallpaperOctagon: false,
   slack: false,
