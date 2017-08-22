@@ -13,6 +13,7 @@ import {
 import css from './FormDialogs.css';
 
 const ExportDialog = ({
+  alfred,
   hyper,
   iterm,
   terminal,
@@ -99,6 +100,11 @@ const ExportDialog = ({
           label="Slack sidebar"
           onChange={ val => setOption('slack', val) }
         />
+        <Checkbox
+          value={ alfred }
+          label="Alfred.app"
+          onChange={ val => setOption('alfred', val) }
+        />
       </fieldset>
     </form>
     <Button
@@ -116,6 +122,7 @@ const ExportDialog = ({
       <Button
         primary
         onClick={() => onExport(colorSets, {
+          alfred,
           hyper,
           iterm,
           terminal,

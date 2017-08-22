@@ -68,6 +68,7 @@
     "recursive-copy": "^2.0.6",
     "redux": "^3.6.0",
     "themer": "^2.2.0",
+    "themer-alfred": "^1.0.2",
     "themer-atom-syntax": "^1.0.0",
     "themer-colors-default": "^1.0.1",
     "themer-colors-night-sky": "^1.0.1",

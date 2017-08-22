@@ -1,6 +1,7 @@
 import { SET_EXPORT_OPTION } from '../actions';
 
 const defaultExportOptions = {
+  alfred: false,
   hyper: false,
   iterm: false,
   terminal: false,
