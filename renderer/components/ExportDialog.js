@@ -24,6 +24,7 @@ const ExportDialog = ({
   vsCode,
   wallpaperBlockWave,
   wallpaperOctagon,
+  wallpaperTriangles,
   slack,
   anySelected,
   colorSets,
@@ -92,6 +93,11 @@ const ExportDialog = ({
           label="“Octagon”"
           onChange={ val => setOption('wallpaperOctagon', val) }
         />
+        <Checkbox
+          value={ wallpaperTriangles }
+          label="“Triangles”"
+          onChange={ val => setOption('wallpaperTriangles', val) }
+        />
       </fieldset>
       <fieldset>
         <legend>Other</legend>
@@ -133,6 +139,7 @@ const ExportDialog = ({
           vsCode,
           wallpaperBlockWave,
           wallpaperOctagon,
+          wallpaperTriangles,
           slack,
         })}
         disabled={!anySelected}

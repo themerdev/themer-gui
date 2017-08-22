@@ -57,6 +57,7 @@ exports.bootstrap = () => {
       vsCode,
       wallpaperBlockWave,
       wallpaperOctagon,
+      wallpaperTriangles,
       slack,
     } = exportOptions;
     const templates = [
@@ -71,6 +72,7 @@ exports.bootstrap = () => {
       vsCode && 'themer-vscode',
       wallpaperBlockWave && 'themer-wallpaper-block-wave',
       wallpaperOctagon && 'themer-wallpaper-octagon',
+      wallpaperTriangles && 'themer-wallpaper-triangles',
       slack && 'themer-slack',
     ].filter(Boolean);
     const colorsFileContents = renderColorSets(colorSets);

@@ -12,6 +12,7 @@ const defaultExportOptions = {
   vsCode: false,
   wallpaperBlockWave: false,
   wallpaperOctagon: false,
+  wallpaperTriangles: false,
   slack: false,
 };
 

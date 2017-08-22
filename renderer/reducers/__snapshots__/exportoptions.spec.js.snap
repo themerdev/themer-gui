@@ -14,6 +14,7 @@ Object {
   "vsCode": false,
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
+  "wallpaperTriangles": false,
 }
 `;
 
@@ -31,5 +32,6 @@ Object {
   "vsCode": false,
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
+  "wallpaperTriangles": false,
 }
 `;
