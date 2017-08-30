@@ -1,14 +1,16 @@
 import React from 'react';
+import classnames from 'classnames';
 import { Check } from './Icons';
 import css from './InlineInput.css';
 
-export default ({ value, label, onChange }) => (
-  <label className={ css.label }>
+export default ({ value, label, onChange, disabled }) => (
+  <label className={ classnames(css.label, { [css.disabled]: disabled }) }>
     <input
       className={ css.input }
       type="checkbox"
       checked={ value }
       onChange={ evt => onChange(evt.target.checked) }
+      disabled={ disabled }
     />
     <Check
       backgroundColor={ value ? 'currentColor' : 'transparent' }

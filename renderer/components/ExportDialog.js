@@ -49,8 +49,9 @@ const ExportDialog = ({
         />
         <Checkbox
           value={ terminal }
-          label="Terminal.app"
+          label={ `Terminal.app${process.platform === 'darwin' ? '' : ' (macOS only)'}` }
           onChange={ val => setOption('terminal', val) }
+          disabled={ process.platform !== 'darwin' }
         />
       </fieldset>
       <fieldset>

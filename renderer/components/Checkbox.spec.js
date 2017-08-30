@@ -18,5 +18,21 @@ describe('Checkbox', () => {
         onChange={ () => {} }
       />
     )).toMatchSnapshot();
+    expect(renderer.create(
+      <Checkbox
+        value={ false }
+        label="off"
+        onChange={ () => {} }
+        disabled
+      />
+    )).toMatchSnapshot();
+    expect(renderer.create(
+      <Checkbox
+        value={ true }
+        label="on"
+        onChange={ () => {} }
+        disabled
+      />
+    )).toMatchSnapshot();
   });
 });
