@@ -17,4 +17,5 @@ This repository is a graphical UI for the [command-line tool](https://github.com
 ## Installation
 
 * macOS: download the [latest release](https://github.com/mjswensen/themer-gui/releases/latest) installer. The app will keep itself up-to-date.
-* Windows and Linux: build from source using the [npm scripts](https://github.com/mjswensen/themer-gui/blob/master/package.json).
+* Windows: build from source using the [npm scripts](https://github.com/mjswensen/themer-gui/blob/master/package.json).
+* Linux: build from source using [these instructions](https://github.com/mjswensen/themer-gui/issues/6).
