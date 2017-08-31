@@ -1,7 +1,7 @@
 {
   "name": "themer-gui",
   "productName": "Themer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A graphical UI for themer.",
   "main": "main/index.js",
   "author": "mjswensen",
@@ -18,6 +18,9 @@
     "asar": false,
     "mac": {
       "category": "public.app-category.developer-tools",
+      "publish": "github"
+    },
+    "linux": {
       "publish": "github"
     }
   },
