@@ -1,7 +1,5 @@
-os: osx
-
 language: node_js
 node_js:
   - "stable"
 
-script: npm run test && npm run dist
+script: npm test
