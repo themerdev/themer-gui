@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ev
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
   docker run --rm -ti -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules \

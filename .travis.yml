@@ -2,6 +2,11 @@ os:
   - osx
   - linux
 
+sudo: required
+
+services:
+  - docker
+
 language: node_js
 node_js:
   - "stable"
