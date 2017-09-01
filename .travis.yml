@@ -6,6 +6,4 @@ language: node_js
 node_js:
   - "stable"
 
-script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test && npm run dist; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run test && npm run dist -- --mac --win; fi
+script: npm run test && npm run dist
