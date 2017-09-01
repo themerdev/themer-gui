@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# themer-gui [![Travis](https://img.shields.io/travis/mjswensen/themer-gui.svg)](https://travis-ci.org/mjswensen/themer-gui)
+# themer-gui [![Travis](https://img.shields.io/travis/mjswensen/themer-gui/master.svg)](https://travis-ci.org/mjswensen/themer-gui/branches)
 
 [![Sponsor](https://app.codesponsor.io/embed/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui.svg)](https://app.codesponsor.io/link/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui)
 
