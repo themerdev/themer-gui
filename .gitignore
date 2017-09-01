@@ -1,5 +1,3 @@
 dist
 node_modules
 bundles
-# Platform-dependent 7zip packages
-package-lock.json
