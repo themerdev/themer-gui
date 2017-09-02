@@ -26,6 +26,9 @@
     "win": {
       "publisherName": "Matt Swensen",
       "publish": "github"
+    },
+    "nsis": {
+      "perMachine": true
     }
   },
   "jest": {
