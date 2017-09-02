@@ -22,6 +22,9 @@
     },
     "linux": {
       "publish": "github"
+    },
+    "win": {
+      "publish": "github"
     }
   },
   "jest": {
