@@ -41,7 +41,8 @@
     "start": "npm run bundle; concurrently \"watch 'npm run bundle' renderer\" \"electron .\"",
     "test": "jest",
     "watch": "npm run test -- --watch",
-    "dist": "npm run bundle && electron-builder"
+    "dist": "npm run bundle && electron-builder --mac --win --linux",
+    "release": "npm run dist"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

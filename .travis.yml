@@ -1,17 +1,5 @@
-os: osx
-
 language: node_js
 node_js:
   - "stable"
 
-env:
-  global:
-    - ELECTRON_CACHE=$HOME/.cache/electron
-    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-
-cache:
-  directories:
-  - $HOME/.cache/electron
-  - $HOME/.cache/electron-builder
-
-script: yarn && yarn dist -- -mwl
+script: npm test
