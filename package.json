@@ -42,7 +42,7 @@
     "test": "jest",
     "watch": "npm run test -- --watch",
     "dist": "npm run bundle && electron-builder --mac --win --linux",
-    "release": "npm run dist"
+    "release": "npm run dist -- --publish onTagOrDraft"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
