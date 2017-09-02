@@ -24,6 +24,7 @@
       "publish": "github"
     },
     "win": {
+      "publisherName": "Matt Swensen",
       "publish": "github"
     }
   },
