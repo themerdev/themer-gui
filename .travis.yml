@@ -1,5 +1,8 @@
+os: osx
+osx_image: xcode8.3
+
 language: node_js
 node_js:
   - "stable"
 
-script: npm test
+script: npm run dist
