@@ -1,11 +1,7 @@
-os:
-  - osx
-  - linux
-
-sudo: required
+os: osx
 
 language: node_js
 node_js:
   - "stable"
 
-script: ./build.sh
+script: yarn && yarn dist -- -mwl
