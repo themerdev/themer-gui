@@ -15,7 +15,6 @@
       "name": "Themer",
       "description": "Themer theme"
     },
-    "asar": false,
     "mac": {
       "category": "public.app-category.developer-tools",
       "publish": "github"
