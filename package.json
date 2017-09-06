@@ -93,8 +93,8 @@
     "themer-vim": "^2.2.6",
     "themer-vim-lightline": "^2.0.4",
     "themer-vscode": "^1.0.3",
-    "themer-wallpaper-block-wave": "^1.0.4",
-    "themer-wallpaper-octagon": "^1.0.4",
-    "themer-wallpaper-triangles": "^1.0.1"
+    "themer-wallpaper-block-wave": "^2.0.0",
+    "themer-wallpaper-octagon": "^2.0.0",
+    "themer-wallpaper-triangles": "^2.0.0"
   }
 }
