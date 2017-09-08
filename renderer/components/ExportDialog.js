@@ -22,6 +22,7 @@ const ExportDialog = ({
   vim,
   vimLightline,
   vsCode,
+  xcode,
   wallpaperBlockWave,
   wallpaperOctagon,
   wallpaperTriangles,
@@ -81,6 +82,11 @@ const ExportDialog = ({
           label="VS Code"
           onChange={ val => setOption('vsCode', val) }
         />
+        <Checkbox
+          value={ xcode }
+          label="Xcode"
+          onChange={ val => setOption('xcode', val) }
+        />
       </fieldset>
       <fieldset>
         <legend>Wallpaper</legend>
@@ -138,6 +144,7 @@ const ExportDialog = ({
           vim,
           vimLightline,
           vsCode,
+          xcode,
           wallpaperBlockWave,
           wallpaperOctagon,
           wallpaperTriangles,

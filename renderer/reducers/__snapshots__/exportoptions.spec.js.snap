@@ -15,6 +15,7 @@ Object {
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
   "wallpaperTriangles": false,
+  "xcode": false,
 }
 `;
 
@@ -33,5 +34,6 @@ Object {
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
   "wallpaperTriangles": false,
+  "xcode": false,
 }
 `;

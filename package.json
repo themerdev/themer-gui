@@ -94,6 +94,7 @@
     "themer-vscode": "^1.0.3",
     "themer-wallpaper-block-wave": "^2.0.0",
     "themer-wallpaper-octagon": "^2.0.0",
-    "themer-wallpaper-triangles": "^2.0.0"
+    "themer-wallpaper-triangles": "^2.0.0",
+    "themer-xcode": "^1.0.0"
   }
 }
