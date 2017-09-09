@@ -8,6 +8,11 @@
   background-color: #97BD2D;
   color: #FFFCFF;
   cursor: default;
+  transition: background-color 300ms ease;
+}
+
+.updateNotifier:hover {
+  background-color: #1FC598;
 }
 
 .updateNotifierAppear,
