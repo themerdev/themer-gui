@@ -260,7 +260,7 @@ const setMenu = store => {
           click () { store.dispatch(tipsDialogOpen()); },
         },
         {
-          label: 'Show color mappings...',
+          label: 'Show Color Mappings...',
           enabled: !isDialogOpen,
           click() { store.dispatch(helpDialogOpen()); },
         },
