@@ -12,6 +12,7 @@ import { colors as colorsDefault } from 'themer-colors-default';
 import { colors as colorsNightSky } from 'themer-colors-night-sky';
 import { colors as colorsOne } from 'themer-colors-one';
 import { colors as colorsPolarIce } from 'themer-colors-polar-ice';
+import { colors as colorsLucid } from 'themer-colors-lucid';
 import css from './FormDialogs.css';
 
 const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSelect, onPrefillWithColorSet }) => (
@@ -45,6 +46,12 @@ const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSel
           value="themer-colors-polar-ice"
           label="Polar Ice"
           selected={ prefillColorSetSelection === 'themer-colors-polar-ice' }
+          onSelect={ onPrefillColorSetSelect }
+        />
+        <Radio
+          value="themer-colors-lucid"
+          label="Lucid"
+          selected={ prefillColorSetSelection === 'themer-colors-lucid' }
           onSelect={ onPrefillColorSetSelect }
         />
       </fieldset>
@@ -83,6 +90,9 @@ const mapDispatchToProps = dispatch => ({
         break;
       case 'themer-colors-polar-ice':
         dispatch(prefillWithColorSet(colorsPolarIce));
+        break;
+      case 'themer-colors-lucid':
+        dispatch(prefillWithColorSet(colorsLucid));
         break;
       default:
         dispatch(prefillWithColorSet(colorsDefault));
