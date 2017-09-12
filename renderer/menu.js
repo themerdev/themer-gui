@@ -7,6 +7,7 @@ import {
   saveComplete,
   openComplete,
   resetState,
+  helpDialogOpen,
 } from './actions';
 import { EXPORT_COLORS_REQUEST } from '../common/ipcevents';
 import { getOrDefault } from './helpers/color';
@@ -202,6 +203,7 @@ const setMenu = store => {
         {
           label: 'Prefill With Built-in Color Set...',
           accelerator: 'CmdOrCtrl+Shift+O',
+          enabled: !isDialogOpen,
           click () { store.dispatch(prefillDialogOpen()); },
         },
         {type: 'separator'},
@@ -256,6 +258,11 @@ const setMenu = store => {
           label: 'Show Tips...',
           enabled: !isDialogOpen,
           click () { store.dispatch(tipsDialogOpen()); },
+        },
+        {
+          label: 'Show color mappings...',
+          enabled: !isDialogOpen,
+          click() { store.dispatch(helpDialogOpen()); },
         },
       ],
     },

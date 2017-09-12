@@ -4,6 +4,7 @@ exports[`dialogsVisibilityReducer should close all dialogs 1`] = `
 Object {
   "export": false,
   "exportProgress": false,
+  "help": false,
   "tips": false,
 }
 `;
@@ -12,6 +13,7 @@ exports[`dialogsVisibilityReducer should initialize to all dialogs closed 1`] = 
 Object {
   "export": false,
   "exportProgress": false,
+  "help": false,
   "tips": false,
 }
 `;
@@ -20,6 +22,7 @@ exports[`dialogsVisibilityReducer should open the export dialog 1`] = `
 Object {
   "export": true,
   "exportProgress": false,
+  "help": false,
   "tips": false,
 }
 `;
@@ -28,6 +31,26 @@ exports[`dialogsVisibilityReducer should open the export progress dialog 1`] = `
 Object {
   "export": false,
   "exportProgress": true,
+  "help": false,
+  "tips": false,
+}
+`;
+
+exports[`dialogsVisibilityReducer should open the help dialog 1`] = `
+Object {
+  "export": false,
+  "exportProgress": false,
+  "help": true,
+  "tips": false,
+}
+`;
+
+exports[`dialogsVisibilityReducer should open the prefill dialog 1`] = `
+Object {
+  "export": false,
+  "exportProgress": false,
+  "help": false,
+  "prefill": true,
   "tips": false,
 }
 `;
@@ -36,15 +59,7 @@ exports[`dialogsVisibilityReducer should open the tips dialog 1`] = `
 Object {
   "export": false,
   "exportProgress": false,
+  "help": false,
   "tips": true,
-}
-`;
-
-exports[`dialogsVisibilityReducer should open the prefill dialog 1`] = `
-Object {
-  "export": false,
-  "exportProgress": false,
-  "prefill": true,
-  "tips": false,
 }
 `;

@@ -6,6 +6,7 @@ import ExportDialog from './ExportDialog';
 import ExportProgressDialog from './ExportProgressDialog';
 import PrefillDialog from './PrefillDialog';
 import TipsDialog from './TipsDialog';
+import HelpDialog from './HelpDialog';
 import { IN_PROGRESS } from '../helpers/exportProgressStates';
 import css from './Dialogs.css';
 
@@ -43,6 +44,9 @@ const Dialogs = ({ currentDialog }) => (
         ) : null }
         { currentDialog === 'prefill' ? (
           <PrefillDialog key="prefill-dialog" />
+        ) : null }
+        { currentDialog === 'help' ? (
+          <HelpDialog key="help-dialog" />
         ) : null }
       </div>
     ) : null }

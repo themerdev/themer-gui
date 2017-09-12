@@ -4,6 +4,7 @@ import {
   exportDialogOpen,
   exportProgressDialogOpen,
   prefillDialogOpen,
+  helpDialogOpen,
   closeDialogs,
 } from '../actions';
 
@@ -23,11 +24,15 @@ describe('dialogsVisibilityReducer', () => {
   it('should open the prefill dialog', () => {
     expect(dialogsVisibilityReducer(undefined, prefillDialogOpen())).toMatchSnapshot();
   });
+  it('should open the help dialog', () => {
+    expect(dialogsVisibilityReducer(undefined, helpDialogOpen())).toMatchSnapshot();
+  });
   it('should close all dialogs', () => {
     const initialState = {
       export: true,
       tips: false,
       exportProgress: true,
+      help: false,
     };
     expect(dialogsVisibilityReducer(initialState, closeDialogs())).toMatchSnapshot();
   });
