@@ -4,6 +4,7 @@ exports[`exportOptionsReducer should initialize to no options set 1`] = `
 Object {
   "alfred": false,
   "atomSyntax": false,
+  "chrome": false,
   "hyper": false,
   "iterm": false,
   "slack": false,
@@ -23,6 +24,7 @@ exports[`exportOptionsReducer should properly set an option 1`] = `
 Object {
   "alfred": false,
   "atomSyntax": false,
+  "chrome": false,
   "hyper": true,
   "iterm": false,
   "slack": false,

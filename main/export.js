@@ -47,6 +47,7 @@ exports.bootstrap = () => {
   ipcMain.on(EXPORT_THEMES_REQUEST, (event, colorSets, exportOptions) => {
     const {
       alfred,
+      chrome,
       hyper,
       iterm,
       terminal,
@@ -63,6 +64,7 @@ exports.bootstrap = () => {
     } = exportOptions;
     const templates = [
       alfred && 'themer-alfred',
+      chrome && 'themer-chrome',
       hyper && 'themer-hyper',
       iterm && 'themer-iterm',
       terminal && 'themer-terminal',

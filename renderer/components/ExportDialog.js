@@ -14,6 +14,7 @@ import css from './FormDialogs.css';
 
 const ExportDialog = ({
   alfred,
+  chrome,
   hyper,
   iterm,
   terminal,
@@ -118,6 +119,11 @@ const ExportDialog = ({
           label="Alfred.app"
           onChange={ val => setOption('alfred', val) }
         />
+        <Checkbox
+          value={ chrome }
+          label="Chrome"
+          onChange={ val => setOption('chrome', val) }
+        />
       </fieldset>
     </form>
     <Button
@@ -136,6 +142,7 @@ const ExportDialog = ({
         primary
         onClick={() => onExport(colorSets, {
           alfred,
+          chrome,
           hyper,
           iterm,
           terminal,
