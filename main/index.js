@@ -24,6 +24,10 @@ function createWindow () {
     slashes: true
   }));
 
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools();
+  }
+
   mainWindow.on('closed', function () {
     mainWindow = null;
   });

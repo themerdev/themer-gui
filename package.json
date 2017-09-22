@@ -37,7 +37,7 @@
   },
   "scripts": {
     "bundle": "webpack",
-    "start": "npm run bundle; concurrently \"watch 'npm run bundle' renderer\" \"electron .\"",
+    "start": "npm run bundle; concurrently \"watch 'npm run bundle' renderer\" \"NODE_ENV=development electron .\"",
     "test": "jest",
     "watch": "npm run test -- --watch",
     "dist": "npm run bundle && electron-builder --mac --win --linux",
