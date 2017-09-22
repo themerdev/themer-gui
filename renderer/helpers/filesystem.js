@@ -8,6 +8,9 @@ const defaultBasename = 'Untitled';
 const ext = 'thmr';
 const defaultFilename = `${defaultBasename}.${ext}`;
 
+const allowedKeys = ['colorSets', 'exportOptions'];
+const sanitize = data => _.pickBy(data, (v, k) => allowedKeys.includes(k));
+
 const promptForWriteFilePath = browserWindow => new Promise((resolve, reject) => {
   dialog.showSaveDialog(
     browserWindow,
@@ -20,7 +23,7 @@ const promptForWriteFilePath = browserWindow => new Promise((resolve, reject) =>
 });
 
 const writeFile = (filePath, data) => new Promise((resolve, reject) => {
-  fs.writeFile(filePath, JSON.stringify(data), err => {
+  fs.writeFile(filePath, JSON.stringify(sanitize(data)), err => {
     if (err) { reject(err); }
     else { resolve(filePath); }
   });
@@ -48,7 +51,7 @@ const readFile = filePath => new Promise((resolve, reject) => {
     else {
       resolve({
         filePath,
-        contents: JSON.parse(json)
+        contents: sanitize(JSON.parse(json))
       });
     }
   });
@@ -90,7 +93,7 @@ export const isModified = (filePath, data) => new Promise((resolve, reject) => {
   fs.readFile(filePath, 'utf8', (err, writtenData) => {
     if (err) { reject(err); }
     else {
-      try { resolve(!_.isEqual(JSON.parse(writtenData), data)); }
+      try { resolve(!_.isEqual(sanitize(JSON.parse(writtenData)), sanitize(data))); }
       catch(e) { reject(e); }
     }
   });

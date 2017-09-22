@@ -30,6 +30,7 @@ export default (state = {}, action) => {
   switch (action.type) {
     case OPEN_COMPLETE:
       return {
+        ...state,
         filePath: action.fileData.filePath,
         ...action.fileData.contents,
       };
