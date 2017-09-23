@@ -13,6 +13,7 @@ import { colors as colorsNightSky } from 'themer-colors-night-sky';
 import { colors as colorsOne } from 'themer-colors-one';
 import { colors as colorsPolarIce } from 'themer-colors-polar-ice';
 import { colors as colorsLucid } from 'themer-colors-lucid';
+import { colors as colorsFingerPaint } from 'themer-colors-finger-paint';
 import css from './FormDialogs.css';
 
 const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSelect, onPrefillWithColorSet }) => (
@@ -54,6 +55,12 @@ const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSel
           selected={ prefillColorSetSelection === 'themer-colors-lucid' }
           onSelect={ onPrefillColorSetSelect }
         />
+        <Radio
+          value="themer-colors-finger-paint"
+          label="Finger Paint"
+          selected={ prefillColorSetSelection === 'themer-colors-finger-paint' }
+          onSelect={ onPrefillColorSetSelect }
+        />
       </fieldset>
     </form>
     <div className={ css.footer }>
@@ -93,6 +100,9 @@ const mapDispatchToProps = dispatch => ({
         break;
       case 'themer-colors-lucid':
         dispatch(prefillWithColorSet(colorsLucid));
+        break;
+      case 'themer-colors-finger-paint':
+        dispatch(prefillWithColorSet(colorsFingerPaint));
         break;
       default:
         dispatch(prefillWithColorSet(colorsDefault));
