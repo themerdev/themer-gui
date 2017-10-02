@@ -12,7 +12,7 @@ Themer takes your set of colors (or a built-in set of colors) and generates edit
 
 This repository is a graphical UI for the [command-line tool](https://github.com/mjswensen/themer).
 
-See also [Themer on Product Hunt](https://www.producthunt.com/posts/themer-2).
+See also [Themer's website](https://themer.mjswensen.com) and [Themer's Product Hunt page](https://www.producthunt.com/posts/themer-2).
 
 ## Installation
 
