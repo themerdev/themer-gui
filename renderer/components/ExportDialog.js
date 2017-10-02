@@ -24,6 +24,7 @@ const ExportDialog = ({
   vimLightline,
   vsCode,
   xcode,
+  bbEdit,
   wallpaperBlockWave,
   wallpaperOctagon,
   wallpaperTriangles,
@@ -87,6 +88,11 @@ const ExportDialog = ({
           value={ xcode }
           label="Xcode"
           onChange={ val => setOption('xcode', val) }
+        />
+        <Checkbox
+          value={ bbEdit }
+          label="BBEdit"
+          onChange={ val => setOption('bbEdit', val) }
         />
       </fieldset>
       <fieldset>
@@ -152,6 +158,7 @@ const ExportDialog = ({
           vimLightline,
           vsCode,
           xcode,
+          bbEdit,
           wallpaperBlockWave,
           wallpaperOctagon,
           wallpaperTriangles,

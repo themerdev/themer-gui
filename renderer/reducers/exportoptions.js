@@ -12,6 +12,7 @@ const defaultExportOptions = {
   vimLightline: false,
   vsCode: false,
   xcode: false,
+  bbEdit: false,
   wallpaperBlockWave: false,
   wallpaperOctagon: false,
   wallpaperTriangles: false,
