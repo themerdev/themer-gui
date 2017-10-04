@@ -13,6 +13,7 @@ const defaultExportOptions = {
   vsCode: false,
   xcode: false,
   bbEdit: false,
+  conEmu: false,
   wallpaperBlockWave: false,
   wallpaperOctagon: false,
   wallpaperTriangles: false,

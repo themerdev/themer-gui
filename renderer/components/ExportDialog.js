@@ -25,6 +25,7 @@ const ExportDialog = ({
   vsCode,
   xcode,
   bbEdit,
+  conEmu,
   wallpaperBlockWave,
   wallpaperOctagon,
   wallpaperTriangles,
@@ -55,6 +56,11 @@ const ExportDialog = ({
           label={ `Terminal.app${process.platform === 'darwin' ? '' : ' (macOS only)'}` }
           onChange={ val => setOption('terminal', val) }
           disabled={ process.platform !== 'darwin' }
+        />
+        <Checkbox
+          value={ conEmu }
+          label="ConEmu"
+          onChange={ val => setOption('conEmu', val) }
         />
       </fieldset>
       <fieldset>
@@ -159,6 +165,7 @@ const ExportDialog = ({
           vsCode,
           xcode,
           bbEdit,
+          conEmu,
           wallpaperBlockWave,
           wallpaperOctagon,
           wallpaperTriangles,
