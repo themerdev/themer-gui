@@ -80,6 +80,7 @@
     "themer": "^2.2.2",
     "themer-alfred": "^1.0.2",
     "themer-atom-syntax": "^1.0.2",
+    "themer-atom-ui": "^1.0.0",
     "themer-bbedit": "^1.0.0",
     "themer-chrome": "^1.0.1",
     "themer-colors-default": "^1.0.3",

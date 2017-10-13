@@ -19,6 +19,7 @@ const ExportDialog = ({
   iterm,
   terminal,
   atomSyntax,
+  atomUi,
   sublimeText,
   vim,
   vimLightline,
@@ -69,6 +70,11 @@ const ExportDialog = ({
           value={ atomSyntax }
           label="Atom syntax"
           onChange={ val => setOption('atomSyntax', val) }
+        />
+        <Checkbox
+          value={ atomUi }
+          label="Atom UI"
+          onChange={ val => setOption('atomUi', val) }
         />
         <Checkbox
           value={ sublimeText }
@@ -159,6 +165,7 @@ const ExportDialog = ({
           iterm,
           terminal,
           atomSyntax,
+          atomUi,
           sublimeText,
           vim,
           vimLightline,

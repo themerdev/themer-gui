@@ -7,6 +7,7 @@ const defaultExportOptions = {
   iterm: false,
   terminal: false,
   atomSyntax: false,
+  atomUi: false,
   sublimeText: false,
   vim: false,
   vimLightline: false,
