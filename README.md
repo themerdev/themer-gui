@@ -6,6 +6,10 @@
 
 # themer-gui [![Travis](https://img.shields.io/travis/mjswensen/themer-gui/master.svg)](https://travis-ci.org/mjswensen/themer-gui/branches) [![Github All Releases](https://img.shields.io/github/downloads/mjswensen/themer-gui/total.svg)](https://github.com/mjswensen/themer-gui/releases)
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui.svg' />
+</a>
+
 Themer takes your set of colors (or a built-in set of colors) and generates editor themes, terminal themes, and desktop/device wallpapers.
 
 ![Themer screenshot](screenshot.png)
@@ -16,10 +20,4 @@ See also [Themer's website](https://themer.mjswensen.com) and [Themer's Product 
 
 ## Installation
 
-* macOS: download the [latest release](https://github.com/mjswensen/themer-gui/releases/latest) installer. The app will keep itself up-to-date.
-* Windows: build from source using the [npm scripts](https://github.com/mjswensen/themer-gui/blob/master/package.json).
-* Linux: build from source using [these instructions](https://github.com/mjswensen/themer-gui/issues/6).
-
-## Sponsor
-
-[![Sponsor](https://app.codesponsor.io/embed/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui.svg)](https://app.codesponsor.io/link/hHKoUkX4tpsdAzjvSfNXFb22/mjswensen/themer-gui)
+* macOS, Windows, and Linux: download the [latest release](https://github.com/mjswensen/themer-gui/releases/latest) installer.
