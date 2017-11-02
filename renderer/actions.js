@@ -23,6 +23,7 @@ export const NEXT_TIP = 'NEXT_TIP';
 export const PREVIOUS_TIP = 'PREVIOUS_TIP';
 export const SET_SHOW_TIPS_ON_STARTUP = 'SET_SHOW_TIPS_ON_STARTUP';
 export const HELP_DIALOG_OPEN = 'HELP_DIALOG_OPEN';
+export const DISTRIBUTE_SHADES = 'DISTRIBUTE_SHADES';
 
 // Action generators
 
@@ -130,4 +131,8 @@ export const setShowTipsOnStartup = (show) => ({
 
 export const helpDialogOpen = () => ({
   type: HELP_DIALOG_OPEN,
+});
+
+export const distributeShades = () => ({
+  type: DISTRIBUTE_SHADES,
 });

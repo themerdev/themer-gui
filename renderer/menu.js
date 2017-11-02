@@ -8,6 +8,7 @@ import {
   openComplete,
   resetState,
   helpDialogOpen,
+  distributeShades,
 } from './actions';
 import { EXPORT_COLORS_REQUEST } from '../common/ipcevents';
 import { getOrDefault } from './helpers/color';
@@ -232,6 +233,11 @@ const setMenu = store => {
         { role: 'paste' },
         { role: 'delete' },
         { role: 'selectall' },
+        { type: 'separator' },
+        {
+          label: 'Distribute Shades',
+          click () { store.dispatch(distributeShades()); },
+        },
       ],
     },
     {

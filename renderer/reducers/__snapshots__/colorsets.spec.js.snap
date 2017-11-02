@@ -82,6 +82,88 @@ Object {
 }
 `;
 
+exports[`colorSetsReducer should support distributing shades 1`] = `
+Object {
+  "dark": Object {
+    "accent0": "",
+    "accent1": "",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
+    "accent5": "",
+    "accent6": "",
+    "accent7": "",
+    "shade0": "",
+    "shade1": "",
+    "shade2": "",
+    "shade3": "",
+    "shade4": "",
+    "shade5": "",
+    "shade6": "",
+    "shade7": "",
+  },
+  "light": Object {
+    "accent0": "",
+    "accent1": "",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
+    "accent5": "",
+    "accent6": "",
+    "accent7": "",
+    "shade0": "",
+    "shade1": "",
+    "shade2": "",
+    "shade3": "",
+    "shade4": "",
+    "shade5": "",
+    "shade6": "",
+    "shade7": "",
+  },
+}
+`;
+
+exports[`colorSetsReducer should support distributing shades 2`] = `
+Object {
+  "dark": Object {
+    "accent0": "",
+    "accent1": "",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
+    "accent5": "",
+    "accent6": "",
+    "accent7": "",
+    "shade0": "#000000",
+    "shade1": "#242424",
+    "shade2": "#494949",
+    "shade3": "#6D6D6D",
+    "shade4": "#929292",
+    "shade5": "#B6B6B6",
+    "shade6": "#DBDBDB",
+    "shade7": "#FFFFFF",
+  },
+  "light": Object {
+    "accent0": "",
+    "accent1": "",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
+    "accent5": "",
+    "accent6": "",
+    "accent7": "",
+    "shade0": "#FFFFFF",
+    "shade1": "#DBDBDB",
+    "shade2": "#B6B6B6",
+    "shade3": "#929292",
+    "shade4": "#6D6D6D",
+    "shade5": "#494949",
+    "shade6": "#242424",
+    "shade7": "#000000",
+  },
+}
+`;
+
 exports[`colorSetsReducer should support setting the color set all at once 1`] = `
 Object {
   "dark": Object {

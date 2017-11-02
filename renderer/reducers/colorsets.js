@@ -1,4 +1,6 @@
-import { COLOR_CHANGE, PREFILL_WITH_COLOR_SET } from '../actions';
+import { fromPairs } from 'lodash';
+import { distribute } from '../helpers/color';
+import { COLOR_CHANGE, PREFILL_WITH_COLOR_SET, DISTRIBUTE_SHADES } from '../actions';
 
 const defaultColorSet = {
   dark: {
@@ -39,6 +41,15 @@ const defaultColorSet = {
   },
 };
 
+const distributeColorSet = colorSet => {
+  if (colorSet.shade0 && colorSet.shade7) {
+    return {
+      ...colorSet,
+      ...fromPairs(distribute(colorSet.shade0, colorSet.shade7).map((hex, i) => [`shade${i}`, hex])),
+    };
+  }
+};
+
 export const colorSetsReducer = (state = defaultColorSet, action) => {
   switch (action.type) {
     case COLOR_CHANGE:
@@ -60,6 +71,17 @@ export const colorSetsReducer = (state = defaultColorSet, action) => {
         light: {
           ...defaultColorSet.light,
           ...action.colorSet.light,
+        },
+      };
+    case DISTRIBUTE_SHADES:
+      return {
+        dark: {
+          ...state.dark,
+          ...distributeColorSet(state.dark),
+        },
+        light: {
+          ...state.light,
+          ...distributeColorSet(state.light),
         },
       };
     default:
