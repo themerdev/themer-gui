@@ -141,7 +141,7 @@ Object {
     "shade4": "#929292",
     "shade5": "#B6B6B6",
     "shade6": "#DBDBDB",
-    "shade7": "#FFFFFF",
+    "shade7": "#ffffff",
   },
   "light": Object {
     "accent0": "",
@@ -152,7 +152,7 @@ Object {
     "accent5": "",
     "accent6": "",
     "accent7": "",
-    "shade0": "#FFFFFF",
+    "shade0": "#ffffff",
     "shade1": "#DBDBDB",
     "shade2": "#B6B6B6",
     "shade3": "#929292",

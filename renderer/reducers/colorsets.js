@@ -45,7 +45,7 @@ const distributeColorSet = colorSet => {
   if (colorSet.shade0 && colorSet.shade7) {
     return {
       ...colorSet,
-      ...fromPairs(distribute(colorSet.shade0, colorSet.shade7).map((hex, i) => [`shade${i}`, hex])),
+      ...fromPairs(distribute(colorSet.shade0, colorSet.shade7).map((hex, i) => [`shade${i+1}`, hex])),
     };
   }
 };

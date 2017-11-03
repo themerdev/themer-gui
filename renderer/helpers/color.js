@@ -29,7 +29,7 @@ export const distribute = (color1, color2, count = 8) => {
   const rInterval = (r2 - r1) / (count - 1);
   const gInterval = (g2 - g1) / (count - 1);
   const bInterval = (b2 - b1) / (count - 1);
-  return range(count)
+  return range(1, count-1)
     .map(i => [
       Math.round(r1 + rInterval * i),
       Math.round(g1 + gInterval * i),
