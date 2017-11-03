@@ -20,6 +20,7 @@ import {
   promptForIntentToSave,
   showErrorIfError,
 } from './helpers/filesystem';
+import overwriteShadesWarning from './helpers/overwriteShadesWarning';
 const { app, Menu } = remote;
 
 const areAllParseable = inputtedColors => inputtedColors.every(inputtedColor => !!getOrDefault(inputtedColor));
@@ -58,6 +59,24 @@ const setMenu = store => {
   const hasColorValues = [
     ...Object.values(state.colorSets.dark),
     ...Object.values(state.colorSets.light),
+  ].some(Boolean);
+  const areDarkShadesDistributable = areAllParseable([state.colorSets.dark.shade0, state.colorSets.dark.shade7]);
+  const shouldDarkShadesDistributeWarn = [
+    state.colorSets.dark.shade1,
+    state.colorSets.dark.shade2,
+    state.colorSets.dark.shade3,
+    state.colorSets.dark.shade4,
+    state.colorSets.dark.shade5,
+    state.colorSets.dark.shade6,
+  ].some(Boolean);
+  const areLightShadesDistributable = areAllParseable([state.colorSets.light.shade0, state.colorSets.light.shade7]);
+  const shouldLightShadesDistributeWarn = [
+    state.colorSets.light.shade1,
+    state.colorSets.light.shade2,
+    state.colorSets.light.shade3,
+    state.colorSets.light.shade4,
+    state.colorSets.light.shade5,
+    state.colorSets.light.shade6,
   ].some(Boolean);
 
   const template = [
@@ -236,7 +255,20 @@ const setMenu = store => {
         { type: 'separator' },
         {
           label: 'Distribute Shades',
-          click () { store.dispatch(distributeShades()); },
+          enabled: areDarkShadesDistributable || areLightShadesDistributable,
+          accelerator: 'CmdOrCtrl+Alt+Shift+D',
+          click () {
+            if (shouldDarkShadesDistributeWarn || shouldLightShadesDistributeWarn) {
+              overwriteShadesWarning()
+                .then(() => {
+                  store.dispatch(distributeShades());
+                })
+                .catch(() => {});
+            }
+            else {
+              store.dispatch(distributeShades());
+            }
+          },
         },
       ],
     },
