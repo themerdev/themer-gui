@@ -1,13 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`preferencesReducer should toggle showing overwrite shades warning appropriately 1`] = `
+Object {
+  "showOverwriteShadesWarning": false,
+  "showTipsOnStartup": true,
+}
+`;
+
+exports[`preferencesReducer should toggle showing overwrite shades warning appropriately 2`] = `
+Object {
+  "showOverwriteShadesWarning": true,
+  "showTipsOnStartup": true,
+}
+`;
+
 exports[`preferencesReducer should toggle showing tips on startup appropriately 1`] = `
 Object {
+  "showOverwriteShadesWarning": true,
   "showTipsOnStartup": false,
 }
 `;
 
 exports[`preferencesReducer should toggle showing tips on startup appropriately 2`] = `
 Object {
+  "showOverwriteShadesWarning": true,
   "showTipsOnStartup": true,
 }
 `;

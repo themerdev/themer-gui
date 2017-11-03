@@ -68,7 +68,7 @@ const setMenu = store => {
     state.colorSets.dark.shade4,
     state.colorSets.dark.shade5,
     state.colorSets.dark.shade6,
-  ].some(Boolean);
+  ].some(Boolean) && state.preferences.showOverwriteShadesWarning;
   const areLightShadesDistributable = areAllParseable([state.colorSets.light.shade0, state.colorSets.light.shade7]);
   const shouldLightShadesDistributeWarn = [
     state.colorSets.light.shade1,
@@ -77,7 +77,7 @@ const setMenu = store => {
     state.colorSets.light.shade4,
     state.colorSets.light.shade5,
     state.colorSets.light.shade6,
-  ].some(Boolean);
+  ].some(Boolean) && state.preferences.showOverwriteShadesWarning;
 
   const template = [
     process.platform === 'darwin' ? {
@@ -259,7 +259,7 @@ const setMenu = store => {
           accelerator: 'CmdOrCtrl+Alt+Shift+D',
           click () {
             if (shouldDarkShadesDistributeWarn || shouldLightShadesDistributeWarn) {
-              overwriteShadesWarning()
+              overwriteShadesWarning(store)
                 .then(() => {
                   store.dispatch(distributeShades());
                 })

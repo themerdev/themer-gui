@@ -24,6 +24,7 @@ export const PREVIOUS_TIP = 'PREVIOUS_TIP';
 export const SET_SHOW_TIPS_ON_STARTUP = 'SET_SHOW_TIPS_ON_STARTUP';
 export const HELP_DIALOG_OPEN = 'HELP_DIALOG_OPEN';
 export const DISTRIBUTE_SHADES = 'DISTRIBUTE_SHADES';
+export const SET_SHOW_OVERWRITE_SHADES_WARNING = 'SET_SHOW_OVERWRITE_SHADES_WARNING';
 
 // Action generators
 
@@ -135,4 +136,9 @@ export const helpDialogOpen = () => ({
 
 export const distributeShades = () => ({
   type: DISTRIBUTE_SHADES,
+});
+
+export const setShowOverwriteShadesWarning = (show) => ({
+  type: SET_SHOW_OVERWRITE_SHADES_WARNING,
+  show,
 });
