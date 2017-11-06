@@ -1,4 +1,4 @@
-import { dialogsVisibilityReducer } from './dialogsvisibility';
+import { dialogsVisibilityReducer, isDialogOpen } from './dialogsvisibility';
 import {
   tipsDialogOpen,
   exportDialogOpen,
@@ -8,7 +8,7 @@ import {
   closeDialogs,
 } from '../actions';
 
-describe('dialogsVisibilityReducer', () => {
+describe('dialogs visibility', () => {
   it('should initialize to all dialogs closed', () => {
     expect(dialogsVisibilityReducer(undefined, {})).toMatchSnapshot();
   });
@@ -35,5 +35,9 @@ describe('dialogsVisibilityReducer', () => {
       help: false,
     };
     expect(dialogsVisibilityReducer(initialState, closeDialogs())).toMatchSnapshot();
+  });
+  it('should know when any dialog is open', () => {
+    expect(isDialogOpen({ export: false, tips: false })).toBe(false);
+    expect(isDialogOpen({ export: true, tips: false })).toBe(true);
   });
 });

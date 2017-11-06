@@ -14,6 +14,10 @@ const defaultDialogsVisibility = {
   help: false,
 };
 
+/////////////
+// Reducer //
+/////////////
+
 export const dialogsVisibilityReducer = (state = defaultDialogsVisibility, action) => {
   switch (action.type) {
     case EXPORT_DIALOG_OPEN:
@@ -47,3 +51,9 @@ export const dialogsVisibilityReducer = (state = defaultDialogsVisibility, actio
       return state;
   }
 };
+
+///////////////
+// Selectors //
+///////////////
+
+export const isDialogOpen = state => Object.values(state).some(v => v);

@@ -11,7 +11,16 @@ import {
   distributeShades,
 } from './actions';
 import { EXPORT_COLORS_REQUEST } from '../common/ipcevents';
-import { getOrDefault } from './helpers/color';
+import {
+  isDarkColorSetComplete,
+  isLightColorSetComplete,
+  hasAnyColorValues,
+  areDarkShadesDistributable,
+  areLightShadesDistributable,
+  hasDarkIntermediateShades,
+  hasLightIntermediateShades,
+  isDialogOpen,
+} from './reducers/reducers';
 import {
   isModified,
   save,
@@ -22,8 +31,6 @@ import {
 } from './helpers/filesystem';
 import overwriteShadesWarning from './helpers/overwriteShadesWarning';
 const { app, Menu } = remote;
-
-const areAllParseable = inputtedColors => inputtedColors.every(inputtedColor => !!getOrDefault(inputtedColor));
 
 const getExportThemesLabel = (darkCompleted, lightCompleted) => {
   if (darkCompleted && !lightCompleted) {
@@ -52,32 +59,15 @@ const getExportColorsLabel = (darkCompleted, lightCompleted) => {
 const setMenu = store => {
 
   const state = store.getState();
-  const darkCompleted = areAllParseable(Object.values(state.colorSets.dark));
-  const lightCompleted = areAllParseable(Object.values(state.colorSets.light));
-  const isDialogOpen = Object.values(state.dialogsVisibility).some(v => v);
+  const darkCompleted = isDarkColorSetComplete(state);
+  const lightCompleted = isLightColorSetComplete(state);
+  const dialogOpen = isDialogOpen(state);
   const hasFilePath = !!state.filePath;
-  const hasColorValues = [
-    ...Object.values(state.colorSets.dark),
-    ...Object.values(state.colorSets.light),
-  ].some(Boolean);
-  const areDarkShadesDistributable = areAllParseable([state.colorSets.dark.shade0, state.colorSets.dark.shade7]);
-  const shouldDarkShadesDistributeWarn = [
-    state.colorSets.dark.shade1,
-    state.colorSets.dark.shade2,
-    state.colorSets.dark.shade3,
-    state.colorSets.dark.shade4,
-    state.colorSets.dark.shade5,
-    state.colorSets.dark.shade6,
-  ].some(Boolean) && state.preferences.showOverwriteShadesWarning && areDarkShadesDistributable;
-  const areLightShadesDistributable = areAllParseable([state.colorSets.light.shade0, state.colorSets.light.shade7]);
-  const shouldLightShadesDistributeWarn = [
-    state.colorSets.light.shade1,
-    state.colorSets.light.shade2,
-    state.colorSets.light.shade3,
-    state.colorSets.light.shade4,
-    state.colorSets.light.shade5,
-    state.colorSets.light.shade6,
-  ].some(Boolean) && state.preferences.showOverwriteShadesWarning && areLightShadesDistributable;
+  const hasColorValues = hasAnyColorValues(state);
+  const darkShadesDistributable = areDarkShadesDistributable(state);
+  const lightShadesDistributable = areLightShadesDistributable(state);
+  const shouldDarkShadesDistributeWarn = darkShadesDistributable && state.preferences.showOverwriteShadesWarning && hasDarkIntermediateShades(state);
+  const shouldLightShadesDistributeWarn = lightShadesDistributable && state.preferences.showOverwriteShadesWarning && hasLightIntermediateShades(state);
 
   const template = [
     process.platform === 'darwin' ? {
@@ -223,7 +213,7 @@ const setMenu = store => {
         {
           label: 'Prefill With Built-in Color Set...',
           accelerator: 'CmdOrCtrl+Shift+O',
-          enabled: !isDialogOpen,
+          enabled: !dialogOpen,
           click () { store.dispatch(prefillDialogOpen()); },
         },
         {type: 'separator'},
@@ -255,7 +245,7 @@ const setMenu = store => {
         { type: 'separator' },
         {
           label: 'Distribute Shades',
-          enabled: areDarkShadesDistributable || areLightShadesDistributable,
+          enabled: darkShadesDistributable || lightShadesDistributable,
           accelerator: 'CmdOrCtrl+Alt+Shift+D',
           click () {
             if (shouldDarkShadesDistributeWarn || shouldLightShadesDistributeWarn) {
@@ -294,12 +284,12 @@ const setMenu = store => {
       submenu: [
         {
           label: 'Show Tips...',
-          enabled: !isDialogOpen,
+          enabled: !dialogOpen,
           click () { store.dispatch(tipsDialogOpen()); },
         },
         {
           label: 'Show Color Mappings...',
-          enabled: !isDialogOpen,
+          enabled: !dialogOpen,
           click() { store.dispatch(helpDialogOpen()); },
         },
       ],

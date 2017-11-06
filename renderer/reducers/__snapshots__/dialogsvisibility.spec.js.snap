@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dialogsVisibilityReducer should close all dialogs 1`] = `
+exports[`dialogs visibility should close all dialogs 1`] = `
 Object {
   "export": false,
   "exportProgress": false,
@@ -9,7 +9,7 @@ Object {
 }
 `;
 
-exports[`dialogsVisibilityReducer should initialize to all dialogs closed 1`] = `
+exports[`dialogs visibility should initialize to all dialogs closed 1`] = `
 Object {
   "export": false,
   "exportProgress": false,
@@ -18,7 +18,7 @@ Object {
 }
 `;
 
-exports[`dialogsVisibilityReducer should open the export dialog 1`] = `
+exports[`dialogs visibility should open the export dialog 1`] = `
 Object {
   "export": true,
   "exportProgress": false,
@@ -27,7 +27,7 @@ Object {
 }
 `;
 
-exports[`dialogsVisibilityReducer should open the export progress dialog 1`] = `
+exports[`dialogs visibility should open the export progress dialog 1`] = `
 Object {
   "export": false,
   "exportProgress": true,
@@ -36,7 +36,7 @@ Object {
 }
 `;
 
-exports[`dialogsVisibilityReducer should open the help dialog 1`] = `
+exports[`dialogs visibility should open the help dialog 1`] = `
 Object {
   "export": false,
   "exportProgress": false,
@@ -45,7 +45,7 @@ Object {
 }
 `;
 
-exports[`dialogsVisibilityReducer should open the prefill dialog 1`] = `
+exports[`dialogs visibility should open the prefill dialog 1`] = `
 Object {
   "export": false,
   "exportProgress": false,
@@ -55,7 +55,7 @@ Object {
 }
 `;
 
-exports[`dialogsVisibilityReducer should open the tips dialog 1`] = `
+exports[`dialogs visibility should open the tips dialog 1`] = `
 Object {
   "export": false,
   "exportProgress": false,

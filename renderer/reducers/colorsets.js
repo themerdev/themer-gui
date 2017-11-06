@@ -1,8 +1,8 @@
 import { fromPairs } from 'lodash';
-import { distribute } from '../helpers/color';
+import { distribute, getOrDefault } from '../helpers/color';
 import { COLOR_CHANGE, PREFILL_WITH_COLOR_SET, DISTRIBUTE_SHADES } from '../actions';
 
-const defaultColorSet = {
+export const defaultColorSet = {
   dark: {
     shade0: '',
     shade1: '',
@@ -41,6 +41,10 @@ const defaultColorSet = {
   },
 };
 
+/////////////
+// Helpers //
+/////////////
+
 const distributeColorSet = colorSet => {
   if (colorSet.shade0 && colorSet.shade7) {
     return {
@@ -49,6 +53,28 @@ const distributeColorSet = colorSet => {
     };
   }
 };
+
+const areAllParseable = inputtedColors => inputtedColors.every(inputtedColor => !!getOrDefault(inputtedColor));
+
+const isColorSetComplete = colorSet => areAllParseable(Object.values(colorSet));
+
+const areShadesDistributable = colorSet => areAllParseable([
+  colorSet.shade0,
+  colorSet.shade7,
+]);
+
+const hasIntermediateShades = colorSet => [
+  colorSet.shade1,
+  colorSet.shade2,
+  colorSet.shade3,
+  colorSet.shade4,
+  colorSet.shade5,
+  colorSet.shade6,
+].some(Boolean);
+
+/////////////
+// Reducer //
+/////////////
 
 export const colorSetsReducer = (state = defaultColorSet, action) => {
   switch (action.type) {
@@ -88,3 +114,21 @@ export const colorSetsReducer = (state = defaultColorSet, action) => {
       return state;
   }
 };
+
+///////////////
+// Selectors //
+///////////////
+
+export const isDarkColorSetComplete = state => isColorSetComplete(state.dark);
+export const isLightColorSetComplete = state => isColorSetComplete(state.light);
+
+export const hasAnyColorValues = state => [
+  ...Object.values(state.dark),
+  ...Object.values(state.light),
+].some(Boolean);
+
+export const areDarkShadesDistributable = state => areShadesDistributable(state.dark);
+export const areLightShadesDistributable = state => areShadesDistributable(state.light);
+
+export const hasDarkIntermediateShades = state => hasIntermediateShades(state.dark);
+export const hasLightIntermediateShades = state => hasIntermediateShades(state.light);

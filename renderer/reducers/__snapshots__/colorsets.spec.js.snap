@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`colorSetsReducer should initialize with all required keys and empty values 1`] = `
+exports[`color sets should initialize with all required keys and empty values 1`] = `
 Object {
   "dark": Object {
     "accent0": "",
@@ -41,7 +41,7 @@ Object {
 }
 `;
 
-exports[`colorSetsReducer should properly update colors 1`] = `
+exports[`color sets should properly update colors 1`] = `
 Object {
   "dark": Object {
     "accent0": "",
@@ -82,7 +82,7 @@ Object {
 }
 `;
 
-exports[`colorSetsReducer should support distributing shades 1`] = `
+exports[`color sets should support distributing shades 1`] = `
 Object {
   "dark": Object {
     "accent0": "",
@@ -123,7 +123,7 @@ Object {
 }
 `;
 
-exports[`colorSetsReducer should support distributing shades 2`] = `
+exports[`color sets should support distributing shades 2`] = `
 Object {
   "dark": Object {
     "accent0": "",
@@ -164,7 +164,7 @@ Object {
 }
 `;
 
-exports[`colorSetsReducer should support setting the color set all at once 1`] = `
+exports[`color sets should support setting the color set all at once 1`] = `
 Object {
   "dark": Object {
     "accent0": "",
