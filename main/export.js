@@ -64,6 +64,7 @@ exports.bootstrap = () => {
       wallpaperOctagon,
       wallpaperTriangles,
       slack,
+      cmd,
     } = exportOptions;
     const templates = [
       alfred && 'themer-alfred',
@@ -84,6 +85,7 @@ exports.bootstrap = () => {
       wallpaperOctagon && 'themer-wallpaper-octagon',
       wallpaperTriangles && 'themer-wallpaper-triangles',
       slack && 'themer-slack',
+      cmd && 'themer-cmd',
     ].filter(Boolean);
     const colorsFileContents = renderColorSets(colorSets);
 

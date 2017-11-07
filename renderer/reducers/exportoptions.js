@@ -19,6 +19,7 @@ const defaultExportOptions = {
   wallpaperOctagon: false,
   wallpaperTriangles: false,
   slack: false,
+  cmd: false,
 };
 
 export const exportOptionsReducer = (state = defaultExportOptions, action) => {

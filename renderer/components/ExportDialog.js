@@ -31,6 +31,7 @@ const ExportDialog = ({
   wallpaperOctagon,
   wallpaperTriangles,
   slack,
+  cmd,
   anySelected,
   colorSets,
   setOption,
@@ -62,6 +63,11 @@ const ExportDialog = ({
           value={ conEmu }
           label="ConEmu"
           onChange={ val => setOption('conEmu', val) }
+        />
+        <Checkbox
+          value={ cmd }
+          label="CMD.exe"
+          onChange={ val => setOption('cmd', val) }
         />
       </fieldset>
       <fieldset>
@@ -177,6 +183,7 @@ const ExportDialog = ({
           wallpaperOctagon,
           wallpaperTriangles,
           slack,
+          cmd,
         })}
         disabled={!anySelected}
       >Export</Button>

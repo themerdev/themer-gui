@@ -83,6 +83,7 @@
     "themer-atom-ui": "^1.0.1",
     "themer-bbedit": "^1.0.1",
     "themer-chrome": "^1.0.2",
+    "themer-cmd": "^1.0.1",
     "themer-colors-default": "^1.0.5",
     "themer-colors-finger-paint": "^1.0.0",
     "themer-colors-lucid": "^1.0.0",
