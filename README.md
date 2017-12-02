@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# themer-gui [![Travis](https://img.shields.io/travis/mjswensen/themer-gui/master.svg)](https://travis-ci.org/mjswensen/themer-gui/branches) [![Github All Releases](https://img.shields.io/github/downloads/mjswensen/themer-gui/total.svg)](https://github.com/mjswensen/themer-gui/releases)
+# themer-gui [![Travis](https://img.shields.io/travis/mjswensen/themer-gui/master.svg)](https://travis-ci.org/mjswensen/themer-gui/branches) [![Github All Releases](https://img.shields.io/github/downloads/mjswensen/themer-gui/total.svg)](https://github.com/mjswensen/themer-gui/releases) [![Supported platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue.svg)](https://github.com/mjswensen/themer-gui/releases)
 
 Themer takes your set of colors (or a built-in set of colors) and generates editor themes, terminal themes, and desktop/device wallpapers.
 
