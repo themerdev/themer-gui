@@ -21,15 +21,16 @@
 .videoAppear,
 .videoEnter {
   opacity: 0;
-  &&Active {
-    opacity: 1;
-    transition: opacity 300ms ease;
-  }
 }
-.videoLeave {
+.videoAppearActive,
+.videoEnterActive {
   opacity: 1;
-  &&Active {
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
+  transition: opacity 300ms ease;
+}
+.videoExit {
+  opacity: 1;
+}
+.videoExitActive {
+  opacity: 0;
+  transition: opacity 300ms ease;
 }

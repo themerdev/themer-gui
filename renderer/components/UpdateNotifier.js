@@ -1,5 +1,5 @@
 import React from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { ipcRenderer } from 'electron';
 import { PERFORM_UPDATE } from '../../common/ipcevents';
@@ -7,30 +7,34 @@ import Emoji from './Emoji';
 import css from './UpdateNotifier.css';
 
 const UpdateNotifier = ({ isUpdateAvailable }) => (
-  <CSSTransitionGroup
-    transitionName={{
-      appear: css.updateNotifierAppear,
-      appearActive: css.updateNotifierAppearActive,
-      enter: css.updateNotifierEnter,
-      enterActive: css.updateNotifierEnterActive,
-      leave: css.updateNotifierLeave,
-      leaveActive: css.updateNotifierLeaveActive,
-    }}
-    transitionAppear
-    transitionAppearTimeout={ 400 }
-    transitionEnterTimeout={ 400 }
-    transitionLeaveTimeout={ 200 }
-  >
+  <TransitionGroup>
     { isUpdateAvailable ? (
-      <div
-        className={ css.updateNotifier }
-        onClick={ () => ipcRenderer.send(PERFORM_UPDATE) }
+      <CSSTransition
+        key="update-notifier"
+        classNames={{
+          appear: css.updateNotifierAppear,
+          appearActive: css.updateNotifierAppearActive,
+          enter: css.updateNotifierEnter,
+          enterActive: css.updateNotifierEnterActive,
+          exit: css.updateNotifierExit,
+          exitActive: css.updateNotifierExitActive,
+        }}
+        appear
+        timeout={{
+          enter: 400,
+          exit: 200,
+        }}
       >
-        <Emoji emoji="📣" right />
-        There is an update available. Click to restart and install.
-      </div>
+        <div
+          className={ css.updateNotifier }
+          onClick={ () => ipcRenderer.send(PERFORM_UPDATE) }
+        >
+          <Emoji emoji="📣" right />
+          There is an update available. Click to restart and install.
+        </div>
+      </CSSTransition>
     ) : null }
-  </CSSTransitionGroup>
+  </TransitionGroup>
 );
 
 const mapStateToProps = state => ({

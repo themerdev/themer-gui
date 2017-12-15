@@ -1,5 +1,5 @@
 import React from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import Button from './Button';
 import Checkbox from './Checkbox';
@@ -55,30 +55,30 @@ const TipsDialog = ({
   <div className={ css.container }>
     <p className={ css.tipText }>{ tips[tipIndex].text }</p>
     <div className={ css.videoWrapper }>
-      <CSSTransitionGroup
-        transitionName={{
-          appear: css.videoAppear,
-          appearActive: css.videoAppearActive,
-          enter: css.videoEnter,
-          enterActive: css.videoEnterActive,
-          leave: css.videoLeave,
-          leaveActive: css.videoLeaveActive,
-        }}
-        transitionAppear
-        transitionAppearTimeout={ 300 }
-        transitionEnterTimeout={ 300 }
-        transitionLeaveTimeout={ 300 }
-      >
-        <video
+      <TransitionGroup>
+        <CSSTransition
           key={ tips[tipIndex].videoSrc }
-          autoPlay
-          loop
-          muted
-          width="640"
-          height="360"
-          src={ tips[tipIndex].videoSrc }
-        />
-      </CSSTransitionGroup>
+          classNames={{
+            appear: css.videoAppear,
+            appearActive: css.videoAppearActive,
+            enter: css.videoEnter,
+            enterActive: css.videoEnterActive,
+            exit: css.videoExit,
+            exitActive: css.videoExitActive,
+          }}
+          appear
+          timeout={ 300 }
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            width="640"
+            height="360"
+            src={ tips[tipIndex].videoSrc }
+          />
+        </CSSTransition>
+      </TransitionGroup>
     </div>
     <div>
       <Button
