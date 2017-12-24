@@ -1,3 +1,11 @@
+.wrapper {
+  padding: 2rem;
+}
+
+.instructionsContainer {
+  margin-top: 1rem;
+}
+
 .buttonContainer {
   display: flex;
   justify-content: center;

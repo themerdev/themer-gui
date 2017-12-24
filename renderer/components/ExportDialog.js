@@ -10,6 +10,7 @@ import {
   setExportOption,
   exportProgressDialogOpen,
 } from '../actions';
+import { optionName } from '../helpers/options';
 import css from './FormDialogs.css';
 
 const ExportDialog = ({
@@ -45,28 +46,28 @@ const ExportDialog = ({
         <legend>Terminals</legend>
         <Checkbox
           value={ hyper }
-          label="Hyper"
+          label={ optionName('hyper') }
           onChange={ val => setOption('hyper', val) }
         />
         <Checkbox
           value={ iterm }
-          label="iTerm"
+          label={ optionName('iterm') }
           onChange={ val => setOption('iterm', val) }
         />
         <Checkbox
           value={ terminal }
-          label={ `Terminal.app${process.platform === 'darwin' ? '' : ' (macOS only)'}` }
+          label={ optionName('terminal') }
           onChange={ val => setOption('terminal', val) }
           disabled={ process.platform !== 'darwin' }
         />
         <Checkbox
           value={ conEmu }
-          label="ConEmu"
+          label={ optionName('conEmu') }
           onChange={ val => setOption('conEmu', val) }
         />
         <Checkbox
           value={ cmd }
-          label="CMD.exe"
+          label={ optionName('cmd') }
           onChange={ val => setOption('cmd', val) }
         />
       </fieldset>
@@ -74,42 +75,42 @@ const ExportDialog = ({
         <legend>Editors</legend>
         <Checkbox
           value={ atomSyntax }
-          label="Atom syntax"
+          label={ optionName('atomSyntax') }
           onChange={ val => setOption('atomSyntax', val) }
         />
         <Checkbox
           value={ atomUi }
-          label="Atom UI"
+          label={ optionName('atomUi') }
           onChange={ val => setOption('atomUi', val) }
         />
         <Checkbox
           value={ sublimeText }
-          label="Sublime Text"
+          label={ optionName('sublimeText') }
           onChange={ val => setOption('sublimeText', val) }
         />
         <Checkbox
           value={ vim }
-          label="Vim"
+          label={ optionName('vim') }
           onChange={ val => setOption('vim', val) }
         />
         <Checkbox
           value={ vimLightline }
-          label="Vim lightline"
+          label={ optionName('vimLightline') }
           onChange={ val => setOption('vimLightline', val) }
         />
         <Checkbox
           value={ vsCode }
-          label="VS Code"
+          label={ optionName('vsCode') }
           onChange={ val => setOption('vsCode', val) }
         />
         <Checkbox
           value={ xcode }
-          label="Xcode"
+          label={ optionName('xcode') }
           onChange={ val => setOption('xcode', val) }
         />
         <Checkbox
           value={ bbEdit }
-          label="BBEdit"
+          label={ optionName('bbEdit') }
           onChange={ val => setOption('bbEdit', val) }
         />
       </fieldset>
@@ -135,17 +136,17 @@ const ExportDialog = ({
         <legend>Other</legend>
         <Checkbox
           value={ slack }
-          label="Slack sidebar"
+          label={ optionName('slack') }
           onChange={ val => setOption('slack', val) }
         />
         <Checkbox
           value={ alfred }
-          label="Alfred.app"
+          label={ optionName('alfred') }
           onChange={ val => setOption('alfred', val) }
         />
         <Checkbox
           value={ chrome }
-          label="Chrome"
+          label={ optionName('chrome') }
           onChange={ val => setOption('chrome', val) }
         />
       </fieldset>
