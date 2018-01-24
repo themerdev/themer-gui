@@ -67,6 +67,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "color": "^2.0.1",
+    "color-steps": "^1.0.1",
     "electron-updater": "^2.17.6",
     "lodash": "^4.17.4",
     "pn": "^1.0.0",
