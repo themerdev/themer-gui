@@ -1,7 +1,7 @@
 {
   "name": "themer-gui",
   "productName": "Themer",
-  "version": "0.15.1",
+  "version": "0.16.0",
   "description": "A graphical UI for themer.",
   "main": "main/index.js",
   "author": "mjswensen",
