@@ -20,6 +20,7 @@ Object {
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
   "wallpaperTriangles": false,
+  "wallpaperTrianglify": false,
   "xcode": false,
 }
 `;
@@ -44,6 +45,7 @@ Object {
   "wallpaperBlockWave": false,
   "wallpaperOctagon": false,
   "wallpaperTriangles": false,
+  "wallpaperTrianglify": false,
   "xcode": false,
 }
 `;

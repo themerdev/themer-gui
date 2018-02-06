@@ -31,6 +31,7 @@ const ExportDialog = ({
   wallpaperBlockWave,
   wallpaperOctagon,
   wallpaperTriangles,
+  wallpaperTrianglify,
   slack,
   cmd,
   anySelected,
@@ -131,6 +132,11 @@ const ExportDialog = ({
           label="“Triangles”"
           onChange={ val => setOption('wallpaperTriangles', val) }
         />
+        <Checkbox
+          value={ wallpaperTrianglify }
+          label="“Trianglify”"
+          onChange={ val => setOption('wallpaperTrianglify', val) }
+        />
       </fieldset>
       <fieldset>
         <legend>Other</legend>
@@ -183,6 +189,7 @@ const ExportDialog = ({
           wallpaperBlockWave,
           wallpaperOctagon,
           wallpaperTriangles,
+          wallpaperTrianglify,
           slack,
           cmd,
         })}

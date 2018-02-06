@@ -63,6 +63,7 @@ exports.bootstrap = () => {
       wallpaperBlockWave,
       wallpaperOctagon,
       wallpaperTriangles,
+      wallpaperTrianglify,
       slack,
       cmd,
     } = exportOptions;
@@ -84,6 +85,7 @@ exports.bootstrap = () => {
       wallpaperBlockWave && 'themer-wallpaper-block-wave',
       wallpaperOctagon && 'themer-wallpaper-octagon',
       wallpaperTriangles && 'themer-wallpaper-triangles',
+      wallpaperTrianglify && 'themer-wallpaper-trianglify',
       slack && 'themer-slack',
       cmd && 'themer-cmd',
     ].filter(Boolean);

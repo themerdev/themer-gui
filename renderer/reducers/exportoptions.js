@@ -18,6 +18,7 @@ const defaultExportOptions = {
   wallpaperBlockWave: false,
   wallpaperOctagon: false,
   wallpaperTriangles: false,
+  wallpaperTrianglify: false,
   slack: false,
   cmd: false,
 };
