@@ -16,6 +16,7 @@ import { colors as colorsLucid } from 'themer-colors-lucid';
 import { colors as colorsFingerPaint } from 'themer-colors-finger-paint';
 import { colors as colorsSolarized } from 'themer-colors-solarized';
 import { colors as colorsGitHubUniverse } from 'themer-colors-github-universe';
+import { colors as colorsNova } from 'themer-colors-nova';
 import css from './FormDialogs.css';
 
 const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSelect, onPrefillWithColorSet }) => (
@@ -75,6 +76,12 @@ const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSel
           selected={ prefillColorSetSelection === 'themer-colors-github-universe' }
           onSelect={ onPrefillColorSetSelect }
         />
+        <Radio
+          value="themer-colors-nova"
+          label="Nova"
+          selected={ prefillColorSetSelection === 'themer-colors-nova' }
+          onSelect={ onPrefillColorSetSelect }
+        />
       </fieldset>
     </form>
     <div className={ css.footer }>
@@ -123,6 +130,9 @@ const mapDispatchToProps = dispatch => ({
         break;
       case 'themer-colors-github-universe':
         dispatch(prefillWithColorSet(colorsGitHubUniverse));
+        break;
+      case 'themer-colors-nova':
+        dispatch(prefillWithColorSet(colorsNova));
         break;
       default:
         dispatch(prefillWithColorSet(colorsDefault));
