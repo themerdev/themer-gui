@@ -11,7 +11,8 @@ import {
   exportProgressDialogOpen,
 } from '../actions';
 import { optionName } from '../helpers/options';
-import css from './FormDialogs.css';
+import formCss from './FormDialogs.css';
+import css from './ExportDialog.css';
 
 const ExportDialog = ({
   alfred,
@@ -44,8 +45,8 @@ const ExportDialog = ({
 }) => (
   <div className={ css.container }>
     <p>Select with themes you'd like to export:</p>
-    <form>
-      <fieldset>
+    <form className={ css.form }>
+      <fieldset className={ `${formCss.fieldset} ${css.fieldset}` }>
         <legend>Terminals</legend>
         <Checkbox
           value={ hyper }
@@ -74,7 +75,7 @@ const ExportDialog = ({
           onChange={ val => setOption('cmd', val) }
         />
       </fieldset>
-      <fieldset>
+      <fieldset className={ `${formCss.fieldset} ${css.fieldset}` }>
         <legend>Editors</legend>
         <Checkbox
           value={ atomSyntax }
@@ -122,7 +123,7 @@ const ExportDialog = ({
           onChange={ val => setOption('jetBrains', val) }
         />
       </fieldset>
-      <fieldset>
+      <fieldset className={ `${formCss.fieldset} ${css.fieldset}` }>
         <legend>Wallpaper</legend>
         <Checkbox
           value={ wallpaperBlockWave }
@@ -140,7 +141,7 @@ const ExportDialog = ({
           onChange={ val => setOption('wallpaperTriangles', val) }
         />
       </fieldset>
-      <fieldset>
+      <fieldset className={ `${formCss.fieldset} ${css.fieldset}` }>
         <legend>Other</legend>
         <Checkbox
           value={ slack }
@@ -177,7 +178,7 @@ const ExportDialog = ({
       Request other theme templates
       <External />
     </Button>
-    <div className={ css.footer }>
+    <div className={ formCss.footer }>
       <Button
         onClick={() => onCancel()}
       >Cancel</Button>

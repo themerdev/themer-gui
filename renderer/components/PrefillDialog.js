@@ -17,7 +17,8 @@ import { colors as colorsFingerPaint } from 'themer-colors-finger-paint';
 import { colors as colorsSolarized } from 'themer-colors-solarized';
 import { colors as colorsGitHubUniverse } from 'themer-colors-github-universe';
 import { colors as colorsNova } from 'themer-colors-nova';
-import css from './FormDialogs.css';
+import formCss from './FormDialogs.css';
+import css from './PrefillDialog.css';
 
 const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSelect, onPrefillWithColorSet }) => (
   <div className={ css.container }>
@@ -26,7 +27,7 @@ const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSel
       <strong>Warning:</strong> prefilling with a built-in color set will overwrite any existing colors.
     </p>
     <form>
-      <fieldset>
+      <fieldset className={ `${formCss.fieldset} ${css.fieldset}` }>
         <legend>Built-in Color Sets</legend>
         <Radio
           value="themer-colors-default"
@@ -84,7 +85,7 @@ const PrefillDialog = ({ prefillColorSetSelection, onClose, onPrefillColorSetSel
         />
       </fieldset>
     </form>
-    <div className={ css.footer }>
+    <div className={ formCss.footer }>
       <Button onClick={ onClose }>Cancel</Button>
       <Button
         primary

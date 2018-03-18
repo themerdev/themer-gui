@@ -1,11 +1,6 @@
-.container {
-  width: 23.676968845rem;
-}
-
-fieldset {
+.fieldset {
   border: 1px solid currentColor;
   border-radius: 2px;
-  margin: 0 0 0.75rem;
 }
 
 .footer {

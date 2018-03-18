@@ -1,0 +1,16 @@
+.container {
+  width: 56.123185411rem;
+}
+
+.form {
+  display: flex;
+}
+
+.fieldset {
+  flex: 1;
+  margin: 0 0.75rem 0.75rem 0;
+}
+
+.fieldset:last-child {
+  margin-right: 0;
+}
