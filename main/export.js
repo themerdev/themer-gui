@@ -65,6 +65,9 @@ exports.bootstrap = () => {
       wallpaperTriangles,
       slack,
       cmd,
+      jetBrains,
+      sketchPalettes,
+      tmux,
     } = exportOptions;
     const templates = [
       alfred && 'themer-alfred',
@@ -86,6 +89,9 @@ exports.bootstrap = () => {
       wallpaperTriangles && 'themer-wallpaper-triangles',
       slack && 'themer-slack',
       cmd && 'themer-cmd',
+      jetBrains && 'themer-jetbrains',
+      sketchPalettes && 'themer-sketch-palettes',
+      tmux && 'themer-tmux',
     ].filter(Boolean);
     const colorsFileContents = renderColorSets(colorSets);
 

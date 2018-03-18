@@ -63,6 +63,18 @@ export const options = {
     name: 'Chrome',
     instructionsUrl: 'https://github.com/mjswensen/themer-chrome#output',
   },
+  jetBrains: {
+    name: 'JetBrains',
+    instructionsUrl: 'https://github.com/tomselvi/themer-jetbrains#output',
+  },
+  sketchPalettes: {
+    name: 'Sketch palettes',
+    instructionsUrl: 'https://github.com/mjswensen/themer-sketch-palettes#output',
+  },
+  tmux: {
+    name: 'tmux',
+    instructionsUrl: 'https://github.com/tomselvi/themer-tmux#output',
+  },
 };
 
 export const optionName = key => options[key].name;

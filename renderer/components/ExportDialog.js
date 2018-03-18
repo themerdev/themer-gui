@@ -33,6 +33,9 @@ const ExportDialog = ({
   wallpaperTriangles,
   slack,
   cmd,
+  jetBrains,
+  sketchPalettes,
+  tmux,
   anySelected,
   colorSets,
   setOption,
@@ -113,6 +116,11 @@ const ExportDialog = ({
           label={ optionName('bbEdit') }
           onChange={ val => setOption('bbEdit', val) }
         />
+        <Checkbox
+          value={ jetBrains }
+          label={ optionName('jetBrains') }
+          onChange={ val => setOption('jetBrains', val) }
+        />
       </fieldset>
       <fieldset>
         <legend>Wallpaper</legend>
@@ -148,6 +156,16 @@ const ExportDialog = ({
           value={ chrome }
           label={ optionName('chrome') }
           onChange={ val => setOption('chrome', val) }
+        />
+        <Checkbox
+          value={ sketchPalettes }
+          label={ optionName('sketchPalettes') }
+          onChange={ val => setOption('sketchPalettes', val) }
+        />
+        <Checkbox
+          value={ tmux }
+          label={ optionName('tmux') }
+          onChange={ val => setOption('tmux', val) }
         />
       </fieldset>
     </form>
@@ -185,6 +203,9 @@ const ExportDialog = ({
           wallpaperTriangles,
           slack,
           cmd,
+          jetBrains,
+          sketchPalettes,
+          tmux,
         })}
         disabled={!anySelected}
       >Export</Button>

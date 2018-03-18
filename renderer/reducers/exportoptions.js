@@ -20,6 +20,9 @@ const defaultExportOptions = {
   wallpaperTriangles: false,
   slack: false,
   cmd: false,
+  jetBrains: false,
+  sketchPalettes: false,
+  tmux: false,
 };
 
 export const exportOptionsReducer = (state = defaultExportOptions, action) => {
