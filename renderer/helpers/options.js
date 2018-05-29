@@ -75,6 +75,10 @@ export const options = {
     name: 'tmux',
     instructionsUrl: 'https://github.com/tomselvi/themer-tmux#output',
   },
+  kitty: {
+    name: 'kitty',
+    instructionsUrl: 'https://github.com/0x52a1/themer-kitty#output',
+  },
 };
 
 export const optionName = key => options[key].name;

@@ -109,6 +109,7 @@
     "themer-wallpaper-block-wave": "^2.0.3",
     "themer-wallpaper-octagon": "^2.0.3",
     "themer-wallpaper-triangles": "^2.0.3",
-    "themer-xcode": "^2.0.2"
+    "themer-xcode": "^2.0.2",
+    "themer-kitty": "^1.0.1"
   }
 }

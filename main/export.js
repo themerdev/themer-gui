@@ -68,6 +68,7 @@ exports.bootstrap = () => {
       jetBrains,
       sketchPalettes,
       tmux,
+      kitty,
     } = exportOptions;
     const templates = [
       alfred && 'themer-alfred',
@@ -92,6 +93,7 @@ exports.bootstrap = () => {
       jetBrains && 'themer-jetbrains',
       sketchPalettes && 'themer-sketch-palettes',
       tmux && 'themer-tmux',
+      kitty && 'themer-kitty',
     ].filter(Boolean);
     const colorsFileContents = renderColorSets(colorSets);
 

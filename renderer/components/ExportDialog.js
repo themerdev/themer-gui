@@ -37,6 +37,7 @@ const ExportDialog = ({
   jetBrains,
   sketchPalettes,
   tmux,
+  kitty,
   anySelected,
   colorSets,
   setOption,
@@ -73,6 +74,11 @@ const ExportDialog = ({
           value={ cmd }
           label={ optionName('cmd') }
           onChange={ val => setOption('cmd', val) }
+        />
+        <Checkbox
+          value= { kitty }
+          label={ optionName('kitty') }
+          onChange={ val => setOption('kitty', val) }
         />
       </fieldset>
       <fieldset className={ `${formCss.fieldset} ${css.fieldset}` }>
@@ -207,6 +213,7 @@ const ExportDialog = ({
           jetBrains,
           sketchPalettes,
           tmux,
+          kitty,
         })}
         disabled={!anySelected}
       >Export</Button>
