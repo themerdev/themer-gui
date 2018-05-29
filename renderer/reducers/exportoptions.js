@@ -23,6 +23,7 @@ const defaultExportOptions = {
   jetBrains: false,
   sketchPalettes: false,
   tmux: false,
+  kitty: false,
 };
 
 export const exportOptionsReducer = (state = defaultExportOptions, action) => {
