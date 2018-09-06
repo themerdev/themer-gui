@@ -13,7 +13,7 @@ const path = require('path');
 const fs = require('pn/fs');
 const { format } = require('prettier');
 const Color = require('color');
-const themer = require('themer').default;
+const themer = require('themer');
 
 const renderColorSets = (colorSets) => {
   const shouldIncludeDark = Object.values(colorSets.dark).every(Boolean);
