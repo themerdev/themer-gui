@@ -23,7 +23,6 @@ import {
 } from './reducers/reducers';
 import {
   isModified,
-  isImportModified,
   save,
   saveAs,
   open,

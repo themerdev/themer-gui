@@ -111,16 +111,6 @@ export const isModified = (filePath, data) => new Promise((resolve, reject) => {
     }
   });
 });
-export const isImportModified = (filePath, data) => new Promise((resolve, reject) => {
-  fs.readFile(filePath, 'utf8', (err, writtenData) => {
-    if (err) { reject(err); }
-    else {
-      const colorSets = Function('return ' + writtenData.replace('exports.colors = ', ''))()
-      try { resolve(!_.isEqual(colorSets, data.colorSets)); }
-      catch(e) { reject(e); }
-    }
-  });
-});
 
 export const save = (filePath, data) =>
   writeFile(filePath, data);
