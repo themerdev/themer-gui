@@ -12,7 +12,7 @@ function createWindow () {
     height: 732,
     minHeight: 540,
     title: 'Themer',
-    titleBarStyle: 'hidden-inset',
+    titleBarStyle: 'hiddenInset',
     webPreferences: {
       experimentalFeatures: true,
     },
