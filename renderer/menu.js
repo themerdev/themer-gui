@@ -163,8 +163,6 @@ const setMenu = store => {
           accelerator: 'CmdOrCtrl+O',
           click() {
             const { filePath, ...data } = state;
-            console.log(filePath)
-            console.log(data)
             if (hasFilePath) {
               isModified(filePath, data)
                 .then(modified => {
