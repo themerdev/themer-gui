@@ -23,9 +23,11 @@ import {
 } from './reducers/reducers';
 import {
   isModified,
+  isImportModified,
   save,
   saveAs,
   open,
+  importColors,
   promptForIntentToSave,
   showErrorIfError,
 } from './helpers/filesystem';
@@ -161,6 +163,8 @@ const setMenu = store => {
           accelerator: 'CmdOrCtrl+O',
           click() {
             const { filePath, ...data } = state;
+            console.log(filePath)
+            console.log(data)
             if (hasFilePath) {
               isModified(filePath, data)
                 .then(modified => {
@@ -228,6 +232,16 @@ const setMenu = store => {
           accelerator: 'CmdOrCtrl+Shift+E',
           enabled: darkCompleted || lightCompleted,
           click () { ipcRenderer.send(EXPORT_COLORS_REQUEST, state.colorSets); },
+        },
+        {
+          label: 'Import Colors...',
+          accelerator: 'CmdOrCtrl+Alt+E',
+          enabled: !dialogOpen,
+          click () {
+            importColors()
+              .then(fileData => store.dispatch(openComplete(fileData)))
+              .catch(showErrorIfError);
+          },
         },
       ],
     },

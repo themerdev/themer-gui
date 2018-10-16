@@ -33,7 +33,7 @@ const promptForReadFilePath = browserWindow => new Promise((resolve, reject) => 
   dialog.showOpenDialog(
     browserWindow,
     {
-      filters: [{ name: 'Themer Theme', extensions: [ext] }],
+      filters: [{ name: 'Themer Theme', extensions: [ext, 'js'] }],
       properties: ['openFile'],
     },
     userOpenFilePaths => {
@@ -56,6 +56,19 @@ const readFile = filePath => new Promise((resolve, reject) => {
     }
   });
 });
+
+const requireFile = filePath => new Promise((resolve, reject) => {
+  fs.readFile(filePath, 'utf8', (err, json) => {
+    if (err) { reject(err); }
+    else {
+      const colorSets = Function('return ' + json.replace('exports.colors = ', ''))()
+      resolve({
+        filePath,
+        contents: { colorSets }
+      });
+    }
+  });
+})
 
 const showErrorDialog = message => {
   dialog.showErrorBox('Save Error', message);
@@ -98,6 +111,16 @@ export const isModified = (filePath, data) => new Promise((resolve, reject) => {
     }
   });
 });
+export const isImportModified = (filePath, data) => new Promise((resolve, reject) => {
+  fs.readFile(filePath, 'utf8', (err, writtenData) => {
+    if (err) { reject(err); }
+    else {
+      const colorSets = Function('return ' + writtenData.replace('exports.colors = ', ''))()
+      try { resolve(!_.isEqual(colorSets, data.colorSets)); }
+      catch(e) { reject(e); }
+    }
+  });
+});
 
 export const save = (filePath, data) =>
   writeFile(filePath, data);
@@ -109,6 +132,10 @@ export const saveAs = (data) =>
 export const open = () =>
   promptForReadFilePath(remote.getCurrentWindow())
     .then(readFile);
+  
+export const importColors = () =>
+    promptForReadFilePath(remote.getCurrentWindow())
+      .then(requireFile);
 
 export const showErrorIfError = error => {
   if (error && error.message) {
