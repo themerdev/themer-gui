@@ -35,7 +35,7 @@ export default (state = {}, action) => {
     case OPEN_COMPLETE:
       return {
         ...state,
-        filePath: action.fileData.filePath.endsWith('.thmr') ? action.fileData.filePath.endsWith('.thmr') : null,
+        filePath: action.fileData.filePath.endsWith('.thmr') ? action.fileData.filePath : null,
         ...action.fileData.contents,
       };
     case RESET_STATE:
