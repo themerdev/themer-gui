@@ -10,7 +10,7 @@ function createWindow () {
     width: 1218,
     minWidth: 1126,
     height: 732,
-    minHeight: 540,
+    minHeight: 582,
     title: 'Themer',
     titleBarStyle: 'hiddenInset',
     webPreferences: {

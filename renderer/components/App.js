@@ -6,6 +6,7 @@ import ColorSet from './ColorSet';
 import Dialogs from './Dialogs';
 import UpdateNotifier from './UpdateNotifier';
 import css from './App.css';
+import DeprecationNotice from './DeprecationNotice';
 
 const App = ({ isDialogOpen, title, isFocusMode }) => (
   <section className={ css.gui }>
@@ -20,6 +21,7 @@ const App = ({ isDialogOpen, title, isFocusMode }) => (
         <ColorSet />
         <ColorSet light={ true } />
       </div>
+      <DeprecationNotice />
       <UpdateNotifier />
     </div>
     <Dialogs />
