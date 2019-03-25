@@ -1,3 +1,7 @@
+**Note: this application has been deprecated in favor of a Progressive Web App, located at [themer.mjswensen.com](https://themer.mjswensen.com).** ([Why?](https://mjswensen.com/blog/2019/03/23/from-electron-to-progressive-web-app/))
+
+- - -
+
 <p align="center">
   <a href="https://themer.mjswensen.com">
     <img src="icon.png" width="256" height="256" alt="Themer application icon" />
