@@ -1,9 +1,9 @@
-**Note: this application has been deprecated in favor of a Progressive Web App, located at [themer.mjswensen.com](https://themer.mjswensen.com).** ([Why?](https://mjswensen.com/blog/2019/03/23/from-electron-to-progressive-web-app/))
+**Note: this application has been deprecated in favor of a Progressive Web App, located at [themer.dev](https://themer.dev).** ([Why?](https://mjswensen.com/blog/2019/03/23/from-electron-to-progressive-web-app/))
 
 - - -
 
 <p align="center">
-  <a href="https://themer.mjswensen.com">
+  <a href="https://themer.dev">
     <img src="icon.png" width="256" height="256" alt="Themer application icon" />
   </a>
 </p>
@@ -16,7 +16,7 @@ Themer takes your set of colors (or a built-in set of colors) and generates edit
 
 This repository is a graphical UI for the [command-line tool](https://github.com/mjswensen/themer).
 
-See also [Themer's website](https://themer.mjswensen.com) and [Themer's Product Hunt page](https://www.producthunt.com/posts/themer-2).
+See also [Themer's website](https://themer.dev) and [Themer's Product Hunt page](https://www.producthunt.com/posts/themer-2).
 
 ## Installation
 
